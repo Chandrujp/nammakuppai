@@ -126,15 +126,17 @@ function Home({ lang, setLang }) {
 
       {/* Bottom Bar */}
       {!showForm && (
-        <div className="bottom-bar">
-          <button className="report-btn" onClick={() => setShowForm(true)}>
-            {t.reportBtn}
-          </button>
-          <button className="qr-btn" onClick={() => setShowQR(true)}>
-            📱
-          </button>
-        </div>
-      )}
+  <div className="bottom-bar">
+    <button className="report-btn" onClick={() => setShowForm(true)}>
+      {t.reportBtn}
+    </button>
+    {window.innerWidth > 768 && (
+      <button className="qr-btn" onClick={() => setShowQR(true)}>
+        📱
+      </button>
+    )}
+  </div>
+)}
 
       {/* Report Form */}
       {showForm && (
