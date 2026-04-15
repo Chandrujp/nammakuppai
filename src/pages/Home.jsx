@@ -118,7 +118,6 @@ function Home({ lang, setLang }) {
         <span className="report-count">
           {reports.length}<span> {t.reports}</span>
         </span>
-        {/* Map/List Toggle */}
         <div className="view-toggle">
           <button className={`view-btn ${view === 'map' ? 'view-btn-active' : ''}`} onClick={() => setView('map')}>
             {lang === 'ta' ? 'வரைபடம்' : 'Map'}
@@ -219,7 +218,6 @@ function Home({ lang, setLang }) {
         <div className="form-overlay" onClick={() => setSelectedReport(null)}>
           <div className="detail-modal" onClick={e => e.stopPropagation()}>
 
-            {/* Detail Header */}
             <div className="detail-header">
               <div className="detail-badges">
                 <span className="detail-severity-badge" style={{
@@ -235,7 +233,6 @@ function Home({ lang, setLang }) {
               <button className="close-btn" onClick={() => setSelectedReport(null)}>✕</button>
             </div>
 
-            {/* Ward Title */}
             <h2 className="detail-ward-title">
               {selectedReport.ward_name || 'Unknown Ward'}
             </h2>
@@ -243,14 +240,12 @@ function Home({ lang, setLang }) {
               Ward #{selectedReport.ward_number || '?'} · {selectedReport.corporation || 'GCC'} · {timeAgo(selectedReport.created_at)}
             </p>
 
-            {/* Photo */}
             {selectedReport.photo_url && (
               <div className="detail-photo-wrap">
                 <img src={selectedReport.photo_url} alt="Garbage report" className="detail-photo" />
               </div>
             )}
 
-            {/* Stats Row */}
             <div className="detail-stats-row">
               <div className="detail-stat">
                 <span className="detail-stat-num">1</span>
@@ -265,21 +260,18 @@ function Home({ lang, setLang }) {
               </div>
               <div className="detail-stat-divider" />
               <div className="detail-stat">
-                <span className="detail-stat-num">{selectedReport.zone || 'GCC'}</span>
+                <span className="detail-stat-num" style={{fontSize:'12px'}}>
+                  {selectedReport.zone || 'GCC'}
+                </span>
                 <span className="detail-stat-label">Zone</span>
               </div>
             </div>
 
-            {/* Accountability Section */}
             <div className="detail-accountability">
               <p className="detail-section-title">ACCOUNTABILITY</p>
-
-              {/* Ward */}
               <div className="detail-ward-badge">
                 Your Ward · #{selectedReport.ward_number || '?'}
               </div>
-
-              {/* Politicians */}
               <div className="detail-politicians">
                 <div className="detail-politician">
                   <div className="detail-politician-icon">👤</div>
@@ -290,7 +282,6 @@ function Home({ lang, setLang }) {
                     </span>
                   </div>
                 </div>
-
                 <div className="detail-politician">
                   <div className="detail-politician-icon">🏛️</div>
                   <div className="detail-politician-info">
@@ -300,7 +291,6 @@ function Home({ lang, setLang }) {
                     </span>
                   </div>
                 </div>
-
                 <div className="detail-politician">
                   <div className="detail-politician-icon">🇮🇳</div>
                   <div className="detail-politician-info">
@@ -314,15 +304,24 @@ function Home({ lang, setLang }) {
             </div>
 
             {/* Action Buttons */}
-            <a
-              href="https://chennaicorporation.gov.in/gcc/online-services/"
-              target="_blank"
-              className="detail-complaint-btn"
-            >
-              📋 {lang === 'ta' ? 'GCC புகார் பதிவு செய்க' : 'File GCC Complaint'}
-            </a>
+            <div className="detail-actions">
+              <a
+                href="https://gccservices.chennaicorporation.gov.in/pgr/home"
+                target="_blank"
+                className="detail-complaint-btn"
+              >
+                📋 {lang === 'ta' ? 'GCC புகார் பதிவு செய்க' : 'File GCC Complaint Online'}
+              </a>
+              <div className="detail-action-row">
+                <a href="tel:1913" className="detail-action-small">
+                  📞 Call 1913
+                </a>
+                <a href="https://wa.me/919445061913?text=Hi" target="_blank" className="detail-action-small">
+                  💬 WhatsApp GCC
+                </a>
+              </div>
+            </div>
 
-            {/* Anonymous badge */}
             <p className="detail-anonymous">🔒 All reports are anonymous</p>
 
           </div>

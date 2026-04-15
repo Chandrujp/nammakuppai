@@ -841,3 +841,30 @@ body { background: #f8f8f6; }
 .leaflet-top.leaflet-right .leaflet-control-geocoder {
   margin-top: 60px;
 }
+
+.detail-actions { margin-bottom: 10px; }
+
+.detail-action-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.detail-action-small {
+  flex: 1;
+  background: #f9f9f9;
+  border: 0.5px solid #e8e8e8;
+  color: #1a1a2e;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.detail-action-small:hover { background: #f0f0f0; }
