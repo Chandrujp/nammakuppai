@@ -15,6 +15,13 @@ function Home({ lang, setLang }) {
   const [view, setView] = useState('map')
   const [selectedReport, setSelectedReport] = useState(null)
 
+  // Mark as Cleaned states
+  const [showCleanedModal, setShowCleanedModal] = useState(false)
+  const [cleanedPhoto, setCleanedPhoto] = useState(null)
+  const [cleanedPhotoPreview, setCleanedPhotoPreview] = useState(null)
+  const [cleanedLoading, setCleanedLoading] = useState(false)
+  const [cleanedSuccess, setCleanedSuccess] = useState(false)
+
   const t = {
     logo: lang === 'ta' ? 'நம்ம குப்பை' : 'Namma Kuppai',
     tagline: lang === 'ta' ? 'சிங்கார சென்னை' : 'Singara Chennai',
@@ -54,6 +61,79 @@ function Home({ lang, setLang }) {
     moderate: { bg: '#fff7ed', color: '#f97316', label: 'Moderate' },
     severe: { bg: '#fff5f5', color: '#C41E3A', label: 'Severe' },
     critical: { bg: '#1a1a2e', color: '#fff', label: 'Critical' },
+  }
+
+  // Mark as Cleaned handlers
+  function openCleanedModal() {
+    setCleanedPhoto(null)
+    setCleanedPhotoPreview(null)
+    setCleanedSuccess(false)
+    setShowCleanedModal(true)
+  }
+
+  function handleCleanedPhoto(e) {
+    const file = e.target.files[0]
+    if (file) {
+      setCleanedPhoto(file)
+      setCleanedPhotoPreview(URL.createObjectURL(file))
+    }
+  }
+
+  async function submitCleaned() {
+    if (!cleanedPhoto) {
+      alert(lang === 'ta' ? 'சுத்தம் செய்யப்பட்ட படத்தை பதிவேற்றவும்' : 'Please upload a photo showing it is cleaned')
+      return
+    }
+
+    setCleanedLoading(true)
+
+    try {
+      // Upload verification photo
+      const fileName = `cleaned_${Date.now()}.jpg`
+      const { error: uploadError } = await supabase.storage
+        .from('reports')
+        .upload(fileName, cleanedPhoto)
+
+      if (uploadError) throw uploadError
+
+      const { data: urlData } = supabase.storage
+        .from('reports')
+        .getPublicUrl(fileName)
+
+      const verifiedPhotoUrl = urlData.publicUrl
+
+      // Update report in Supabase
+      const { error: updateError } = await supabase
+        .from('reports')
+        .update({
+          status: 'resolved',
+          verified_photo_url: verifiedPhotoUrl
+        })
+        .eq('id', selectedReport.id)
+
+      if (updateError) throw updateError
+
+      // Update local state
+      const updatedReport = {
+        ...selectedReport,
+        status: 'resolved',
+        verified_photo_url: verifiedPhotoUrl
+      }
+      setReports(reports.map(r => r.id === selectedReport.id ? updatedReport : r))
+      setSelectedReport(updatedReport)
+      setCleanedSuccess(true)
+
+      setTimeout(() => {
+        setShowCleanedModal(false)
+        setCleanedSuccess(false)
+      }, 2500)
+
+    } catch (error) {
+      console.error('Error:', error)
+      alert(lang === 'ta' ? 'பிழை ஏற்பட்டது. மீண்டும் முயற்சிக்கவும்.' : 'Error submitting. Please try again.')
+    }
+
+    setCleanedLoading(false)
   }
 
   return (
@@ -246,6 +326,14 @@ function Home({ lang, setLang }) {
               </div>
             )}
 
+            {/* Verified clean photo — show if resolved */}
+            {selectedReport.verified_photo_url && (
+              <div className="detail-photo-wrap" style={{marginTop:'8px'}}>
+                <div style={{fontSize:'11px',color:'#16a34a',fontWeight:'600',marginBottom:'4px'}}>✅ VERIFIED CLEAN PHOTO</div>
+                <img src={selectedReport.verified_photo_url} alt="Cleaned verification" className="detail-photo" />
+              </div>
+            )}
+
             <div className="detail-stats-row">
               <div className="detail-stat">
                 <span className="detail-stat-num">1</span>
@@ -305,6 +393,17 @@ function Home({ lang, setLang }) {
 
             {/* Action Buttons */}
             <div className="detail-actions">
+
+              {/* Mark as Cleaned — only show if still pending */}
+              {selectedReport.status === 'pending' && (
+                <button
+                  className="detail-cleaned-btn"
+                  onClick={openCleanedModal}
+                >
+                  ✅ {lang === 'ta' ? 'சுத்தம் செய்யப்பட்டது — சரிபார்க்கவும்' : 'It is Cleaned Up — Verify'}
+                </button>
+              )}
+
               <a
                 href="https://gccservices.chennaicorporation.gov.in/pgr/home"
                 target="_blank"
@@ -324,6 +423,81 @@ function Home({ lang, setLang }) {
 
             <p className="detail-anonymous">🔒 All reports are anonymous</p>
 
+          </div>
+        </div>
+      )}
+
+      {/* MARK AS CLEANED MODAL */}
+      {showCleanedModal && (
+        <div className="form-overlay" onClick={() => setShowCleanedModal(false)}>
+          <div className="form-container" onClick={e => e.stopPropagation()}>
+
+            <div className="form-header">
+              <h2>{lang === 'ta' ? '✅ சுத்தம் சரிபார்க்கவும்' : '✅ Verify Cleaned'}</h2>
+              <button className="close-btn" onClick={() => setShowCleanedModal(false)}>✕</button>
+            </div>
+
+            {cleanedSuccess ? (
+              <div className="success-message">
+                {lang === 'ta'
+                  ? '🎉 நன்றி! சிங்கார சென்னைக்கு உதவியதற்கு நன்றி!'
+                  : '🎉 Thank you! Marked as cleaned.\nFor the Singara Chennai we grew up loving 💛'}
+              </div>
+            ) : (
+              <>
+                <p style={{fontSize:'14px', color:'#555', marginBottom:'16px', lineHeight:'1.5'}}>
+                  {lang === 'ta'
+                    ? 'சுத்தம் செய்யப்பட்ட இடத்தின் படம் எடுத்து பதிவேற்றவும்'
+                    : 'Upload a photo showing the area is now clean. This helps verify the report is resolved.'}
+                </p>
+
+                <div className="photo-upload">
+                  {cleanedPhotoPreview ? (
+                    <div style={{position:'relative'}}>
+                      <img src={cleanedPhotoPreview} alt="Clean preview" className="photo-preview" />
+                      <button
+                        onClick={() => { setCleanedPhoto(null); setCleanedPhotoPreview(null) }}
+                        style={{position:'absolute',top:'8px',right:'8px',background:'rgba(0,0,0,0.5)',color:'#fff',border:'none',borderRadius:'50%',width:'24px',height:'24px',cursor:'pointer',fontSize:'12px'}}
+                      >✕</button>
+                    </div>
+                  ) : (
+                    <label className="upload-label">
+                      <input
+                        type="file"
+                        accept="image/*"
+                        capture="environment"
+                        onChange={handleCleanedPhoto}
+                        style={{ display: 'none' }}
+                      />
+                      <div className="upload-placeholder">
+                        <span className="upload-icon">📷</span>
+                        <span className="upload-text">
+                          {lang === 'ta' ? 'சுத்தமான இடத்தின் படம் எடுக்கவும்' : 'Take photo of clean area'}
+                        </span>
+                        <span className="upload-sub">
+                          {lang === 'ta' ? 'புகைப்படம் அல்லது கேலரி' : 'Camera or gallery'}
+                        </span>
+                      </div>
+                    </label>
+                  )}
+                </div>
+
+                <button
+                  className="submit-btn"
+                  onClick={submitCleaned}
+                  disabled={cleanedLoading || !cleanedPhoto}
+                  style={{
+                    opacity: cleanedLoading || !cleanedPhoto ? 0.45 : 1,
+                    cursor: cleanedLoading || !cleanedPhoto ? 'not-allowed' : 'pointer',
+                    background: '#16a34a'
+                  }}
+                >
+                  {cleanedLoading
+                    ? (lang === 'ta' ? 'சமர்ப்பிக்கிறது...' : 'Submitting...')
+                    : (lang === 'ta' ? '✅ சுத்தம் உறுதிப்படுத்து' : '✅ Confirm Cleaned')}
+                </button>
+              </>
+            )}
           </div>
         </div>
       )}
