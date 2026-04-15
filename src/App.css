@@ -894,3 +894,12 @@ body { background: #f8f8f6; }
   cursor: pointer;
   margin-bottom: 10px;
 }
+
+.welcome-modal {
+  background: white;
+  border-radius: 20px;
+  padding: 28px 24px 20px;
+  width: 90%;
+  max-width: 360px;
+  margin: auto;
+}

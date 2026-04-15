@@ -14,13 +14,14 @@ function Home({ lang, setLang }) {
   const [corpFilter, setCorpFilter] = useState('all')
   const [view, setView] = useState('map')
   const [selectedReport, setSelectedReport] = useState(null)
-
-  // Mark as Cleaned states
   const [showCleanedModal, setShowCleanedModal] = useState(false)
   const [cleanedPhoto, setCleanedPhoto] = useState(null)
   const [cleanedPhotoPreview, setCleanedPhotoPreview] = useState(null)
   const [cleanedLoading, setCleanedLoading] = useState(false)
   const [cleanedSuccess, setCleanedSuccess] = useState(false)
+  const [showWelcome, setShowWelcome] = useState(() => {
+    return !localStorage.getItem('nk_welcome_seen')
+  })
 
   const t = {
     logo: lang === 'ta' ? 'நம்ம குப்பை' : 'Namma Kuppai',
@@ -63,7 +64,11 @@ function Home({ lang, setLang }) {
     critical: { bg: '#1a1a2e', color: '#fff', label: 'Critical' },
   }
 
-  // WhatsApp share — message changes based on resolved/pending
+  function closeWelcome() {
+    localStorage.setItem('nk_welcome_seen', 'true')
+    setShowWelcome(false)
+  }
+
   function shareOnWhatsApp(report) {
     const severity = severityColors[report.severity]?.label || report.severity
     const ward = report.ward_name || 'Unknown Ward'
@@ -79,7 +84,6 @@ function Home({ lang, setLang }) {
     window.open(url, '_blank')
   }
 
-  // Mark as Cleaned handlers
   function openCleanedModal() {
     setCleanedPhoto(null)
     setCleanedPhotoPreview(null)
@@ -173,7 +177,7 @@ function Home({ lang, setLang }) {
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
               </svg>
             </a>
-            <a href="https://linkedin.com/company/namma-kuppai" target="_blank" className="social-icon" title="LinkedIn">
+            <a href="https://www.linkedin.com/company/namma-kuppai/" target="_blank" className="social-icon" title="LinkedIn">
               <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
                 <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
               </svg>
@@ -252,7 +256,6 @@ function Home({ lang, setLang }) {
               <button className="report-btn" onClick={() => setShowForm(true)}>
                 {t.reportBtn}
               </button>
-              {/* QR button — desktop/tablet only, never on mobile */}
               {!/Mobi|Android/i.test(navigator.userAgent) && (
                 <button className="qr-btn" onClick={() => setShowQR(true)}>📱</button>
               )}
@@ -407,10 +410,7 @@ function Home({ lang, setLang }) {
               </div>
             </div>
 
-            {/* Action Buttons */}
             <div className="detail-actions">
-
-              {/* WhatsApp Share — message changes based on status */}
               <button
                 className="detail-whatsapp-share-btn"
                 onClick={() => shareOnWhatsApp(selectedReport)}
@@ -418,12 +418,8 @@ function Home({ lang, setLang }) {
                 💚 {lang === 'ta' ? 'WhatsApp-ல் பகிரவும்' : 'Share on WhatsApp'}
               </button>
 
-              {/* Mark as Cleaned — only show if still pending */}
               {selectedReport.status === 'pending' && (
-                <button
-                  className="detail-cleaned-btn"
-                  onClick={openCleanedModal}
-                >
+                <button className="detail-cleaned-btn" onClick={openCleanedModal}>
                   ✅ {lang === 'ta' ? 'சுத்தம் செய்யப்பட்டது — சரிபார்க்கவும்' : 'It is Cleaned Up — Verify'}
                 </button>
               )}
@@ -436,17 +432,12 @@ function Home({ lang, setLang }) {
                 📋 {lang === 'ta' ? 'GCC புகார் பதிவு செய்க' : 'File GCC Complaint Online'}
               </a>
               <div className="detail-action-row">
-                <a href="tel:1913" className="detail-action-small">
-                  📞 Call 1913
-                </a>
-                <a href="https://wa.me/919445061913?text=Hi" target="_blank" className="detail-action-small">
-                  💬 WhatsApp GCC
-                </a>
+                <a href="tel:1913" className="detail-action-small">📞 Call 1913</a>
+                <a href="https://wa.me/919445061913?text=Hi" target="_blank" className="detail-action-small">💬 WhatsApp GCC</a>
               </div>
             </div>
 
             <p className="detail-anonymous">🔒 All reports are anonymous</p>
-
           </div>
         </div>
       )}
@@ -455,7 +446,6 @@ function Home({ lang, setLang }) {
       {showCleanedModal && (
         <div className="form-overlay" onClick={() => setShowCleanedModal(false)}>
           <div className="form-container" onClick={e => e.stopPropagation()}>
-
             <div className="form-header">
               <h2>{lang === 'ta' ? '✅ சுத்தம் சரிபார்க்கவும்' : '✅ Verify Cleaned'}</h2>
               <button className="close-btn" onClick={() => setShowCleanedModal(false)}>✕</button>
@@ -472,9 +462,8 @@ function Home({ lang, setLang }) {
                 <p style={{fontSize:'14px', color:'#555', marginBottom:'16px', lineHeight:'1.5'}}>
                   {lang === 'ta'
                     ? 'சுத்தம் செய்யப்பட்ட இடத்தின் படம் எடுத்து பதிவேற்றவும்'
-                    : 'Upload a photo showing the area is now clean. This helps verify the report is resolved.'}
+                    : 'Upload a photo showing the area is now clean.'}
                 </p>
-
                 <div className="photo-upload">
                   {cleanedPhotoPreview ? (
                     <div style={{position:'relative'}}>
@@ -486,26 +475,15 @@ function Home({ lang, setLang }) {
                     </div>
                   ) : (
                     <label className="upload-label">
-                      <input
-                        type="file"
-                        accept="image/*"
-                        capture="environment"
-                        onChange={handleCleanedPhoto}
-                        style={{ display: 'none' }}
-                      />
+                      <input type="file" accept="image/*" capture="environment" onChange={handleCleanedPhoto} style={{display:'none'}} />
                       <div className="upload-placeholder">
                         <span className="upload-icon">📷</span>
-                        <span className="upload-text">
-                          {lang === 'ta' ? 'சுத்தமான இடத்தின் படம் எடுக்கவும்' : 'Take photo of clean area'}
-                        </span>
-                        <span className="upload-sub">
-                          {lang === 'ta' ? 'புகைப்படம் அல்லது கேலரி' : 'Camera or gallery'}
-                        </span>
+                        <span className="upload-text">{lang === 'ta' ? 'சுத்தமான இடத்தின் படம் எடுக்கவும்' : 'Take photo of clean area'}</span>
+                        <span className="upload-sub">{lang === 'ta' ? 'புகைப்படம் அல்லது கேலரி' : 'Camera or gallery'}</span>
                       </div>
                     </label>
                   )}
                 </div>
-
                 <button
                   className="submit-btn"
                   onClick={submitCleaned}
@@ -537,7 +515,7 @@ function Home({ lang, setLang }) {
         />
       )}
 
-      {/* QR Modal */}
+      {/* QR Modal — desktop only */}
       {showQR && (
         <div className="form-overlay" onClick={() => setShowQR(false)}>
           <div className="qr-modal" onClick={e => e.stopPropagation()}>
@@ -555,6 +533,74 @@ function Home({ lang, setLang }) {
               />
             </div>
             <p className="qr-domain">nammakuppai.in</p>
+          </div>
+        </div>
+      )}
+
+      {/* WELCOME POPUP */}
+      {showWelcome && (
+        <div className="form-overlay" onClick={closeWelcome}>
+          <div className="welcome-modal" onClick={e => e.stopPropagation()}>
+
+            <div style={{textAlign:'center', marginBottom:'20px'}}>
+              <div style={{fontSize:'36px', marginBottom:'8px'}}>🏛️</div>
+              <div style={{fontSize:'22px', fontWeight:'800', color:'#C41E3A', margin:'0 0 4px'}}>
+                Namma Kuppai
+              </div>
+              <p style={{fontSize:'13px', color:'#888', margin:'0'}}>
+                For the Singara Chennai we grew up loving 💛
+              </p>
+            </div>
+
+            <div style={{background:'#f0fdf4', borderRadius:'12px', padding:'16px', marginBottom:'12px', border:'1px solid #bbf7d0'}}>
+              <p style={{fontSize:'13px', color:'#15803d', margin:'0 0 10px', fontWeight:'700'}}>✅ Live Now</p>
+              <div style={{display:'flex', alignItems:'center', gap:'10px'}}>
+                <span style={{width:'10px', height:'10px', background:'#16a34a', borderRadius:'50%', flexShrink:0}}></span>
+                <div>
+                  <div style={{fontSize:'14px', color:'#166534', fontWeight:'600'}}>GCC — Greater Chennai</div>
+                  <div style={{fontSize:'12px', color:'#15803d'}}>200 wards covered</div>
+                </div>
+              </div>
+            </div>
+
+            <div style={{background:'#fff7ed', borderRadius:'12px', padding:'16px', marginBottom:'20px', border:'1px solid #fed7aa'}}>
+              <p style={{fontSize:'13px', color:'#c2410c', margin:'0 0 10px', fontWeight:'700'}}>🔜 Coming Soon</p>
+              <div style={{display:'flex', alignItems:'center', gap:'10px', marginBottom:'10px'}}>
+                <span style={{width:'10px', height:'10px', background:'#f97316', borderRadius:'50%', flexShrink:0}}></span>
+                <div>
+                  <div style={{fontSize:'14px', color:'#7c2d12', fontWeight:'600'}}>Avadi Corporation</div>
+                  <div style={{fontSize:'12px', color:'#9a3412'}}>45 wards</div>
+                </div>
+              </div>
+              <div style={{display:'flex', alignItems:'center', gap:'10px'}}>
+                <span style={{width:'10px', height:'10px', background:'#f97316', borderRadius:'50%', flexShrink:0}}></span>
+                <div>
+                  <div style={{fontSize:'14px', color:'#7c2d12', fontWeight:'600'}}>Tambaram Corporation</div>
+                  <div style={{fontSize:'12px', color:'#9a3412'}}>49 wards</div>
+                </div>
+              </div>
+            </div>
+
+            <button
+              onClick={closeWelcome}
+              style={{
+                width:'100%',
+                padding:'14px',
+                background:'#C41E3A',
+                color:'white',
+                border:'none',
+                borderRadius:'12px',
+                fontSize:'15px',
+                fontWeight:'700',
+                cursor:'pointer',
+              }}
+            >
+              {lang === 'ta' ? 'தொடங்குவோம் →' : "Let's Go →"}
+            </button>
+
+            <p style={{textAlign:'center', fontSize:'11px', color:'#aaa', marginTop:'12px', marginBottom:'0'}}>
+              Tap anywhere to dismiss
+            </p>
           </div>
         </div>
       )}
