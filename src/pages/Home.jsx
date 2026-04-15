@@ -88,7 +88,6 @@ function Home({ lang, setLang }) {
     setCleanedLoading(true)
 
     try {
-      // Upload verification photo
       const fileName = `cleaned_${Date.now()}.jpg`
       const { error: uploadError } = await supabase.storage
         .from('reports')
@@ -102,7 +101,6 @@ function Home({ lang, setLang }) {
 
       const verifiedPhotoUrl = urlData.publicUrl
 
-      // Update report in Supabase
       const { error: updateError } = await supabase
         .from('reports')
         .update({
@@ -113,19 +111,24 @@ function Home({ lang, setLang }) {
 
       if (updateError) throw updateError
 
-      // Update local state
+      // Build updated report object
       const updatedReport = {
         ...selectedReport,
         status: 'resolved',
         verified_photo_url: verifiedPhotoUrl
       }
-      setReports(reports.map(r => r.id === selectedReport.id ? updatedReport : r))
+
+      // Update both reports list AND selectedReport
+      const updatedReports = reports.map(r => r.id === selectedReport.id ? updatedReport : r)
+      setReports(updatedReports)
       setSelectedReport(updatedReport)
       setCleanedSuccess(true)
 
+      // Close modal and re-sync selectedReport after animation
       setTimeout(() => {
         setShowCleanedModal(false)
         setCleanedSuccess(false)
+        setSelectedReport(updatedReport) // ← re-sync so detail modal reflects resolved state
       }, 2500)
 
     } catch (error) {
@@ -326,7 +329,7 @@ function Home({ lang, setLang }) {
               </div>
             )}
 
-            {/* Verified clean photo — show if resolved */}
+            {/* Verified clean photo */}
             {selectedReport.verified_photo_url && (
               <div className="detail-photo-wrap" style={{marginTop:'8px'}}>
                 <div style={{fontSize:'11px',color:'#16a34a',fontWeight:'600',marginBottom:'4px'}}>✅ VERIFIED CLEAN PHOTO</div>
