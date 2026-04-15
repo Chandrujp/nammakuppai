@@ -63,13 +63,18 @@ function Home({ lang, setLang }) {
     critical: { bg: '#1a1a2e', color: '#fff', label: 'Critical' },
   }
 
-  // WhatsApp share function
+  // WhatsApp share — message changes based on resolved/pending
   function shareOnWhatsApp(report) {
     const severity = severityColors[report.severity]?.label || report.severity
     const ward = report.ward_name || 'Unknown Ward'
     const wardNum = report.ward_number ? `#${report.ward_number}` : ''
     const corp = report.corporation || 'GCC'
-    const message = `🚨 Garbage reported at ${ward} ${wardNum} (${corp})\n\nSeverity: ${severity}\nMLA: ${report.mla_constituency || 'Unknown'}\nMP: ${report.mp_constituency || 'Unknown'}\n\n📍 View & report more at nammakuppai.in\n\nFor the Singara Chennai we grew up loving 💛`
+    const isResolved = report.status === 'resolved'
+
+    const message = isResolved
+      ? `✅ Garbage CLEANED at ${ward} ${wardNum} (${corp})\n\nThis issue has been resolved and verified.\n\nSee more reports at nammakuppai.in\n\nFor the Singara Chennai we grew up loving 💛`
+      : `🚨 Garbage reported at ${ward} ${wardNum} (${corp})\n\nSeverity: ${severity}\nMLA: ${report.mla_constituency || 'Unknown'}\nMP: ${report.mp_constituency || 'Unknown'}\n\n📍 View & report more at nammakuppai.in\n\nFor the Singara Chennai we grew up loving 💛`
+
     const url = `https://wa.me/?text=${encodeURIComponent(message)}`
     window.open(url, '_blank')
   }
@@ -247,7 +252,8 @@ function Home({ lang, setLang }) {
               <button className="report-btn" onClick={() => setShowForm(true)}>
                 {t.reportBtn}
               </button>
-              {window.innerWidth > 768 && (
+              {/* QR button — desktop/tablet only, never on mobile */}
+              {!/Mobi|Android/i.test(navigator.userAgent) && (
                 <button className="qr-btn" onClick={() => setShowQR(true)}>📱</button>
               )}
             </div>
@@ -404,7 +410,7 @@ function Home({ lang, setLang }) {
             {/* Action Buttons */}
             <div className="detail-actions">
 
-              {/* WhatsApp Share */}
+              {/* WhatsApp Share — message changes based on status */}
               <button
                 className="detail-whatsapp-share-btn"
                 onClick={() => shareOnWhatsApp(selectedReport)}
