@@ -9,6 +9,7 @@ function ReportForm({ selectedLocation, setShowForm, setReports, reports, lang }
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
   const [wardInfo, setWardInfo] = useState(null)
+  const [detectingWard, setDetectingWard] = useState(false)
 
   const t = {
     title: lang === 'ta' ? '📸 குப்பை புகாரளிக்க' : '📸 Report Garbage',
@@ -26,7 +27,8 @@ function ReportForm({ selectedLocation, setShowForm, setReports, reports, lang }
     mp: lang === 'ta' ? 'எம்பி' : 'MP',
     detecting: lang === 'ta' ? '🔍 வார்டு கண்டறிகிறது...' : '🔍 Detecting ward...',
     wardFound: lang === 'ta' ? '✅ வார்டு கண்டறியப்பட்டது' : '✅ Ward detected',
-    wardNotFound: lang === 'ta' ? '⚠️ வார்டு எல்லைக்கு வெளியே' : '⚠️ Outside GCC boundary',
+    wardNotFound: lang === 'ta' ? '⚠️ வார்டு எல்லைக்கு வெளியே' : '⚠️ Outside ward boundary',
+    outsideBoundary: lang === 'ta' ? '🚫 சென்னை எல்லைக்கு வெளியே தட்டினீர்கள். நகரத்திற்குள் தட்டவும்.' : '🚫 Please tap inside Chennai city limits to report.',
   }
 
   const severityOptions = [
@@ -37,13 +39,21 @@ function ReportForm({ selectedLocation, setShowForm, setReports, reports, lang }
   ]
 
   // Auto-detect ward when location is selected
-useEffect(() => {
-  if (selectedLocation) {
-    detectWard(selectedLocation.lat, selectedLocation.lng)
-      .then(ward => setWardInfo(ward))
-      .catch(() => setWardInfo(null))
-  }
-}, [selectedLocation])
+  useEffect(() => {
+    if (selectedLocation) {
+      setDetectingWard(true)
+      setWardInfo(null)
+      detectWard(selectedLocation.lat, selectedLocation.lng)
+        .then(ward => {
+          setWardInfo(ward)
+          setDetectingWard(false)
+        })
+        .catch(() => {
+          setWardInfo(null)
+          setDetectingWard(false)
+        })
+    }
+  }, [selectedLocation])
 
   function handlePhotoChange(e) {
     const file = e.target.files[0]
@@ -53,6 +63,10 @@ useEffect(() => {
     }
   }
 
+  // Block submit if outside boundary
+  const isOutsideBoundary = selectedLocation && !detectingWard && !wardInfo
+  const submitDisabled = loading || isOutsideBoundary || detectingWard
+
   async function handleSubmit() {
     if (!photo) {
       alert(lang === 'ta' ? 'படம் பதிவேற்றவும்' : 'Please upload a photo')
@@ -60,6 +74,10 @@ useEffect(() => {
     }
     if (!selectedLocation) {
       alert(lang === 'ta' ? 'வரைபடத்தில் இடத்தை தேர்வு செய்யுங்கள்' : 'Please tap on map to select location')
+      return
+    }
+    if (!wardInfo) {
+      alert(t.outsideBoundary)
       return
     }
 
@@ -180,7 +198,11 @@ useEffect(() => {
             {/* Location + Ward Info */}
             {selectedLocation ? (
               <div className="ward-info-box">
-                {wardInfo ? (
+                {detectingWard ? (
+                  <div className="ward-row">
+                    <span className="ward-key">{t.detecting}</span>
+                  </div>
+                ) : wardInfo ? (
                   <>
                     <div className="ward-row">
                       <span className="ward-key">{t.ward}</span>
@@ -208,8 +230,14 @@ useEffect(() => {
                     </div>
                   </>
                 ) : (
-                  <div className="ward-row">
-                    <span className="ward-key">{t.wardNotFound}</span>
+                  // Outside boundary — show error
+                  <div style={{textAlign:'center', padding:'8px 0'}}>
+                    <div style={{fontSize:'15px', color:'#C41E3A', fontWeight:'600', marginBottom:'4px'}}>
+                      🚫 {lang === 'ta' ? 'சென்னை எல்லைக்கு வெளியே' : 'Outside Chennai limits'}
+                    </div>
+                    <div style={{fontSize:'13px', color:'#666'}}>
+                      {lang === 'ta' ? 'நகரத்திற்குள் தட்டவும்' : 'Please tap inside Chennai city limits to report'}
+                    </div>
                   </div>
                 )}
               </div>
@@ -221,9 +249,13 @@ useEffect(() => {
             <button
               className="submit-btn"
               onClick={handleSubmit}
-              disabled={loading}
+              disabled={submitDisabled}
+              style={{
+                opacity: submitDisabled ? 0.45 : 1,
+                cursor: submitDisabled ? 'not-allowed' : 'pointer'
+              }}
             >
-              {loading ? t.submitting : t.submit}
+              {loading ? t.submitting : detectingWard ? t.detecting : t.submit}
             </button>
           </>
         )}
