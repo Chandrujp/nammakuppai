@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { supabase } from '../lib/supabase'
+import { detectWard } from '../lib/wardDetection'
 
 function ReportForm({ selectedLocation, setShowForm, setReports, reports, lang }) {
   const [photo, setPhoto] = useState(null)
@@ -7,6 +8,7 @@ function ReportForm({ selectedLocation, setShowForm, setReports, reports, lang }
   const [severity, setSeverity] = useState('moderate')
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
+  const [wardInfo, setWardInfo] = useState(null)
 
   const t = {
     title: lang === 'ta' ? '📸 குப்பை புகாரளிக்க' : '📸 Report Garbage',
@@ -17,39 +19,31 @@ function ReportForm({ selectedLocation, setShowForm, setReports, reports, lang }
     locationWarning: lang === 'ta' ? '⚠️ வரைபடத்தில் இடத்தை தேர்வு செய்யுங்கள்' : '⚠️ Tap on map to select location',
     submit: lang === 'ta' ? 'தாக்கல் செய்க' : 'Submit Report',
     submitting: lang === 'ta' ? 'சமர்ப்பிக்கிறது...' : 'Submitting...',
-    success: lang === 'ta' ? '✅ புகார் வெற்றிகரமாக சமர்ப்பிக்கப்பட்டது!\nசிங்கார சென்னைக்கு உதவியதற்கு நன்றி!' : '✅ Report submitted successfully!\nThank you for helping Singara Chennai!',
+    success: lang === 'ta' ? '✅ புகார் வெற்றிகரமாக சமர்ப்பிக்கப்பட்டது!\nசிங்கார சென்னைக்கு உதவியதற்கு நன்றி!' : '✅ Report submitted.\nTogether, we can fix it.\nFor the Chennai we grew up loving. 🏙️',
     ward: lang === 'ta' ? 'வார்டு' : 'Ward',
     councillor: lang === 'ta' ? 'கவுன்சிலர்' : 'Councillor',
     mla: lang === 'ta' ? 'எம்எல்ஏ' : 'MLA',
     mp: lang === 'ta' ? 'எம்பி' : 'MP',
+    detecting: lang === 'ta' ? '🔍 வார்டு கண்டறிகிறது...' : '🔍 Detecting ward...',
+    wardFound: lang === 'ta' ? '✅ வார்டு கண்டறியப்பட்டது' : '✅ Ward detected',
+    wardNotFound: lang === 'ta' ? '⚠️ வார்டு எல்லைக்கு வெளியே' : '⚠️ Outside GCC boundary',
   }
 
   const severityOptions = [
-    {
-      key: 'minor',
-      icon: '🟡',
-      name: lang === 'ta' ? 'சிறியது' : 'Minor',
-      tamil: lang === 'ta' ? 'Small pile' : 'சிறிய குவியல்',
-    },
-    {
-      key: 'moderate',
-      icon: '🟠',
-      name: lang === 'ta' ? 'மிதமான' : 'Moderate',
-      tamil: lang === 'ta' ? 'Medium dump' : 'நடுத்தர',
-    },
-    {
-      key: 'severe',
-      icon: '🔴',
-      name: lang === 'ta' ? 'தீவிரமான' : 'Severe',
-      tamil: lang === 'ta' ? 'Large dump' : 'பெரிய குவியல்',
-    },
-    {
-      key: 'critical',
-      icon: '⚫',
-      name: lang === 'ta' ? 'அவசரகால' : 'Critical',
-      tamil: lang === 'ta' ? 'Health hazard' : 'உடல்நல அபாயம்',
-    },
+    { key: 'minor', icon: '🟡', name: lang === 'ta' ? 'சிறியது' : 'Minor', tamil: lang === 'ta' ? 'Small pile' : 'சிறிய குவியல்' },
+    { key: 'moderate', icon: '🟠', name: lang === 'ta' ? 'மிதமான' : 'Moderate', tamil: lang === 'ta' ? 'Medium dump' : 'நடுத்தர' },
+    { key: 'severe', icon: '🔴', name: lang === 'ta' ? 'தீவிரமான' : 'Severe', tamil: lang === 'ta' ? 'Large dump' : 'பெரிய குவியல்' },
+    { key: 'critical', icon: '⚫', name: lang === 'ta' ? 'அவசரகால' : 'Critical', tamil: lang === 'ta' ? 'Health hazard' : 'உடல்நல அபாயம்' },
   ]
+
+  // Auto-detect ward when location is selected
+useEffect(() => {
+  if (selectedLocation) {
+    detectWard(selectedLocation.lat, selectedLocation.lng)
+      .then(ward => setWardInfo(ward))
+      .catch(() => setWardInfo(null))
+  }
+}, [selectedLocation])
 
   function handlePhotoChange(e) {
     const file = e.target.files[0]
@@ -92,8 +86,14 @@ function ReportForm({ selectedLocation, setShowForm, setReports, reports, lang }
           latitude: selectedLocation.lat,
           longitude: selectedLocation.lng,
           severity: severity,
-          ward_name: 'Detecting...',
-          corporation: 'GCC',
+          ward_number: wardInfo?.ward_number || null,
+          ward_name: wardInfo?.ward_name || 'Unknown',
+          councillor_name: wardInfo?.councillor_name || '',
+          mla_constituency: wardInfo?.mla_constituency || '',
+          mla_name: wardInfo?.mla_name || '',
+          mp_constituency: wardInfo?.mp_constituency || '',
+          mp_name: wardInfo?.mp_name || '',
+          corporation: wardInfo?.corporation || 'GCC',
           status: 'pending'
         }])
         .select()
@@ -106,7 +106,7 @@ function ReportForm({ selectedLocation, setShowForm, setReports, reports, lang }
       setTimeout(() => {
         setShowForm(false)
         setSuccess(false)
-      }, 2500)
+      }, 3000)
 
     } catch (error) {
       console.error('Error:', error)
@@ -177,9 +177,42 @@ function ReportForm({ selectedLocation, setShowForm, setReports, reports, lang }
               </div>
             </div>
 
-            {/* Location */}
+            {/* Location + Ward Info */}
             {selectedLocation ? (
-              <div className="location-info">{t.locationSelected}</div>
+              <div className="ward-info-box">
+                {wardInfo ? (
+                  <>
+                    <div className="ward-row">
+                      <span className="ward-key">{t.ward}</span>
+                      <span className="ward-val">#{wardInfo.ward_number} — {wardInfo.ward_name}</span>
+                    </div>
+                    <div className="ward-divider" />
+                    <div className="ward-row">
+                      <span className="ward-key">Zone</span>
+                      <span className="ward-val">{wardInfo.zone}</span>
+                    </div>
+                    <div className="ward-divider" />
+                    <div className="ward-row">
+                      <span className="ward-key">{t.mla}</span>
+                      <span className="ward-val">{wardInfo.mla_constituency}</span>
+                    </div>
+                    <div className="ward-divider" />
+                    <div className="ward-row">
+                      <span className="ward-key">{t.mp}</span>
+                      <span className="ward-val">{wardInfo.mp_constituency}</span>
+                    </div>
+                    <div className="ward-divider" />
+                    <div className="ward-row">
+                      <span className="ward-key">Corp</span>
+                      <span className="ward-val">{wardInfo.corporation}</span>
+                    </div>
+                  </>
+                ) : (
+                  <div className="ward-row">
+                    <span className="ward-key">{t.wardNotFound}</span>
+                  </div>
+                )}
+              </div>
             ) : (
               <div className="location-warning">{t.locationWarning}</div>
             )}
