@@ -98,6 +98,69 @@ function MapClickHandler({ setSelectedLocation, setShowForm, setClickedPin }) {
   return null
 }
 
+// GPS button inside map
+function GPSButton({ setSelectedLocation, setShowForm, setClickedPin, lang }) {
+  const map = useMap()
+  const [locating, setLocating] = useState(false)
+
+  function handleGPS() {
+    if (!navigator.geolocation) {
+      alert(lang === 'ta' ? 'உங்கள் சாதனம் GPS ஐ ஆதரிக்கவில்லை' : 'GPS not supported on this device')
+      return
+    }
+    setLocating(true)
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        const location = { lat: pos.coords.latitude, lng: pos.coords.longitude }
+        map.flyTo([location.lat, location.lng], 17)
+        setSelectedLocation(location)
+        setClickedPin(location)
+        setShowForm(true)
+        setLocating(false)
+      },
+      (err) => {
+        console.error('GPS error:', err)
+        alert(lang === 'ta' ? 'இடத்தை கண்டறிய முடியவில்லை. மீண்டும் முயற்சிக்கவும்.' : 'Could not get location. Please try again or tap the map.')
+        setLocating(false)
+      },
+      { enableHighAccuracy: true, timeout: 10000 }
+    )
+  }
+
+  return (
+    <div
+      style={{
+        position: 'absolute',
+        bottom: '80px',
+        right: '12px',
+        zIndex: 1000,
+      }}
+    >
+      <button
+        onClick={handleGPS}
+        disabled={locating}
+        style={{
+          width: '40px',
+          height: '40px',
+          borderRadius: '8px',
+          background: '#fff',
+          border: '2px solid #C41E3A',
+          cursor: locating ? 'not-allowed' : 'pointer',
+          fontSize: '18px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          boxShadow: '0 2px 8px rgba(0,0,0,0.2)',
+          opacity: locating ? 0.6 : 1,
+        }}
+        title={lang === 'ta' ? 'என் இடம்' : 'Use my location'}
+      >
+        {locating ? '⏳' : '📍'}
+      </button>
+    </div>
+  )
+}
+
 function Map({ reports, setReports, setSelectedLocation, setShowForm, lang }) {
   const chennaiCenter = [13.0827, 80.2707]
   const [clickedPin, setClickedPin] = useState(null)
@@ -136,72 +199,81 @@ function Map({ reports, setReports, setSelectedLocation, setShowForm, lang }) {
   }
 
   return (
-    <MapContainer
-      center={chennaiCenter}
-      zoom={12}
-      style={{ height: '100%', width: '100%' }}
-    >
-      <TileLayer
-        attribution='© OpenStreetMap contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
+    <div style={{ position: 'relative', height: '100%', width: '100%' }}>
+      <MapContainer
+        center={chennaiCenter}
+        zoom={12}
+        style={{ height: '100%', width: '100%' }}
+      >
+        <TileLayer
+          attribution='© OpenStreetMap contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
 
-      <SearchControl
-        setSelectedLocation={setSelectedLocation}
-        setShowForm={setShowForm}
-        setClickedPin={setClickedPin}
-      />
+        <SearchControl
+          setSelectedLocation={setSelectedLocation}
+          setShowForm={setShowForm}
+          setClickedPin={setClickedPin}
+        />
 
-      <MapClickHandler
-        setSelectedLocation={setSelectedLocation}
-        setShowForm={setShowForm}
-        setClickedPin={setClickedPin}
-      />
+        <MapClickHandler
+          setSelectedLocation={setSelectedLocation}
+          setShowForm={setShowForm}
+          setClickedPin={setClickedPin}
+        />
 
-      {clickedPin && (
-        <Marker position={[clickedPin.lat, clickedPin.lng]} icon={goldIcon}>
-          <Popup>{t.reporting}</Popup>
-        </Marker>
-      )}
+        <GPSButton
+          setSelectedLocation={setSelectedLocation}
+          setShowForm={setShowForm}
+          setClickedPin={setClickedPin}
+          lang={lang}
+        />
 
-      {reports.map((report) => (
-        <Marker
-          key={report.id}
-          position={[report.latitude, report.longitude]}
-          icon={severityIcons[report.severity] || defaultIcon}
-        >
-          <Popup>
-            <div className="popup-content">
-              {report.photo_url && (
-                <img
-                  src={report.photo_url}
-                  alt="Garbage report"
-                  style={{ width: '150px', borderRadius: '8px', marginBottom: '6px' }}
-                />
-              )}
-              {report.severity && (
-                <span
-                  className={`popup-severity sev-${report.severity}`}
-                  style={{color: severityColors[report.severity]}}
-                >
-                  {severityLabels[report.severity] || report.severity}
-                </span>
-              )}
-              <p><strong>{t.ward}:</strong> {report.ward_name || '—'}</p>
-              <p><strong>{t.councillor}:</strong> {report.councillor_name || '—'}</p>
-              <p><strong>{t.mla}:</strong> {report.mla_name || '—'}</p>
-              <p><strong>{t.mp}:</strong> {report.mp_name || '—'}</p>
-              {report.corporation && (
-                <span className="corp-badge">{report.corporation}</span>
-              )}
-              <p style={{marginTop:'4px',color:'#999',fontSize:'10px'}}>
-                {t.reported}: {new Date(report.created_at).toLocaleDateString()}
-              </p>
-            </div>
-          </Popup>
-        </Marker>
-      ))}
-    </MapContainer>
+        {clickedPin && (
+          <Marker position={[clickedPin.lat, clickedPin.lng]} icon={goldIcon}>
+            <Popup>{t.reporting}</Popup>
+          </Marker>
+        )}
+
+        {reports.map((report) => (
+          <Marker
+            key={report.id}
+            position={[report.latitude, report.longitude]}
+            icon={severityIcons[report.severity] || defaultIcon}
+          >
+            <Popup>
+              <div className="popup-content">
+                {report.photo_url && (
+                  <img
+                    src={report.photo_url}
+                    alt="Garbage report"
+                    style={{ width: '150px', borderRadius: '8px', marginBottom: '6px' }}
+                  />
+                )}
+                {report.severity && (
+                  <span
+                    className={`popup-severity sev-${report.severity}`}
+                    style={{color: severityColors[report.severity]}}
+                  >
+                    {severityLabels[report.severity] || report.severity}
+                  </span>
+                )}
+                <p><strong>{t.ward}:</strong> {report.ward_name || '—'}</p>
+                <p><strong>{t.councillor}:</strong> {report.councillor_name || '—'}</p>
+                <p><strong>{t.mla}:</strong> {report.mla_name || '—'}</p>
+                <p><strong>{t.mp}:</strong> {report.mp_name || '—'}</p>
+                {report.corporation && (
+                  <span className="corp-badge">{report.corporation}</span>
+                )}
+                <p style={{marginTop:'4px',color:'#999',fontSize:'10px'}}>
+                  {t.reported}: {new Date(report.created_at).toLocaleDateString()}
+                </p>
+              </div>
+            </Popup>
+          </Marker>
+        ))}
+      </MapContainer>
+    </div>
   )
 }
 

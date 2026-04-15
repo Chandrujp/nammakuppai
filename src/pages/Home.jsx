@@ -63,6 +63,17 @@ function Home({ lang, setLang }) {
     critical: { bg: '#1a1a2e', color: '#fff', label: 'Critical' },
   }
 
+  // WhatsApp share function
+  function shareOnWhatsApp(report) {
+    const severity = severityColors[report.severity]?.label || report.severity
+    const ward = report.ward_name || 'Unknown Ward'
+    const wardNum = report.ward_number ? `#${report.ward_number}` : ''
+    const corp = report.corporation || 'GCC'
+    const message = `🚨 Garbage reported at ${ward} ${wardNum} (${corp})\n\nSeverity: ${severity}\nMLA: ${report.mla_constituency || 'Unknown'}\nMP: ${report.mp_constituency || 'Unknown'}\n\n📍 View & report more at nammakuppai.in\n\nFor the Singara Chennai we grew up loving 💛`
+    const url = `https://wa.me/?text=${encodeURIComponent(message)}`
+    window.open(url, '_blank')
+  }
+
   // Mark as Cleaned handlers
   function openCleanedModal() {
     setCleanedPhoto(null)
@@ -111,24 +122,21 @@ function Home({ lang, setLang }) {
 
       if (updateError) throw updateError
 
-      // Build updated report object
       const updatedReport = {
         ...selectedReport,
         status: 'resolved',
         verified_photo_url: verifiedPhotoUrl
       }
 
-      // Update both reports list AND selectedReport
       const updatedReports = reports.map(r => r.id === selectedReport.id ? updatedReport : r)
       setReports(updatedReports)
       setSelectedReport(updatedReport)
       setCleanedSuccess(true)
 
-      // Close modal and re-sync selectedReport after animation
       setTimeout(() => {
         setShowCleanedModal(false)
         setCleanedSuccess(false)
-        setSelectedReport(updatedReport) // ← re-sync so detail modal reflects resolved state
+        setSelectedReport(updatedReport)
       }, 2500)
 
     } catch (error) {
@@ -329,7 +337,6 @@ function Home({ lang, setLang }) {
               </div>
             )}
 
-            {/* Verified clean photo */}
             {selectedReport.verified_photo_url && (
               <div className="detail-photo-wrap" style={{marginTop:'8px'}}>
                 <div style={{fontSize:'11px',color:'#16a34a',fontWeight:'600',marginBottom:'4px'}}>✅ VERIFIED CLEAN PHOTO</div>
@@ -396,6 +403,14 @@ function Home({ lang, setLang }) {
 
             {/* Action Buttons */}
             <div className="detail-actions">
+
+              {/* WhatsApp Share */}
+              <button
+                className="detail-whatsapp-share-btn"
+                onClick={() => shareOnWhatsApp(selectedReport)}
+              >
+                💚 {lang === 'ta' ? 'WhatsApp-ல் பகிரவும்' : 'Share on WhatsApp'}
+              </button>
 
               {/* Mark as Cleaned — only show if still pending */}
               {selectedReport.status === 'pending' && (

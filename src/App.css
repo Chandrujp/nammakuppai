@@ -881,3 +881,16 @@ body { background: #f8f8f6; }
   cursor: pointer;
   margin-bottom: 10px;
 }
+
+.detail-whatsapp-share-btn {
+  width: 100%;
+  padding: 14px;
+  background: #25D366;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
