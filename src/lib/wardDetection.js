@@ -16,7 +16,7 @@ function isPointInPolygon(point, polygon) {
 
 export async function detectWard(lat, lng) {
   try {
-    const response = await fetch('/src/data/gcc-wards.geojson')
+    const response = await fetch('/gcc-wards.geojson')
     const gccWards = await response.json()
     const point = [lng, lat]
 
