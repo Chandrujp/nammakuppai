@@ -257,7 +257,7 @@ function Home({ lang, setLang }) {
               </div>
             ) : (
               reports.map((report, index) => (
-                <div key={report.id} className="list-card" onClick={() => setSelectedReport(report)}>
+                <div key={report.id} className="list-card" onClick={() => setSelectedReport(reports.find(r => r.id === report.id) || report)}>
                   <div className="list-rank">{index + 1}</div>
                   <div className="list-info">
                     <h3>{report.ward_name || 'Unknown Ward'}</h3>
