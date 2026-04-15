@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
-import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet'
+import { MapContainer, TileLayer, Marker, Popup, useMapEvents, useMap } from 'react-leaflet'
 import { supabase } from '../lib/supabase'
 import 'leaflet/dist/leaflet.css'
+import 'leaflet-control-geocoder/dist/Control.Geocoder.css'
 import L from 'leaflet'
+import 'leaflet-control-geocoder'
 
 delete L.Icon.Default.prototype._getIconUrl
 L.Icon.Default.mergeOptions({
@@ -11,7 +13,6 @@ L.Icon.Default.mergeOptions({
   shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
 })
 
-// Severity based circle icons
 function createCircleIcon(color, size, borderColor) {
   return L.divIcon({
     html: `<div style="
@@ -38,7 +39,6 @@ const severityIcons = {
 
 const defaultIcon = createCircleIcon('#C41E3A', 16, '#9b1827')
 
-// Gold pin for selected location
 const goldIcon = L.divIcon({
   html: `<div style="
     width: 28px;
@@ -54,6 +54,37 @@ const goldIcon = L.divIcon({
   popupAnchor: [0, -28],
   className: ''
 })
+
+function SearchControl({ setSelectedLocation, setShowForm, setClickedPin }) {
+  const map = useMap()
+
+  useEffect(() => {
+    try {
+      const geocoderControl = L.Control.Geocoder.nominatim()
+      const control = L.Control.geocoder({
+        defaultMarkGeocode: false,
+        placeholder: 'Search area, street...',
+        geocoder: geocoderControl,
+      })
+
+      control.on('markgeocode', function(e) {
+        const { center } = e.geocode
+        const location = { lat: center.lat, lng: center.lng }
+        map.flyTo(center, 16)
+        setSelectedLocation(location)
+        setClickedPin(location)
+        setShowForm(true)
+      })
+
+      control.addTo(map)
+      return () => map.removeControl(control)
+    } catch(err) {
+      console.error('Geocoder init error:', err)
+    }
+  }, [map])
+
+  return null
+}
 
 function MapClickHandler({ setSelectedLocation, setShowForm, setClickedPin }) {
   useMapEvents({
@@ -78,7 +109,6 @@ function Map({ reports, setReports, setSelectedLocation, setShowForm, lang }) {
     mla: lang === 'ta' ? 'எம்எல்ஏ' : 'MLA',
     mp: lang === 'ta' ? 'எம்பி' : 'MP',
     reported: lang === 'ta' ? 'புகாரளிக்கப்பட்டது' : 'Reported',
-    severity: lang === 'ta' ? 'தீவிரம்' : 'Severity',
   }
 
   const severityLabels = {
@@ -115,20 +145,25 @@ function Map({ reports, setReports, setSelectedLocation, setShowForm, lang }) {
         attribution='© OpenStreetMap contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
+
+      <SearchControl
+        setSelectedLocation={setSelectedLocation}
+        setShowForm={setShowForm}
+        setClickedPin={setClickedPin}
+      />
+
       <MapClickHandler
         setSelectedLocation={setSelectedLocation}
         setShowForm={setShowForm}
         setClickedPin={setClickedPin}
       />
 
-      {/* Gold pin — selected location */}
       {clickedPin && (
         <Marker position={[clickedPin.lat, clickedPin.lng]} icon={goldIcon}>
           <Popup>{t.reporting}</Popup>
         </Marker>
       )}
 
-      {/* Severity based circle pins */}
       {reports.map((report) => (
         <Marker
           key={report.id}
@@ -145,14 +180,12 @@ function Map({ reports, setReports, setSelectedLocation, setShowForm, lang }) {
                 />
               )}
               {report.severity && (
-                <div>
-                  <span
-                    className={`popup-severity sev-${report.severity}`}
-                    style={{color: severityColors[report.severity]}}
-                  >
-                    {severityLabels[report.severity] || report.severity}
-                  </span>
-                </div>
+                <span
+                  className={`popup-severity sev-${report.severity}`}
+                  style={{color: severityColors[report.severity]}}
+                >
+                  {severityLabels[report.severity] || report.severity}
+                </span>
               )}
               <p><strong>{t.ward}:</strong> {report.ward_name || '—'}</p>
               <p><strong>{t.councillor}:</strong> {report.councillor_name || '—'}</p>

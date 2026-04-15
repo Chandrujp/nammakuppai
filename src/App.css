@@ -592,3 +592,252 @@ body { background: #f8f8f6; }
   color: #999;
   margin-top: 8px;
 }
+
+/* VIEW TOGGLE */
+.view-toggle {
+  display: flex;
+  background: #f0f0f0;
+  border-radius: 8px;
+  padding: 2px;
+  gap: 2px;
+  margin-left: 8px;
+}
+
+.view-btn {
+  padding: 4px 12px;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  font-size: 11px;
+  font-weight: 600;
+  color: #999;
+  cursor: pointer;
+}
+
+.view-btn-active {
+  background: #fff;
+  color: #1a1a2e;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* LIST VIEW */
+.list-container {
+  flex: 1;
+  overflow-y: auto;
+  background: #f8f8f8;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.list-card {
+  background: white;
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  border: 0.5px solid #f0f0f0;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.list-card:hover { border-color: #C41E3A; box-shadow: 0 2px 8px rgba(196,30,58,0.1); }
+
+.list-rank {
+  width: 28px;
+  height: 28px;
+  background: #fff5f5;
+  border: 1px solid #f5c0c0;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 800;
+  color: #C41E3A;
+  flex-shrink: 0;
+}
+
+.list-info { flex: 1; }
+.list-info h3 { font-size: 14px; font-weight: 700; color: #1a1a2e; margin-bottom: 3px; }
+.list-meta { font-size: 11px; color: #888; margin: 2px 0; }
+.list-time { font-size: 10px; color: #bbb; margin-top: 4px; }
+
+.list-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.list-severity {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 20px;
+  text-transform: capitalize;
+}
+
+.list-resolved { font-size: 10px; color: #2e7d32; }
+
+.list-thumb {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* DETAIL MODAL */
+.detail-modal {
+  background: white;
+  width: 100%;
+  border-radius: 20px 20px 0 0;
+  padding: 20px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.detail-badges { display: flex; gap: 8px; align-items: center; }
+
+.detail-severity-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.detail-status-badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.status-pending { background: #fff0f0; color: #C41E3A; }
+.status-resolved { background: #f0fff0; color: #2e7d32; }
+
+.detail-ward-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: #1a1a2e;
+  margin-bottom: 4px;
+}
+
+.detail-ward-sub { font-size: 12px; color: #999; margin-bottom: 14px; }
+
+.detail-photo-wrap {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.detail-photo {
+  width: 100%;
+  max-height: 220px;
+  object-fit: cover;
+}
+
+.detail-stats-row {
+  display: flex;
+  align-items: center;
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 12px;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.detail-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.detail-stat-num { font-size: 18px; font-weight: 800; color: #C41E3A; }
+.detail-stat-label { font-size: 9px; color: #999; margin-top: 2px; }
+.detail-stat-divider { width: 0.5px; height: 30px; background: #e8e8e8; }
+
+.detail-accountability { margin-bottom: 16px; }
+
+.detail-section-title {
+  font-size: 10px;
+  font-weight: 700;
+  color: #999;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.detail-ward-badge {
+  display: inline-block;
+  background: #fff5f5;
+  border: 1px solid #f5c0c0;
+  color: #C41E3A;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+}
+
+.detail-politicians {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.detail-politician {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+.detail-politician-icon { font-size: 20px; }
+
+.detail-politician-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-politician-role { font-size: 10px; color: #999; }
+.detail-politician-name { font-size: 13px; font-weight: 700; color: #1a1a2e; }
+
+.detail-complaint-btn {
+  display: block;
+  width: 100%;
+  background: #1a1a2e;
+  color: #FFD700;
+  text-align: center;
+  padding: 14px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+.detail-anonymous {
+  text-align: center;
+  font-size: 11px;
+  color: #999;
+  margin-top: 4px;
+}
+
+/* Push geocoder search down so it doesn't overlap stats */
+.leaflet-top.leaflet-right .leaflet-control-geocoder {
+  margin-top: 60px;
+}

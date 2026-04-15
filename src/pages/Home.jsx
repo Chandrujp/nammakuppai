@@ -12,6 +12,8 @@ function Home({ lang, setLang }) {
   const [severityFilter, setSeverityFilter] = useState('all')
   const [statusFilter, setStatusFilter] = useState('all')
   const [corpFilter, setCorpFilter] = useState('all')
+  const [view, setView] = useState('map')
+  const [selectedReport, setSelectedReport] = useState(null)
 
   const t = {
     logo: lang === 'ta' ? 'நம்ம குப்பை' : 'Namma Kuppai',
@@ -36,6 +38,23 @@ function Home({ lang, setLang }) {
   }
 
   const activeReports = reports.filter(r => r.status === 'pending').length
+
+  function timeAgo(dateStr) {
+    const now = new Date()
+    const date = new Date(dateStr)
+    const diff = Math.floor((now - date) / 1000)
+    if (diff < 60) return 'Just now'
+    if (diff < 3600) return `${Math.floor(diff / 60)}m ago`
+    if (diff < 86400) return `${Math.floor(diff / 3600)}h ago`
+    return `${Math.floor(diff / 86400)}d ago`
+  }
+
+  const severityColors = {
+    minor: { bg: '#fffbeb', color: '#f59e0b', label: 'Minor' },
+    moderate: { bg: '#fff7ed', color: '#f97316', label: 'Moderate' },
+    severe: { bg: '#fff5f5', color: '#C41E3A', label: 'Severe' },
+    critical: { bg: '#1a1a2e', color: '#fff', label: 'Critical' },
+  }
 
   return (
     <div className="app-container">
@@ -99,44 +118,216 @@ function Home({ lang, setLang }) {
         <span className="report-count">
           {reports.length}<span> {t.reports}</span>
         </span>
-      </div>
-
-      {/* Map */}
-      <div className="map-container">
-        <Map
-          reports={reports}
-          setReports={setReports}
-          setSelectedLocation={setSelectedLocation}
-          setShowForm={setShowForm}
-          lang={lang}
-        />
-        {/* Floating Stats */}
-        <div className="map-stats">
-          <div className="map-stat">
-            <span className="map-stat-num">{activeReports}</span>
-            <span className="map-stat-label">{lang === 'ta' ? 'செயலில்' : 'Active'}</span>
-          </div>
-          <div className="map-stat-divider" />
-          <div className="map-stat">
-            <span className="map-stat-num">{reports.length}</span>
-            <span className="map-stat-label">{t.reports}</span>
-          </div>
+        {/* Map/List Toggle */}
+        <div className="view-toggle">
+          <button className={`view-btn ${view === 'map' ? 'view-btn-active' : ''}`} onClick={() => setView('map')}>
+            {lang === 'ta' ? 'வரைபடம்' : 'Map'}
+          </button>
+          <button className={`view-btn ${view === 'list' ? 'view-btn-active' : ''}`} onClick={() => setView('list')}>
+            {lang === 'ta' ? 'பட்டியல்' : 'List'}
+          </button>
         </div>
       </div>
 
-      {/* Bottom Bar */}
-      {!showForm && (
-  <div className="bottom-bar">
-    <button className="report-btn" onClick={() => setShowForm(true)}>
-      {t.reportBtn}
-    </button>
-    {window.innerWidth > 768 && (
-      <button className="qr-btn" onClick={() => setShowQR(true)}>
-        📱
-      </button>
-    )}
-  </div>
-)}
+      {/* MAP VIEW */}
+      {view === 'map' && (
+        <>
+          <div className="map-container">
+            <Map
+              reports={reports}
+              setReports={setReports}
+              setSelectedLocation={setSelectedLocation}
+              setShowForm={setShowForm}
+              lang={lang}
+            />
+            <div className="map-stats">
+              <div className="map-stat">
+                <span className="map-stat-num">{activeReports}</span>
+                <span className="map-stat-label">{lang === 'ta' ? 'செயலில்' : 'Active'}</span>
+              </div>
+              <div className="map-stat-divider" />
+              <div className="map-stat">
+                <span className="map-stat-num">{reports.length}</span>
+                <span className="map-stat-label">{t.reports}</span>
+              </div>
+            </div>
+          </div>
+          {!showForm && (
+            <div className="bottom-bar">
+              <button className="report-btn" onClick={() => setShowForm(true)}>
+                {t.reportBtn}
+              </button>
+              {window.innerWidth > 768 && (
+                <button className="qr-btn" onClick={() => setShowQR(true)}>📱</button>
+              )}
+            </div>
+          )}
+        </>
+      )}
+
+      {/* LIST VIEW */}
+      {view === 'list' && (
+        <>
+          <div className="list-container">
+            {reports.length === 0 ? (
+              <div className="no-data">
+                {lang === 'ta' ? 'இன்னும் புகார்கள் இல்லை' : 'No reports yet. Be the first to report!'}
+              </div>
+            ) : (
+              reports.map((report, index) => (
+                <div key={report.id} className="list-card" onClick={() => setSelectedReport(report)}>
+                  <div className="list-rank">{index + 1}</div>
+                  <div className="list-info">
+                    <h3>{report.ward_name || 'Unknown Ward'}</h3>
+                    <p className="list-meta">Ward #{report.ward_number || '?'} · {report.corporation || 'GCC'}</p>
+                    {report.mla_constituency && (
+                      <p className="list-meta">MLA: {report.mla_constituency}</p>
+                    )}
+                    {report.mp_constituency && (
+                      <p className="list-meta">MP: {report.mp_constituency}</p>
+                    )}
+                    <p className="list-time">{timeAgo(report.created_at)}</p>
+                  </div>
+                  <div className="list-right">
+                    <span className="list-severity" style={{
+                      background: severityColors[report.severity]?.bg,
+                      color: severityColors[report.severity]?.color
+                    }}>
+                      {severityColors[report.severity]?.label || report.severity}
+                    </span>
+                    {report.status === 'resolved' && (
+                      <span className="list-resolved">✅ Resolved</span>
+                    )}
+                    {report.photo_url && (
+                      <img src={report.photo_url} alt="Report" className="list-thumb" />
+                    )}
+                  </div>
+                </div>
+              ))
+            )}
+          </div>
+          <div className="bottom-bar">
+            <button className="report-btn" onClick={() => { setShowForm(true); setView('map') }}>
+              {t.reportBtn}
+            </button>
+          </div>
+        </>
+      )}
+
+      {/* REPORT DETAIL MODAL */}
+      {selectedReport && (
+        <div className="form-overlay" onClick={() => setSelectedReport(null)}>
+          <div className="detail-modal" onClick={e => e.stopPropagation()}>
+
+            {/* Detail Header */}
+            <div className="detail-header">
+              <div className="detail-badges">
+                <span className="detail-severity-badge" style={{
+                  background: severityColors[selectedReport.severity]?.bg,
+                  color: severityColors[selectedReport.severity]?.color
+                }}>
+                  {severityColors[selectedReport.severity]?.label}
+                </span>
+                <span className={`detail-status-badge ${selectedReport.status === 'resolved' ? 'status-resolved' : 'status-pending'}`}>
+                  {selectedReport.status === 'resolved' ? '✅ Resolved' : '🔴 Unresolved'}
+                </span>
+              </div>
+              <button className="close-btn" onClick={() => setSelectedReport(null)}>✕</button>
+            </div>
+
+            {/* Ward Title */}
+            <h2 className="detail-ward-title">
+              {selectedReport.ward_name || 'Unknown Ward'}
+            </h2>
+            <p className="detail-ward-sub">
+              Ward #{selectedReport.ward_number || '?'} · {selectedReport.corporation || 'GCC'} · {timeAgo(selectedReport.created_at)}
+            </p>
+
+            {/* Photo */}
+            {selectedReport.photo_url && (
+              <div className="detail-photo-wrap">
+                <img src={selectedReport.photo_url} alt="Garbage report" className="detail-photo" />
+              </div>
+            )}
+
+            {/* Stats Row */}
+            <div className="detail-stats-row">
+              <div className="detail-stat">
+                <span className="detail-stat-num">1</span>
+                <span className="detail-stat-label">Report</span>
+              </div>
+              <div className="detail-stat-divider" />
+              <div className="detail-stat">
+                <span className="detail-stat-num">
+                  {Math.floor((new Date() - new Date(selectedReport.created_at)) / 86400000) || 0}
+                </span>
+                <span className="detail-stat-label">Days open</span>
+              </div>
+              <div className="detail-stat-divider" />
+              <div className="detail-stat">
+                <span className="detail-stat-num">{selectedReport.zone || 'GCC'}</span>
+                <span className="detail-stat-label">Zone</span>
+              </div>
+            </div>
+
+            {/* Accountability Section */}
+            <div className="detail-accountability">
+              <p className="detail-section-title">ACCOUNTABILITY</p>
+
+              {/* Ward */}
+              <div className="detail-ward-badge">
+                Your Ward · #{selectedReport.ward_number || '?'}
+              </div>
+
+              {/* Politicians */}
+              <div className="detail-politicians">
+                <div className="detail-politician">
+                  <div className="detail-politician-icon">👤</div>
+                  <div className="detail-politician-info">
+                    <span className="detail-politician-role">Councillor</span>
+                    <span className="detail-politician-name">
+                      {selectedReport.councillor_name || 'Vacant since 2019'}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="detail-politician">
+                  <div className="detail-politician-icon">🏛️</div>
+                  <div className="detail-politician-info">
+                    <span className="detail-politician-role">MLA · {selectedReport.mla_constituency || 'Unknown'}</span>
+                    <span className="detail-politician-name">
+                      {selectedReport.mla_name || 'Name pending'}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="detail-politician">
+                  <div className="detail-politician-icon">🇮🇳</div>
+                  <div className="detail-politician-info">
+                    <span className="detail-politician-role">MP · {selectedReport.mp_constituency || 'Unknown'}</span>
+                    <span className="detail-politician-name">
+                      {selectedReport.mp_name || 'Name pending'}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Action Buttons */}
+            <a
+              href="https://chennaicorporation.gov.in/gcc/online-services/"
+              target="_blank"
+              className="detail-complaint-btn"
+            >
+              📋 {lang === 'ta' ? 'GCC புகார் பதிவு செய்க' : 'File GCC Complaint'}
+            </a>
+
+            {/* Anonymous badge */}
+            <p className="detail-anonymous">🔒 All reports are anonymous</p>
+
+          </div>
+        </div>
+      )}
 
       {/* Report Form */}
       {showForm && (
