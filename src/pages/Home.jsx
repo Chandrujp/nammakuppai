@@ -539,7 +539,7 @@ function Home({ lang, setLang }) {
 
       {/* WELCOME POPUP */}
       {showWelcome && (
-        <div className="form-overlay" onClick={closeWelcome}>
+  <div className="form-overlay" onClick={closeWelcome} style={{alignItems:'center', justifyContent:'center', display:'flex'}}>
           <div className="welcome-modal" onClick={e => e.stopPropagation()}>
 
             <div style={{textAlign:'center', marginBottom:'20px'}}>

@@ -901,5 +901,8 @@ body { background: #f8f8f6; }
   padding: 28px 24px 20px;
   width: 90%;
   max-width: 360px;
-  margin: auto;
+  margin: 0 auto;
+  position: relative;
+  top: 0;
+  transform: none;
 }
