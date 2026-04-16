@@ -36,12 +36,14 @@ body { background: #f8f8f6; }
   z-index: 1000;
   border-bottom: 0.5px solid #f0f0f0;
   flex-shrink: 0;
+  min-height: 48px;
 }
 
 .header-left {
   display: flex;
   align-items: center;
   gap: 10px;
+  flex-shrink: 0;
 }
 
 .logo {
@@ -49,6 +51,7 @@ body { background: #f8f8f6; }
   font-weight: 800;
   color: #C41E3A;
   letter-spacing: -0.5px;
+  white-space: nowrap;
 }
 
 .tagline {
@@ -60,10 +63,11 @@ body { background: #f8f8f6; }
 .header-right {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
+  flex-shrink: 0;
 }
 
-/* SOCIAL ICONS */
+/* SOCIAL ICONS — header */
 .social-icons {
   display: flex;
   align-items: center;
@@ -84,6 +88,17 @@ body { background: #f8f8f6; }
 
 .social-icon:hover { background: #f5f5f5; color: #C41E3A; }
 
+/* SOCIAL ICONS — footer */
+.footer-social {
+  color: rgba(255,255,255,0.5) !important;
+  background: transparent !important;
+}
+
+.footer-social:hover {
+  color: white !important;
+  background: rgba(255,255,255,0.1) !important;
+}
+
 .lang-toggle {
   background: transparent;
   color: #999;
@@ -92,6 +107,7 @@ body { background: #f8f8f6; }
   border-radius: 20px;
   font-size: 10px;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .lang-toggle:hover { border-color: #C41E3A; color: #C41E3A; }
@@ -99,7 +115,7 @@ body { background: #f8f8f6; }
 .board-btn {
   background: #1a1a2e;
   color: #FFD700;
-  padding: 7px 14px;
+  padding: 7px 10px;
   border-radius: 20px;
   font-size: 11px;
   font-weight: 600;
@@ -119,6 +135,8 @@ body { background: #f8f8f6; }
   border-bottom: 0.5px solid #f0f0f0;
   z-index: 999;
   flex-shrink: 0;
+  flex-wrap: nowrap;
+  overflow-x: auto;
 }
 
 .filter-select {
@@ -130,6 +148,7 @@ body { background: #f8f8f6; }
   color: #444;
   cursor: pointer;
   outline: none;
+  flex-shrink: 0;
 }
 
 .filter-select:focus { border-color: #C41E3A; }
@@ -139,6 +158,8 @@ body { background: #f8f8f6; }
   font-size: 12px;
   color: #C41E3A;
   font-weight: 700;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .report-count span {
@@ -185,16 +206,8 @@ body { background: #f8f8f6; }
   font-variant-numeric: tabular-nums;
 }
 
-.map-stat-label {
-  font-size: 9px;
-  color: #999;
-}
-
-.map-stat-divider {
-  width: 0.5px;
-  height: 20px;
-  background: #e8e8e8;
-}
+.map-stat-label { font-size: 9px; color: #999; }
+.map-stat-divider { width: 0.5px; height: 20px; background: #e8e8e8; }
 
 /* BOTTOM BAR */
 .bottom-bar {
@@ -226,16 +239,34 @@ body { background: #f8f8f6; }
 
 .report-btn:active { transform: scale(0.98); }
 
-/* FORM OVERLAY */
+/* FORM OVERLAY — bottom sheet for forms/modals */
 .form-overlay {
   position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  inset: 0;
   z-index: 2000;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.55);
   display: flex;
   align-items: flex-end;
+}
+
+/* WELCOME OVERLAY — centered popup */
+.welcome-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.welcome-modal {
+  background: white;
+  border-radius: 20px;
+  padding: 28px 24px 20px;
+  width: 100%;
+  max-width: 360px;
 }
 
 .form-container {
@@ -295,13 +326,7 @@ body { background: #f8f8f6; }
 
 /* SEVERITY */
 .severity-section { margin-bottom: 12px; }
-
-.severity-label {
-  font-size: 12px;
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 8px;
-}
+.severity-label { font-size: 12px; font-weight: 600; color: #333; margin-bottom: 8px; }
 
 .severity-options {
   display: grid;
@@ -336,23 +361,11 @@ body { background: #f8f8f6; }
   margin-bottom: 12px;
 }
 
-.ward-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 4px 0;
-}
-
+.ward-row { display: flex; justify-content: space-between; align-items: center; padding: 4px 0; }
 .ward-key { font-size: 10px; color: #999; }
 .ward-val { font-size: 11px; font-weight: 600; color: #1a1a2e; }
+.ward-divider { height: 0.5px; background: #eee; margin: 3px 0; }
 
-.ward-divider {
-  height: 0.5px;
-  background: #eee;
-  margin: 3px 0;
-}
-
-/* LOCATION */
 .location-info {
   background: #fff8e6;
   border: 0.5px solid #FFD700;
@@ -441,12 +454,7 @@ body { background: #f8f8f6; }
   text-align: center;
 }
 
-.back-btn {
-  color: #C41E3A;
-  text-decoration: none;
-  font-size: 13px;
-  font-weight: 600;
-}
+.back-btn { color: #C41E3A; text-decoration: none; font-size: 13px; font-weight: 600; }
 
 .board-filters {
   background: #fff;
@@ -473,58 +481,28 @@ body { background: #f8f8f6; }
   border: 0.5px solid #f0f0f0;
 }
 
-.ward-rank {
-  font-size: 20px;
-  font-weight: 800;
-  color: #C41E3A;
-  min-width: 32px;
-  font-variant-numeric: tabular-nums;
-}
-
+.ward-rank { font-size: 20px; font-weight: 800; color: #C41E3A; min-width: 32px; font-variant-numeric: tabular-nums; }
 .ward-info { flex: 1; }
 .ward-info h3 { font-size: 13px; font-weight: 700; margin-bottom: 3px; }
 .ward-info p { font-size: 11px; color: #666; margin: 2px 0; }
-
 .ward-count { display: flex; flex-direction: column; align-items: center; }
-
-.count-number {
-  font-size: 24px;
-  font-weight: 800;
-  color: #C41E3A;
-  font-variant-numeric: tabular-nums;
-}
-
+.count-number { font-size: 24px; font-weight: 800; color: #C41E3A; font-variant-numeric: tabular-nums; }
 .count-label { font-size: 10px; color: #999; }
 
 /* FOOTER */
 .footer {
   background: #1a1a2e;
-  padding: 6px 16px;
+  padding: 10px 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 4px;
   flex-shrink: 0;
 }
 
-.footer-corps {
-  display: flex;
-  gap: 5px;
-  align-items: center;
+.footer-copyright {
+  font-size: 11px;
+  color: #555;
 }
-
-.corp-tag {
-  background: rgba(255,215,0,0.1);
-  color: #FFD700;
-  font-size: 8px;
-  padding: 2px 7px;
-  border-radius: 10px;
-  border: 0.5px solid rgba(255,215,0,0.3);
-}
-
-.footer-meta { font-size: 8px; color: #555; }
-.footer-domain { font-size: 8px; color: #444; }
 
 /* LOADING */
 .loading { text-align: center; padding: 40px; color: #666; }
@@ -565,17 +543,8 @@ body { background: #f8f8f6; }
   margin-bottom: 8px;
 }
 
-.qr-modal-header h3 {
-  font-size: 16px;
-  font-weight: 700;
-}
-
-.qr-modal-sub {
-  font-size: 12px;
-  color: #888;
-  margin-bottom: 20px;
-  text-align: left;
-}
+.qr-modal-header h3 { font-size: 16px; font-weight: 700; }
+.qr-modal-sub { font-size: 12px; color: #888; margin-bottom: 20px; text-align: left; }
 
 .qr-code-box {
   display: flex;
@@ -587,11 +556,7 @@ body { background: #f8f8f6; }
   border: 0.5px solid #eee;
 }
 
-.qr-domain {
-  font-size: 12px;
-  color: #999;
-  margin-top: 8px;
-}
+.qr-domain { font-size: 12px; color: #999; margin-top: 8px; }
 
 /* VIEW TOGGLE */
 .view-toggle {
@@ -600,7 +565,7 @@ body { background: #f8f8f6; }
   border-radius: 8px;
   padding: 2px;
   gap: 2px;
-  margin-left: 8px;
+  flex-shrink: 0;
 }
 
 .view-btn {
@@ -673,14 +638,7 @@ body { background: #f8f8f6; }
   flex-shrink: 0;
 }
 
-.list-severity {
-  font-size: 10px;
-  font-weight: 700;
-  padding: 3px 8px;
-  border-radius: 20px;
-  text-transform: capitalize;
-}
-
+.list-severity { font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 20px; text-transform: capitalize; }
 .list-resolved { font-size: 10px; color: #2e7d32; }
 
 .list-thumb {
@@ -700,53 +658,20 @@ body { background: #f8f8f6; }
   overflow-y: auto;
 }
 
-.detail-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
+.detail-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
 .detail-badges { display: flex; gap: 8px; align-items: center; }
 
-.detail-severity-badge {
-  font-size: 11px;
-  font-weight: 700;
-  padding: 4px 10px;
-  border-radius: 20px;
-}
-
-.detail-status-badge {
-  font-size: 11px;
-  font-weight: 600;
-  padding: 4px 10px;
-  border-radius: 20px;
-}
+.detail-severity-badge { font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px; }
+.detail-status-badge { font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 20px; }
 
 .status-pending { background: #fff0f0; color: #C41E3A; }
 .status-resolved { background: #f0fff0; color: #2e7d32; }
 
-.detail-ward-title {
-  font-size: 22px;
-  font-weight: 800;
-  color: #1a1a2e;
-  margin-bottom: 4px;
-}
-
+.detail-ward-title { font-size: 22px; font-weight: 800; color: #1a1a2e; margin-bottom: 4px; }
 .detail-ward-sub { font-size: 12px; color: #999; margin-bottom: 14px; }
 
-.detail-photo-wrap {
-  width: 100%;
-  border-radius: 12px;
-  overflow: hidden;
-  margin-bottom: 14px;
-}
-
-.detail-photo {
-  width: 100%;
-  max-height: 220px;
-  object-fit: cover;
-}
+.detail-photo-wrap { width: 100%; border-radius: 12px; overflow: hidden; margin-bottom: 14px; }
+.detail-photo { width: 100%; max-height: 220px; object-fit: cover; }
 
 .detail-stats-row {
   display: flex;
@@ -758,26 +683,13 @@ body { background: #f8f8f6; }
   margin-bottom: 16px;
 }
 
-.detail-stat {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex: 1;
-}
-
+.detail-stat { display: flex; flex-direction: column; align-items: center; flex: 1; }
 .detail-stat-num { font-size: 18px; font-weight: 800; color: #C41E3A; }
 .detail-stat-label { font-size: 9px; color: #999; margin-top: 2px; }
 .detail-stat-divider { width: 0.5px; height: 30px; background: #e8e8e8; }
 
 .detail-accountability { margin-bottom: 16px; }
-
-.detail-section-title {
-  font-size: 10px;
-  font-weight: 700;
-  color: #999;
-  letter-spacing: 1px;
-  margin-bottom: 10px;
-}
+.detail-section-title { font-size: 10px; font-weight: 700; color: #999; letter-spacing: 1px; margin-bottom: 10px; }
 
 .detail-ward-badge {
   display: inline-block;
@@ -791,11 +703,7 @@ body { background: #f8f8f6; }
   margin-bottom: 12px;
 }
 
-.detail-politicians {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
+.detail-politicians { display: flex; flex-direction: column; gap: 10px; }
 
 .detail-politician {
   display: flex;
@@ -807,12 +715,7 @@ body { background: #f8f8f6; }
 }
 
 .detail-politician-icon { font-size: 20px; }
-
-.detail-politician-info {
-  display: flex;
-  flex-direction: column;
-}
-
+.detail-politician-info { display: flex; flex-direction: column; }
 .detail-politician-role { font-size: 10px; color: #999; }
 .detail-politician-name { font-size: 13px; font-weight: 700; color: #1a1a2e; }
 
@@ -830,25 +733,13 @@ body { background: #f8f8f6; }
   margin-bottom: 10px;
 }
 
-.detail-anonymous {
-  text-align: center;
-  font-size: 11px;
-  color: #999;
-  margin-top: 4px;
-}
+.detail-anonymous { text-align: center; font-size: 11px; color: #999; margin-top: 4px; }
 
-/* Push geocoder search down so it doesn't overlap stats */
-.leaflet-top.leaflet-right .leaflet-control-geocoder {
-  margin-top: 60px;
-}
+.leaflet-top.leaflet-right .leaflet-control-geocoder { margin-top: 60px; }
 
 .detail-actions { margin-bottom: 10px; }
 
-.detail-action-row {
-  display: flex;
-  gap: 8px;
-  margin-top: 8px;
-}
+.detail-action-row { display: flex; gap: 8px; margin-top: 8px; }
 
 .detail-action-small {
   flex: 1;
@@ -893,16 +784,4 @@ body { background: #f8f8f6; }
   font-weight: 600;
   cursor: pointer;
   margin-bottom: 10px;
-}
-
-.welcome-modal {
-  background: white;
-  border-radius: 20px;
-  padding: 28px 24px 20px;
-  width: 90%;
-  max-width: 360px;
-  margin: 0 auto;
-  position: relative;
-  top: 0;
-  transform: none;
 }
