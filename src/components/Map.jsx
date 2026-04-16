@@ -98,7 +98,6 @@ function MapClickHandler({ setSelectedLocation, setShowForm, setClickedPin }) {
   return null
 }
 
-// GPS button inside map
 function GPSButton({ setSelectedLocation, setShowForm, setClickedPin, lang }) {
   const map = useMap()
   const [locating, setLocating] = useState(false)
@@ -128,14 +127,7 @@ function GPSButton({ setSelectedLocation, setShowForm, setClickedPin, lang }) {
   }
 
   return (
-    <div
-      style={{
-        position: 'absolute',
-        bottom: '80px',
-        right: '12px',
-        zIndex: 1000,
-      }}
-    >
+    <div style={{ position: 'absolute', bottom: '80px', right: '12px', zIndex: 1000 }}>
       <button
         onClick={handleGPS}
         disabled={locating}
@@ -201,13 +193,14 @@ function Map({ reports, setReports, setSelectedLocation, setShowForm, lang }) {
   return (
     <div style={{ position: 'relative', height: '100%', width: '100%' }}>
       <MapContainer
+        attributionControl={false}
         center={chennaiCenter}
         zoom={12}
         style={{ height: '100%', width: '100%' }}
       >
         <TileLayer
-          attribution='© OpenStreetMap contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | nammakuppai.in'
         />
 
         <SearchControl
