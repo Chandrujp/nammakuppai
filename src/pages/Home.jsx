@@ -48,14 +48,14 @@ function Home({ lang, setLang }) {
   const activeReports = reports.filter(r => r.status === 'pending').length
 
   function timeAgo(dateStr) {
-    const now = new Date()
-    const date = new Date(dateStr)
-    const diff = Math.floor((now - date) / 1000)
-    if (diff < 60) return 'Just now'
-    if (diff < 3600) return `${Math.floor(diff / 60)}m ago`
-    if (diff < 86400) return `${Math.floor(diff / 3600)}h ago`
-    return `${Math.floor(diff / 86400)}d ago`
-  }
+  const now = new Date()
+  const date = new Date(dateStr + 'Z') // force UTC parse
+  const diff = Math.floor((now - date) / 1000)
+  if (diff < 60) return 'Just now'
+  if (diff < 3600) return `${Math.floor(diff / 60)}m ago`
+  if (diff < 86400) return `${Math.floor(diff / 3600)}h ago`
+  return `${Math.floor(diff / 86400)}d ago`
+}
 
   const severityColors = {
     minor: { bg: '#fffbeb', color: '#f59e0b', label: 'Minor' },
