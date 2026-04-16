@@ -170,28 +170,30 @@ function Home({ lang, setLang }) {
       </div>
 
       {/* Filters */}
-      <div className="filters-bar">
-        <select className="filter-select" value={severityFilter} onChange={e => setSeverityFilter(e.target.value)}>
-          <option value="all">{t.allSeverity}</option>
-          <option value="minor">{lang === 'ta' ? 'சிறியது' : 'Minor'}</option>
-          <option value="moderate">{lang === 'ta' ? 'மிதமான' : 'Moderate'}</option>
-          <option value="severe">{lang === 'ta' ? 'தீவிரமான' : 'Severe'}</option>
-          <option value="critical">{lang === 'ta' ? 'அவசரகால' : 'Critical'}</option>
-        </select>
-        <select className="filter-select" value={statusFilter} onChange={e => setStatusFilter(e.target.value)}>
-          <option value="all">{t.allStatus}</option>
-          <option value="pending">{lang === 'ta' ? 'நிலுவையில்' : 'Pending'}</option>
-          <option value="resolved">{lang === 'ta' ? 'தீர்க்கப்பட்டது' : 'Resolved'}</option>
-        </select>
-        <div className="view-toggle">
-          <button className={`view-btn ${view === 'map' ? 'view-btn-active' : ''}`} onClick={() => setView('map')}>
-            {lang === 'ta' ? 'வரைபடம்' : 'Map'}
-          </button>
-          <button className={`view-btn ${view === 'list' ? 'view-btn-active' : ''}`} onClick={() => setView('list')}>
-            {lang === 'ta' ? 'பட்டியல்' : 'List'}
-          </button>
-        </div>
-      </div>
+<div className="filters-bar">
+  <div style={{display:'flex', gap:'6px', alignItems:'center'}}>
+    <select className="filter-select" value={severityFilter} onChange={e => setSeverityFilter(e.target.value)}>
+      <option value="all">{t.allSeverity}</option>
+      <option value="minor">{lang === 'ta' ? 'சிறியது' : 'Minor'}</option>
+      <option value="moderate">{lang === 'ta' ? 'மிதமான' : 'Moderate'}</option>
+      <option value="severe">{lang === 'ta' ? 'தீவிரமான' : 'Severe'}</option>
+      <option value="critical">{lang === 'ta' ? 'அவசரகால' : 'Critical'}</option>
+    </select>
+    <select className="filter-select" value={statusFilter} onChange={e => setStatusFilter(e.target.value)}>
+      <option value="all">{t.allStatus}</option>
+      <option value="pending">{lang === 'ta' ? 'நிலுவையில்' : 'Pending'}</option>
+      <option value="resolved">{lang === 'ta' ? 'தீர்க்கப்பட்டது' : 'Resolved'}</option>
+    </select>
+  </div>
+  <div className="view-toggle">
+    <button className={`view-btn ${view === 'map' ? 'view-btn-active' : ''}`} onClick={() => setView('map')}>
+      {lang === 'ta' ? 'வரைபடம்' : 'Map'}
+    </button>
+    <button className={`view-btn ${view === 'list' ? 'view-btn-active' : ''}`} onClick={() => setView('list')}>
+      {lang === 'ta' ? 'பட்டியல்' : 'List'}
+    </button>
+  </div>
+</div>
 
       {/* MAP VIEW */}
       {view === 'map' && (
