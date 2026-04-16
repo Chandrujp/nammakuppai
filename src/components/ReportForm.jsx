@@ -177,6 +177,16 @@ function ReportForm({ selectedLocation, setShowForm, setReports, reports, lang }
           </div>
         ) : (
           <>
+            {/* Safari nudge for Chrome iOS */}
+{/CriOS/i.test(navigator.userAgent) && (
+  <div style={{background:'#fff8e6', border:'0.5px solid #FFD700', borderRadius:'8px', padding:'8px 12px', marginBottom:'12px', fontSize:'12px', color:'#C41E3A', fontWeight:'600'}}>
+    📱 {lang === 'ta' ? 'சிறந்த அனுபவத்திற்கு Safari பயன்படுத்தவும்' : 'For best experience, open in Safari'}
+  </div>
+)}
+
+{/* Photo Upload */}
+<div className="photo-upload"></div>
+
             {/* Photo Upload */}
             <div className="photo-upload">
               {photoPreview ? (
