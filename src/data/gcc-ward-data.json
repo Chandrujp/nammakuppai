@@ -5,7 +5,8 @@
     "mla_constituency": "Thiruvottiyur",
     "mla_name": "K. P. Shankar",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Sivakumar"
   },
   "2": {
     "ward_name": "Ennore",
@@ -13,7 +14,8 @@
     "mla_constituency": "Thiruvottiyur",
     "mla_name": "K. P. Shankar",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Gomathi Santhoshkumar"
   },
   "3": {
     "ward_name": "Ernavoor",
@@ -21,7 +23,8 @@
     "mla_constituency": "Thiruvottiyur",
     "mla_name": "K. P. Shankar",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Tamizharasan"
   },
   "4": {
     "ward_name": "Ajax",
@@ -29,7 +32,8 @@
     "mla_constituency": "Thiruvottiyur",
     "mla_name": "K. P. Shankar",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Jayaraman"
   },
   "5": {
     "ward_name": "Tiruvottiyur",
@@ -37,7 +41,8 @@
     "mla_constituency": "Thiruvottiyur",
     "mla_name": "K. P. Shankar",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Shokalingam"
   },
   "6": {
     "ward_name": "Kaladipet",
@@ -45,7 +50,8 @@
     "mla_constituency": "Thiruvottiyur",
     "mla_name": "K. P. Shankar",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Samuel Thriviyam"
   },
   "7": {
     "ward_name": "Rajakadai",
@@ -53,7 +59,8 @@
     "mla_constituency": "Thiruvottiyur",
     "mla_name": "K. P. Shankar",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Karthik"
   },
   "8": {
     "ward_name": "Kodungaiyur (West)",
@@ -61,7 +68,8 @@
     "mla_constituency": "Thiruvottiyur",
     "mla_name": "K. P. Shankar",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Rajakumari"
   },
   "9": {
     "ward_name": "Kodungaiyur (East)",
@@ -69,7 +77,8 @@
     "mla_constituency": "Thiruvottiyur",
     "mla_name": "K. P. Shankar",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Uma Saravanan"
   },
   "10": {
     "ward_name": "Dr. Radhakrishnan Nagar (North)",
@@ -77,7 +86,8 @@
     "mla_constituency": "Thiruvottiyur",
     "mla_name": "K. P. Shankar",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Thaniyarasu"
   },
   "11": {
     "ward_name": "Cheriyan Nagar (North)",
@@ -85,7 +95,8 @@
     "mla_constituency": "Thiruvottiyur",
     "mla_name": "K. P. Shankar",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Saranya"
   },
   "12": {
     "ward_name": "Jeeva Nagar (North)",
@@ -93,7 +104,8 @@
     "mla_constituency": "Thiruvottiyur",
     "mla_name": "K. P. Shankar",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Kavi Ganesan"
   },
   "13": {
     "ward_name": "Cheriyan Nagar (South)",
@@ -101,7 +113,8 @@
     "mla_constituency": "Thiruvottiyur",
     "mla_name": "K. P. Shankar",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Susila"
   },
   "14": {
     "ward_name": "Jeeva Nagar (South)",
@@ -109,7 +122,8 @@
     "mla_constituency": "Thiruvottiyur",
     "mla_name": "K. P. Shankar",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Banumathi"
   },
   "15": {
     "ward_name": "Edyanchavadi",
@@ -117,7 +131,8 @@
     "mla_constituency": "Madhavaram",
     "mla_name": "S. Sudharsanam",
     "mp_constituency": "Thiruvallur",
-    "mp_name": "Sasikumar Senthil"
+    "mp_name": "Sasikumar Senthil",
+    "councillor_name": "Nandhini"
   },
   "16": {
     "ward_name": "Kadapakkam",
@@ -125,7 +140,8 @@
     "mla_constituency": "Madhavaram",
     "mla_name": "S. Sudharsanam",
     "mp_constituency": "Thiruvallur",
-    "mp_name": "Sasikumar Senthil"
+    "mp_name": "Sasikumar Senthil",
+    "councillor_name": "Rajendran"
   },
   "17": {
     "ward_name": "Theeyambakkam",
@@ -133,7 +149,8 @@
     "mla_constituency": "Madhavaram",
     "mla_name": "S. Sudharsanam",
     "mp_constituency": "Thiruvallur",
-    "mp_name": "Sasikumar Senthil"
+    "mp_name": "Sasikumar Senthil",
+    "councillor_name": "Jayashankar"
   },
   "18": {
     "ward_name": "Manali",
@@ -141,7 +158,8 @@
     "mla_constituency": "Madhavaram",
     "mla_name": "S. Sudharsanam",
     "mp_constituency": "Thiruvallur",
-    "mp_name": "Sasikumar Senthil"
+    "mp_name": "Sasikumar Senthil",
+    "councillor_name": "Sridharan"
   },
   "19": {
     "ward_name": "Mathur",
@@ -149,7 +167,8 @@
     "mla_constituency": "Madhavaram",
     "mla_name": "S. Sudharsanam",
     "mp_constituency": "Thiruvallur",
-    "mp_name": "Sasikumar Senthil"
+    "mp_name": "Sasikumar Senthil",
+    "councillor_name": "Kasinathan"
   },
   "20": {
     "ward_name": "Sanjeevirayanpet",
@@ -157,7 +176,8 @@
     "mla_constituency": "Madhavaram",
     "mla_name": "S. Sudharsanam",
     "mp_constituency": "Thiruvallur",
-    "mp_name": "Sasikumar Senthil"
+    "mp_name": "Sasikumar Senthil",
+    "councillor_name": "Arumugam"
   },
   "21": {
     "ward_name": "Grace Garden",
@@ -165,7 +185,8 @@
     "mla_constituency": "Madhavaram",
     "mla_name": "S. Sudharsanam",
     "mp_constituency": "Thiruvallur",
-    "mp_name": "Sasikumar Senthil"
+    "mp_name": "Sasikumar Senthil",
+    "councillor_name": "Rajesh Sekar"
   },
   "22": {
     "ward_name": "Kavankarai",
@@ -173,7 +194,8 @@
     "mla_constituency": "Madhavaram",
     "mla_name": "S. Sudharsanam",
     "mp_constituency": "Thiruvallur",
-    "mp_name": "Sasikumar Senthil"
+    "mp_name": "Sasikumar Senthil",
+    "councillor_name": "Theerthy"
   },
   "23": {
     "ward_name": "Puzhal",
@@ -181,7 +203,8 @@
     "mla_constituency": "Madhavaram",
     "mla_name": "S. Sudharsanam",
     "mp_constituency": "Thiruvallur",
-    "mp_name": "Sasikumar Senthil"
+    "mp_name": "Sasikumar Senthil",
+    "councillor_name": "Rajan"
   },
   "24": {
     "ward_name": "Puthagram",
@@ -189,7 +212,8 @@
     "mla_constituency": "Madhavaram",
     "mla_name": "S. Sudharsanam",
     "mp_constituency": "Thiruvallur",
-    "mp_name": "Sasikumar Senthil"
+    "mp_name": "Sasikumar Senthil",
+    "councillor_name": "Settu"
   },
   "25": {
     "ward_name": "Kathirvedu",
@@ -197,7 +221,8 @@
     "mla_constituency": "Madhavaram",
     "mla_name": "S. Sudharsanam",
     "mp_constituency": "Thiruvallur",
-    "mp_name": "Sasikumar Senthil"
+    "mp_name": "Sasikumar Senthil",
+    "councillor_name": "Nandhagopal"
   },
   "26": {
     "ward_name": "Lakshmipuram – Madhavaram",
@@ -205,7 +230,8 @@
     "mla_constituency": "Madhavaram",
     "mla_name": "S. Sudharsanam",
     "mp_constituency": "Thiruvallur",
-    "mp_name": "Sasikumar Senthil"
+    "mp_name": "Sasikumar Senthil",
+    "councillor_name": "Ashana Merisha"
   },
   "27": {
     "ward_name": "Assisi Nagar 9th St",
@@ -213,7 +239,8 @@
     "mla_constituency": "Madhavaram",
     "mla_name": "S. Sudharsanam",
     "mp_constituency": "Thiruvallur",
-    "mp_name": "Sasikumar Senthil"
+    "mp_name": "Sasikumar Senthil",
+    "councillor_name": "Chadran"
   },
   "28": {
     "ward_name": "Chinnasekkadu",
@@ -221,7 +248,8 @@
     "mla_constituency": "Madhavaram",
     "mla_name": "S. Sudharsanam",
     "mp_constituency": "Thiruvallur",
-    "mp_name": "Sasikumar Senthil"
+    "mp_name": "Sasikumar Senthil",
+    "councillor_name": "Kanimozhi"
   },
   "29": {
     "ward_name": "Madhavaram",
@@ -229,7 +257,8 @@
     "mla_constituency": "Madhavaram",
     "mla_name": "S. Sudharsanam",
     "mp_constituency": "Thiruvallur",
-    "mp_name": "Sasikumar Senthil"
+    "mp_name": "Sasikumar Senthil",
+    "councillor_name": "Karthikeyan"
   },
   "30": {
     "ward_name": "Ma-Po-Si Nagar",
@@ -237,7 +266,8 @@
     "mla_constituency": "Madhavaram",
     "mla_name": "S. Sudharsanam",
     "mp_constituency": "Thiruvallur",
-    "mp_name": "Sasikumar Senthil"
+    "mp_name": "Sasikumar Senthil",
+    "councillor_name": "Duraiswamy"
   },
   "31": {
     "ward_name": "Royapuram",
@@ -245,7 +275,8 @@
     "mla_constituency": "Royapuram",
     "mla_name": "Idream R. Murthy",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Sangeetha"
   },
   "32": {
     "ward_name": "Singarathottam",
@@ -253,7 +284,8 @@
     "mla_constituency": "Royapuram",
     "mla_name": "Idream R. Murthy",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Elumalai"
   },
   "33": {
     "ward_name": "Narayanappa Thottam",
@@ -261,7 +293,8 @@
     "mla_constituency": "Royapuram",
     "mla_name": "Idream R. Murthy",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Guna Sundari"
   },
   "34": {
     "ward_name": "Korukkupet",
@@ -269,7 +302,8 @@
     "mla_constituency": "Perambur",
     "mla_name": "R. D. Sekar",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Shamila Gandhi"
   },
   "35": {
     "ward_name": "Mottai Thottam",
@@ -277,7 +311,8 @@
     "mla_constituency": "Perambur",
     "mla_name": "R. D. Sekar",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Jeevan"
   },
   "36": {
     "ward_name": "Kumarasamy Nagar (South)",
@@ -285,7 +320,8 @@
     "mla_constituency": "Perambur",
     "mla_name": "R. D. Sekar",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Malaisamy"
   },
   "37": {
     "ward_name": "Dr. Radhakrishnan Nagar (South)",
@@ -293,7 +329,8 @@
     "mla_constituency": "Perambur",
     "mla_name": "R. D. Sekar",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Dilli Babu"
   },
   "38": {
     "ward_name": "Kumarasamy Nagar (North)",
@@ -301,7 +338,8 @@
     "mla_constituency": "Perambur",
     "mla_name": "R. D. Sekar",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Ganesan"
   },
   "39": {
     "ward_name": "Vijayaragavalu Nagar (West)",
@@ -309,7 +347,8 @@
     "mla_constituency": "Perambur",
     "mla_name": "R. D. Sekar",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Devi Kathirasan"
   },
   "40": {
     "ward_name": "Tondiarpet",
@@ -317,7 +356,8 @@
     "mla_constituency": "Perambur",
     "mla_name": "R. D. Sekar",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Kumari"
   },
   "41": {
     "ward_name": "Old Washermenpet",
@@ -325,7 +365,8 @@
     "mla_constituency": "Perambur",
     "mla_name": "R. D. Sekar",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Vimala"
   },
   "42": {
     "ward_name": "Meenakshiammanpet",
@@ -333,7 +374,8 @@
     "mla_constituency": "Perambur",
     "mla_name": "R. D. Sekar",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Renuka"
   },
   "43": {
     "ward_name": "Kondithope",
@@ -341,7 +383,8 @@
     "mla_constituency": "Harbour",
     "mla_name": "P. K. Sekar Babu",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Pavithra"
   },
   "44": {
     "ward_name": "Sevenwells (North)",
@@ -349,7 +392,8 @@
     "mla_constituency": "Harbour",
     "mla_name": "P. K. Sekar Babu",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Surbajaya Das"
   },
   "45": {
     "ward_name": "Amman Koil",
@@ -357,7 +401,8 @@
     "mla_constituency": "Harbour",
     "mla_name": "P. K. Sekar Babu",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Gopinath"
   },
   "46": {
     "ward_name": "Muthialpet",
@@ -365,7 +410,8 @@
     "mla_constituency": "Harbour",
     "mla_name": "P. K. Sekar Babu",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Anandhi"
   },
   "47": {
     "ward_name": "Vallalseethakathi Nagar",
@@ -373,7 +419,8 @@
     "mla_constituency": "Harbour",
     "mla_name": "P. K. Sekar Babu",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Manimegalai"
   },
   "48": {
     "ward_name": "Kachaleeswarar Nagar",
@@ -381,7 +428,8 @@
     "mla_constituency": "Harbour",
     "mla_name": "P. K. Sekar Babu",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Vijayalakshmi"
   },
   "49": {
     "ward_name": "Sevenwells (South)",
@@ -389,7 +437,8 @@
     "mla_constituency": "Royapuram",
     "mla_name": "Idream R. Murthy",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Elango"
   },
   "50": {
     "ward_name": "Sowcarpet",
@@ -397,7 +446,8 @@
     "mla_constituency": "Harbour",
     "mla_name": "P. K. Sekar Babu",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Sureshkumar"
   },
   "51": {
     "ward_name": "Basin Bridge",
@@ -405,7 +455,8 @@
     "mla_constituency": "Harbour",
     "mla_name": "P. K. Sekar Babu",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Niranjana Jagadeesan"
   },
   "52": {
     "ward_name": "Vyasarpet (South)",
@@ -413,7 +464,8 @@
     "mla_constituency": "Perambur",
     "mla_name": "R. D. Sekar",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Geetha Suresh"
   },
   "53": {
     "ward_name": "Vyasarpet (North)",
@@ -421,7 +473,8 @@
     "mla_constituency": "Perambur",
     "mla_name": "R. D. Sekar",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Velakanni"
   },
   "54": {
     "ward_name": "Perambur (North)",
@@ -429,7 +482,8 @@
     "mla_constituency": "Perambur",
     "mla_name": "R. D. Sekar",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Sriramulu"
   },
   "55": {
     "ward_name": "Perambur (East)",
@@ -437,7 +491,8 @@
     "mla_constituency": "Perambur",
     "mla_name": "R. D. Sekar",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Naveen"
   },
   "56": {
     "ward_name": "Elango Nagar",
@@ -445,7 +500,8 @@
     "mla_constituency": "Perambur",
     "mla_name": "R. D. Sekar",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Parimalam"
   },
   "57": {
     "ward_name": "Perambur (South)",
@@ -453,7 +509,8 @@
     "mla_constituency": "Perambur",
     "mla_name": "R. D. Sekar",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Rajesh Jain"
   },
   "58": {
     "ward_name": "Thiru-Vi-Ka Nagar",
@@ -461,7 +518,8 @@
     "mla_constituency": "Thiru Vi Ka Nagar",
     "mla_name": "P. Sivakumar",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Rajeswari"
   },
   "59": {
     "ward_name": "Wadia Nagar",
@@ -469,7 +527,8 @@
     "mla_constituency": "Thiru Vi Ka Nagar",
     "mla_name": "P. Sivakumar",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Saraswathi"
   },
   "60": {
     "ward_name": "Dr. Sathyavanimuthu Nagar",
@@ -477,7 +536,8 @@
     "mla_constituency": "Thiru Vi Ka Nagar",
     "mla_name": "P. Sivakumar",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Azath Z"
   },
   "61": {
     "ward_name": "Pulianthope",
@@ -485,7 +545,8 @@
     "mla_constituency": "Thiru Vi Ka Nagar",
     "mla_name": "P. Sivakumar",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Fathima Ahamath"
   },
   "62": {
     "ward_name": "Dr. Besant Nagar",
@@ -493,7 +554,8 @@
     "mla_constituency": "Thiru Vi Ka Nagar",
     "mla_name": "P. Sivakumar",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Jegadesan"
   },
   "63": {
     "ward_name": "Pedhunayakanpet",
@@ -501,7 +563,8 @@
     "mla_constituency": "Thiru Vi Ka Nagar",
     "mla_name": "P. Sivakumar",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Rajasekaran"
   },
   "64": {
     "ward_name": "Perumal Koil Thottam",
@@ -509,7 +572,8 @@
     "mla_constituency": "Kolathur",
     "mla_name": "M. K. Stalin",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "A. Nagarajan"
   },
   "65": {
     "ward_name": "Thattankulam",
@@ -517,7 +581,8 @@
     "mla_constituency": "Kolathur",
     "mla_name": "M. K. Stalin",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Saratha"
   },
   "66": {
     "ward_name": "Choolai",
@@ -525,7 +590,8 @@
     "mla_constituency": "Kolathur",
     "mla_name": "M. K. Stalin",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Yogapriya"
   },
   "67": {
     "ward_name": "Poonga Nagar",
@@ -533,7 +599,8 @@
     "mla_constituency": "Kolathur",
     "mla_name": "M. K. Stalin",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Dawood Bee"
   },
   "68": {
     "ward_name": "Elephant Gate",
@@ -541,7 +608,8 @@
     "mla_constituency": "Egmore",
     "mla_name": "I. Paranthamen",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Amudha"
   },
   "69": {
     "ward_name": "Edapalayam",
@@ -549,7 +617,8 @@
     "mla_constituency": "Kolathur",
     "mla_name": "M. K. Stalin",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Saritha"
   },
   "70": {
     "ward_name": "Agaram (North)",
@@ -557,7 +626,8 @@
     "mla_constituency": "Kolathur",
     "mla_name": "M. K. Stalin",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Sridhani"
   },
   "71": {
     "ward_name": "Sembiam",
@@ -565,7 +635,8 @@
     "mla_constituency": "Kolathur",
     "mla_name": "M. K. Stalin",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Punithavathi"
   },
   "72": {
     "ward_name": "Siruvalloor",
@@ -573,7 +644,8 @@
     "mla_constituency": "Kolathur",
     "mla_name": "M. K. Stalin",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Saravanan"
   },
   "73": {
     "ward_name": "Nagammai Ammaiyar Nagar",
@@ -581,7 +653,8 @@
     "mla_constituency": "Kolathur",
     "mla_name": "M. K. Stalin",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Ambedvalavan"
   },
   "74": {
     "ward_name": "Agaram (South)",
@@ -589,7 +662,8 @@
     "mla_constituency": "Kolathur",
     "mla_name": "M. K. Stalin",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Priya R"
   },
   "75": {
     "ward_name": "Vidhudalai Gurusami Nagar",
@@ -597,7 +671,8 @@
     "mla_constituency": "Kolathur",
     "mla_name": "M. K. Stalin",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Ramani"
   },
   "76": {
     "ward_name": "Ayanavaram",
@@ -605,7 +680,8 @@
     "mla_constituency": "Kolathur",
     "mla_name": "M. K. Stalin",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Tamilselvi"
   },
   "77": {
     "ward_name": "Nagammaiammaiyar Nagar (South)",
@@ -613,7 +689,8 @@
     "mla_constituency": "Kolathur",
     "mla_name": "M. K. Stalin",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Sumathi"
   },
   "78": {
     "ward_name": "Panneer Selvam Nagar",
@@ -621,7 +698,8 @@
     "mla_constituency": "Kolathur",
     "mla_name": "M. K. Stalin",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Velu"
   },
   "79": {
     "ward_name": "Maraimalai Adigal Nagar",
@@ -629,7 +707,8 @@
     "mla_constituency": "Ambattur",
     "mla_name": "Joseph Samuel",
     "mp_constituency": "Sriperumbudur",
-    "mp_name": "T.R. Baalu"
+    "mp_name": "T.R. Baalu",
+    "councillor_name": "Banupriya"
   },
   "80": {
     "ward_name": "Maraimalai Adigal Nagar (South)",
@@ -637,7 +716,8 @@
     "mla_constituency": "Ambattur",
     "mla_name": "Joseph Samuel",
     "mp_constituency": "Sriperumbudur",
-    "mp_name": "T.R. Baalu"
+    "mp_name": "T.R. Baalu",
+    "councillor_name": "Moorthi"
   },
   "81": {
     "ward_name": "Purasawalkam",
@@ -645,7 +725,8 @@
     "mla_constituency": "Ambattur",
     "mla_name": "Joseph Samuel",
     "mp_constituency": "Sriperumbudur",
-    "mp_name": "T.R. Baalu"
+    "mp_name": "T.R. Baalu",
+    "councillor_name": "Shantha Kumari"
   },
   "82": {
     "ward_name": "Kolathur",
@@ -653,7 +734,8 @@
     "mla_constituency": "Kolathur",
     "mla_name": "M. K. Stalin",
     "mp_constituency": "Chennai North",
-    "mp_name": "Dr. Kalanidhi Veeraswamy"
+    "mp_name": "Dr. Kalanidhi Veeraswamy",
+    "councillor_name": "Ramesh"
   },
   "83": {
     "ward_name": "Villiwakkam (North)",
@@ -661,7 +743,8 @@
     "mla_constituency": "Villivakkam",
     "mla_name": "A. Vetriazhagan",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Usha"
   },
   "84": {
     "ward_name": "Villiwakkam (South)",
@@ -669,7 +752,8 @@
     "mla_constituency": "Villivakkam",
     "mla_name": "A. Vetriazhagan",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "John J"
   },
   "85": {
     "ward_name": "Virugambakkam (North)",
@@ -677,7 +761,8 @@
     "mla_constituency": "Virugambakkam",
     "mla_name": "A. M. V. Prabhakara Raja",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Porkodi"
   },
   "86": {
     "ward_name": "Anna Nagar (West)",
@@ -685,7 +770,8 @@
     "mla_constituency": "Anna Nagar",
     "mla_name": "M. K. Mohan",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Kamal"
   },
   "87": {
     "ward_name": "Anna Nagar (Central)",
@@ -693,7 +779,8 @@
     "mla_constituency": "Anna Nagar",
     "mla_name": "M. K. Mohan",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Poornima"
   },
   "88": {
     "ward_name": "Anna Nagar (East)",
@@ -701,7 +788,8 @@
     "mla_constituency": "Anna Nagar",
     "mla_name": "M. K. Mohan",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Nagavalli"
   },
   "89": {
     "ward_name": "Shenoy Nagar",
@@ -709,7 +797,8 @@
     "mla_constituency": "Anna Nagar",
     "mla_name": "M. K. Mohan",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Sekar M.E"
   },
   "90": {
     "ward_name": "Kilpauk (North)",
@@ -717,7 +806,8 @@
     "mla_constituency": "Egmore",
     "mla_name": "I. Paranthamen",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Rajagopal"
   },
   "91": {
     "ward_name": "Gangadeeswarar Koil",
@@ -725,7 +815,8 @@
     "mla_constituency": "Egmore",
     "mla_name": "I. Paranthamen",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Malini"
   },
   "92": {
     "ward_name": "Kilpauk (South)",
@@ -733,7 +824,8 @@
     "mla_constituency": "Egmore",
     "mla_name": "I. Paranthamen",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Thilakar"
   },
   "93": {
     "ward_name": "Amanjikarai (North)",
@@ -741,7 +833,8 @@
     "mla_constituency": "Egmore",
     "mla_name": "I. Paranthamen",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Uma"
   },
   "94": {
     "ward_name": "Amanjikarai (Central)",
@@ -749,7 +842,8 @@
     "mla_constituency": "Egmore",
     "mla_name": "I. Paranthamen",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Jain Kubi"
   },
   "95": {
     "ward_name": "Amanjikarai (West)",
@@ -757,7 +851,8 @@
     "mla_constituency": "Egmore",
     "mla_name": "I. Paranthamen",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Sudha Dheenadayalan"
   },
   "96": {
     "ward_name": "Periyar Nagar (North)",
@@ -765,7 +860,8 @@
     "mla_constituency": "Villivakkam",
     "mla_name": "A. Vetriazhagan",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Dhanalakshmi"
   },
   "97": {
     "ward_name": "Periyar Nagar (West)",
@@ -773,7 +869,8 @@
     "mla_constituency": "Villivakkam",
     "mla_name": "A. Vetriazhagan",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Latha"
   },
   "98": {
     "ward_name": "Nungambakkam",
@@ -781,7 +878,8 @@
     "mla_constituency": "Egmore",
     "mla_name": "I. Paranthamen",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Priyadharshini"
   },
   "99": {
     "ward_name": "Adikesavapuram",
@@ -789,7 +887,8 @@
     "mla_constituency": "Egmore",
     "mla_name": "I. Paranthamen",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Paridhi Illamsurudhi"
   },
   "100": {
     "ward_name": "Nehru Nagar",
@@ -797,7 +896,8 @@
     "mla_constituency": "Egmore",
     "mla_name": "I. Paranthamen",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Vasanthi Paramasivam"
   },
   "101": {
     "ward_name": "Chintadripet",
@@ -805,7 +905,8 @@
     "mla_constituency": "Chepauk-Tiruvallikeni",
     "mla_name": "Udhayanidhi Stalin",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Metilda Govindaraj"
   },
   "102": {
     "ward_name": "Komaleeswaranpet",
@@ -813,7 +914,8 @@
     "mla_constituency": "Chepauk-Tiruvallikeni",
     "mla_name": "Udhayanidhi Stalin",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Rani"
   },
   "103": {
     "ward_name": "Balasubramanya Nagar",
@@ -821,7 +923,8 @@
     "mla_constituency": "Chepauk-Tiruvallikeni",
     "mla_name": "Udhayanidhi Stalin",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Pushpalatha"
   },
   "104": {
     "ward_name": "Thiruvotteeswaranpet",
@@ -829,7 +932,8 @@
     "mla_constituency": "Chepauk-Tiruvallikeni",
     "mla_name": "Udhayanidhi Stalin",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Semmozhi"
   },
   "105": {
     "ward_name": "Natesan Nagar",
@@ -837,7 +941,8 @@
     "mla_constituency": "Chepauk-Tiruvallikeni",
     "mla_name": "Udhayanidhi Stalin",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Adhiyamaan"
   },
   "106": {
     "ward_name": "Chepauk",
@@ -845,7 +950,8 @@
     "mla_constituency": "Chepauk-Tiruvallikeni",
     "mla_name": "Udhayanidhi Stalin",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Ramalingam"
   },
   "107": {
     "ward_name": "Zambazaar",
@@ -853,7 +959,8 @@
     "mla_constituency": "Chepauk-Tiruvallikeni",
     "mla_name": "Udhayanidhi Stalin",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Kiran Sharmili"
   },
   "108": {
     "ward_name": "Umaru Pulavar Nagar",
@@ -861,7 +968,8 @@
     "mla_constituency": "Chepauk-Tiruvallikeni",
     "mla_name": "Udhayanidhi Stalin",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Sundarajan"
   },
   "109": {
     "ward_name": "Triplicane",
@@ -869,7 +977,8 @@
     "mla_constituency": "Chepauk-Tiruvallikeni",
     "mla_name": "Udhayanidhi Stalin",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Suganya A"
   },
   "110": {
     "ward_name": "Marina",
@@ -877,7 +986,8 @@
     "mla_constituency": "Chepauk-Tiruvallikeni",
     "mla_name": "Udhayanidhi Stalin",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Citrarasu"
   },
   "111": {
     "ward_name": "Krishnampet",
@@ -885,7 +995,8 @@
     "mla_constituency": "Chepauk-Tiruvallikeni",
     "mla_name": "Udhayanidhi Stalin",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Nandhini"
   },
   "112": {
     "ward_name": "Bharathi Nagar",
@@ -893,7 +1004,8 @@
     "mla_constituency": "Thousand Lights",
     "mla_name": "Ezhilan Naganathan",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Elizabath Augastin"
   },
   "113": {
     "ward_name": "Azad Nagar (North)",
@@ -901,7 +1013,8 @@
     "mla_constituency": "Thousand Lights",
     "mla_name": "Ezhilan Naganathan",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Prema Suresh"
   },
   "114": {
     "ward_name": "Bharathidasan Nagar",
@@ -909,7 +1022,8 @@
     "mla_constituency": "Thousand Lights",
     "mla_name": "Ezhilan Naganathan",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Madhan Mohan"
   },
   "115": {
     "ward_name": "Azad Nagar (South)",
@@ -917,7 +1031,8 @@
     "mla_constituency": "Thousand Lights",
     "mla_name": "Ezhilan Naganathan",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Eswari Venkatesan"
   },
   "116": {
     "ward_name": "Vivekananda Puram",
@@ -925,7 +1040,8 @@
     "mla_constituency": "Thousand Lights",
     "mla_name": "Ezhilan Naganathan",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Kamaraj"
   },
   "117": {
     "ward_name": "Ajnugam Ammaiyar Nagar",
@@ -933,7 +1049,8 @@
     "mla_constituency": "Thousand Lights",
     "mla_name": "Ezhilan Naganathan",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Thirumalai"
   },
   "118": {
     "ward_name": "Kosappet",
@@ -941,7 +1058,8 @@
     "mla_constituency": "Thousand Lights",
     "mla_name": "Ezhilan Naganathan",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Malliga"
   },
   "119": {
     "ward_name": "Pattalam",
@@ -949,7 +1067,8 @@
     "mla_constituency": "Thousand Lights",
     "mla_name": "Ezhilan Naganathan",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Kamala Chezhian"
   },
   "120": {
     "ward_name": "Anbazhagan Nagar",
@@ -957,7 +1076,8 @@
     "mla_constituency": "Thousand Lights",
     "mla_name": "Ezhilan Naganathan",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Mangai"
   },
   "121": {
     "ward_name": "Perumalpet",
@@ -965,7 +1085,8 @@
     "mla_constituency": "Mylapore",
     "mla_name": "Dha. Velu",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Mathivanan"
   },
   "122": {
     "ward_name": "Kannappar Nagar",
@@ -973,7 +1094,8 @@
     "mla_constituency": "Mylapore",
     "mla_name": "Dha. Velu",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Sheeba"
   },
   "123": {
     "ward_name": "Pattalam",
@@ -981,7 +1103,8 @@
     "mla_constituency": "Mylapore",
     "mla_name": "Dha. Velu",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Saraswathi"
   },
   "124": {
     "ward_name": "Chetpet",
@@ -989,7 +1112,8 @@
     "mla_constituency": "Egmore",
     "mla_name": "I. Paranthamen",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Vimala"
   },
   "125": {
     "ward_name": "Egmore",
@@ -997,7 +1121,8 @@
     "mla_constituency": "Egmore",
     "mla_name": "I. Paranthamen",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Revathi"
   },
   "126": {
     "ward_name": "Pudupet",
@@ -1005,7 +1130,8 @@
     "mla_constituency": "Egmore",
     "mla_name": "I. Paranthamen",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Amirthavarshini"
   },
   "127": {
     "ward_name": "Ko-Su-Mani Nagar",
@@ -1013,7 +1139,8 @@
     "mla_constituency": "Thousand Lights",
     "mla_name": "Ezhilan Naganathan",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Logu"
   },
   "128": {
     "ward_name": "Nakeerar Nagar",
@@ -1021,7 +1148,8 @@
     "mla_constituency": "Thousand Lights",
     "mla_name": "Ezhilan Naganathan",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Stella Jasmine Rathna"
   },
   "129": {
     "ward_name": "Thousand Lights",
@@ -1029,7 +1157,8 @@
     "mla_constituency": "Thousand Lights",
     "mla_name": "Ezhilan Naganathan",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Ravishankar"
   },
   "130": {
     "ward_name": "Azhagiri Nagar",
@@ -1037,7 +1166,8 @@
     "mla_constituency": "Thousand Lights",
     "mla_name": "Ezhilan Naganathan",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Baskar"
   },
   "131": {
     "ward_name": "Amir Mahal",
@@ -1045,7 +1175,8 @@
     "mla_constituency": "Thousand Lights",
     "mla_name": "Ezhilan Naganathan",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Gomathi"
   },
   "132": {
     "ward_name": "Royapettah",
@@ -1053,7 +1184,8 @@
     "mla_constituency": "Mylapore",
     "mla_name": "Dha. Velu",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Karthika"
   },
   "133": {
     "ward_name": "Teynampet",
@@ -1061,7 +1193,8 @@
     "mla_constituency": "Mylapore",
     "mla_name": "Dha. Velu",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Elumalai"
   },
   "134": {
     "ward_name": "Sathyamurthy Nagar",
@@ -1069,7 +1202,8 @@
     "mla_constituency": "Mylapore",
     "mla_name": "Dha. Velu",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Uma Anandhan"
   },
   "135": {
     "ward_name": "Alwarpet (North)",
@@ -1077,7 +1211,8 @@
     "mla_constituency": "Mylapore",
     "mla_name": "Dha. Velu",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Shanthi"
   },
   "136": {
     "ward_name": "Alwarpet (South)",
@@ -1085,7 +1220,8 @@
     "mla_constituency": "Mylapore",
     "mla_name": "Dha. Velu",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Nilavarasi"
   },
   "137": {
     "ward_name": "Vadapalani (West)",
@@ -1093,7 +1229,8 @@
     "mla_constituency": "Virugambakkam",
     "mla_name": "A. M. V. Prabhakara Raja",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Dhanasekaran"
   },
   "138": {
     "ward_name": "Vadapalani (East)",
@@ -1101,7 +1238,8 @@
     "mla_constituency": "Virugambakkam",
     "mla_name": "A. M. V. Prabhakara Raja",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Kannan"
   },
   "139": {
     "ward_name": "Kalaivanar Nagar",
@@ -1109,7 +1247,8 @@
     "mla_constituency": "T.Nagar",
     "mla_name": "J. Karunanithi",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Subramani"
   },
   "140": {
     "ward_name": "Navalar Nedunchezian Nagar (West)",
@@ -1117,7 +1256,8 @@
     "mla_constituency": "T.Nagar",
     "mla_name": "J. Karunanithi",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Sridharan"
   },
   "141": {
     "ward_name": "Navalar Nedunchezian Nagar (East)",
@@ -1125,7 +1265,8 @@
     "mla_constituency": "T.Nagar",
     "mla_name": "J. Karunanithi",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Raja Anbazhagan"
   },
   "142": {
     "ward_name": "Ashok Nagar",
@@ -1133,7 +1274,8 @@
     "mla_constituency": "T.Nagar",
     "mla_name": "J. Karunanithi",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Krishnamoorthy"
   },
   "143": {
     "ward_name": "M.G.R. Nagar",
@@ -1141,7 +1283,8 @@
     "mla_constituency": "Maduravoyal",
     "mla_name": "K. Ganapathy",
     "mp_constituency": "Sriperumbudur",
-    "mp_name": "T.R. Baalu"
+    "mp_name": "T.R. Baalu",
+    "councillor_name": "Rajan"
   },
   "144": {
     "ward_name": "Kamaraj Nagar (North)",
@@ -1149,7 +1292,8 @@
     "mla_constituency": "Maduravoyal",
     "mla_name": "K. Ganapathy",
     "mp_constituency": "Sriperumbudur",
-    "mp_name": "T.R. Baalu"
+    "mp_name": "T.R. Baalu",
+    "councillor_name": "Stalin"
   },
   "145": {
     "ward_name": "Kamaraj Nagar (South)",
@@ -1157,7 +1301,8 @@
     "mla_constituency": "Maduravoyal",
     "mla_name": "K. Ganapathy",
     "mp_constituency": "Sriperumbudur",
-    "mp_name": "T.R. Baalu"
+    "mp_name": "T.R. Baalu",
+    "councillor_name": "Sathya Nathan"
   },
   "146": {
     "ward_name": "Thyagaraya Nagar",
@@ -1165,7 +1310,8 @@
     "mla_constituency": "T.Nagar",
     "mla_name": "J. Karunanithi",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Alapakkam K Shanmugam"
   },
   "147": {
     "ward_name": "Rajaji Nagar",
@@ -1173,7 +1319,8 @@
     "mla_constituency": "Maduravoyal",
     "mla_name": "K. Ganapathy",
     "mp_constituency": "Sriperumbudur",
-    "mp_name": "T.R. Baalu"
+    "mp_name": "T.R. Baalu",
+    "councillor_name": "Ramani Madhavan"
   },
   "148": {
     "ward_name": "Virugambakkam (South)",
@@ -1181,7 +1328,8 @@
     "mla_constituency": "Virugambakkam",
     "mla_name": "A. M. V. Prabhakara Raja",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Giridharan"
   },
   "149": {
     "ward_name": "Saligramam",
@@ -1189,7 +1337,8 @@
     "mla_constituency": "Virugambakkam",
     "mla_name": "A. M. V. Prabhakara Raja",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Selvi Ramesh"
   },
   "150": {
     "ward_name": "Kodambakkam (North)",
@@ -1197,7 +1346,8 @@
     "mla_constituency": "Virugambakkam",
     "mla_name": "A. M. V. Prabhakara Raja",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Hemalatha"
   },
   "151": {
     "ward_name": "Kodambakkam (South)",
@@ -1205,7 +1355,8 @@
     "mla_constituency": "Virugambakkam",
     "mla_name": "A. M. V. Prabhakara Raja",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Shankar Ganesh"
   },
   "152": {
     "ward_name": "Saidapet",
@@ -1213,7 +1364,8 @@
     "mla_constituency": "Saidapet",
     "mla_name": "Ma. Subramanian",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Bharathi"
   },
   "153": {
     "ward_name": "Kumaran Nagar (North)",
@@ -1221,7 +1373,8 @@
     "mla_constituency": "Saidapet",
     "mla_name": "Ma. Subramanian",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Shanthi"
   },
   "154": {
     "ward_name": "Kumaran Nagar (South)",
@@ -1229,7 +1382,8 @@
     "mla_constituency": "Saidapet",
     "mla_name": "Ma. Subramanian",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Selvakumar"
   },
   "155": {
     "ward_name": "Saidapet (West)",
@@ -1237,7 +1391,8 @@
     "mla_constituency": "Saidapet",
     "mla_name": "Ma. Subramanian",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Raji"
   },
   "156": {
     "ward_name": "Kalaingar Karunanidhi Nagar",
@@ -1245,7 +1400,8 @@
     "mla_constituency": "Alandur",
     "mla_name": "T. M. Anbarasan",
     "mp_constituency": "Sriperumbudur",
-    "mp_name": "T.R. Baalu"
+    "mp_name": "T.R. Baalu",
+    "councillor_name": "Selvendran J"
   },
   "157": {
     "ward_name": "V O C Nagar",
@@ -1253,7 +1409,8 @@
     "mla_constituency": "Alandur",
     "mla_name": "T. M. Anbarasan",
     "mp_constituency": "Sriperumbudur",
-    "mp_name": "T.R. Baalu"
+    "mp_name": "T.R. Baalu",
+    "councillor_name": "Usharani"
   },
   "158": {
     "ward_name": "G D Naidu Nagar (East)",
@@ -1261,7 +1418,8 @@
     "mla_constituency": "Alandur",
     "mla_name": "T. M. Anbarasan",
     "mp_constituency": "Sriperumbudur",
-    "mp_name": "T.R. Baalu"
+    "mp_name": "T.R. Baalu",
+    "councillor_name": "Bharathi Ko"
   },
   "159": {
     "ward_name": "G. D Naidu Nagar (West)",
@@ -1269,7 +1427,8 @@
     "mla_constituency": "Alandur",
     "mla_name": "T. M. Anbarasan",
     "mp_constituency": "Sriperumbudur",
-    "mp_name": "T.R. Baalu"
+    "mp_name": "T.R. Baalu",
+    "councillor_name": "Amudha Priya S"
   },
   "160": {
     "ward_name": "Guindy (West)",
@@ -1277,7 +1436,8 @@
     "mla_constituency": "Alandur",
     "mla_name": "T. M. Anbarasan",
     "mp_constituency": "Sriperumbudur",
-    "mp_name": "T.R. Baalu"
+    "mp_name": "T.R. Baalu",
+    "councillor_name": "Brindha"
   },
   "161": {
     "ward_name": "Guindy (East)",
@@ -1285,7 +1445,8 @@
     "mla_constituency": "Alandur",
     "mla_name": "T. M. Anbarasan",
     "mp_constituency": "Sriperumbudur",
-    "mp_name": "T.R. Baalu"
+    "mp_name": "T.R. Baalu",
+    "councillor_name": "Renuka"
   },
   "162": {
     "ward_name": "Beemannapettai",
@@ -1293,7 +1454,8 @@
     "mla_constituency": "Alandur",
     "mla_name": "T. M. Anbarasan",
     "mp_constituency": "Sriperumbudur",
-    "mp_name": "T.R. Baalu"
+    "mp_name": "T.R. Baalu",
+    "councillor_name": "Solomon"
   },
   "163": {
     "ward_name": "Thiruvalluvar Nagar",
@@ -1301,7 +1463,8 @@
     "mla_constituency": "Alandur",
     "mla_name": "T. M. Anbarasan",
     "mp_constituency": "Sriperumbudur",
-    "mp_name": "T.R. Baalu"
+    "mp_name": "T.R. Baalu",
+    "councillor_name": "Poongkodi"
   },
   "164": {
     "ward_name": "Madavaperumal Puram",
@@ -1309,7 +1472,8 @@
     "mla_constituency": "Pallavaram",
     "mla_name": "I. Karunanithi",
     "mp_constituency": "Sriperumbudur",
-    "mp_name": "T.R. Baalu"
+    "mp_name": "T.R. Baalu",
+    "councillor_name": "Devi J"
   },
   "165": {
     "ward_name": "Karaneeswarpuram",
@@ -1317,7 +1481,8 @@
     "mla_constituency": "Mylapore",
     "mla_name": "Dha. Velu",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Nanjil V Eswara Prasad"
   },
   "166": {
     "ward_name": "Santhome",
@@ -1325,7 +1490,8 @@
     "mla_constituency": "Mylapore",
     "mla_name": "Dha. Velu",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Chandran"
   },
   "167": {
     "ward_name": "Mylapore",
@@ -1333,7 +1499,8 @@
     "mla_constituency": "Mylapore",
     "mla_name": "Dha. Velu",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Durga Devi"
   },
   "168": {
     "ward_name": "Taramani",
@@ -1341,7 +1508,8 @@
     "mla_constituency": "Velachery",
     "mla_name": "Aassan Maulaana",
     "mp_constituency": "Chennai South",
-    "mp_name": "Thamizhachi Thangapandian"
+    "mp_name": "Thamizhachi Thangapandian",
+    "councillor_name": "Mohankumar"
   },
   "169": {
     "ward_name": "Ullagaram",
@@ -1349,7 +1517,8 @@
     "mla_constituency": "Velachery",
     "mla_name": "Aassan Maulaana",
     "mp_constituency": "Chennai South",
-    "mp_name": "Thamizhachi Thangapandian"
+    "mp_name": "Thamizhachi Thangapandian",
+    "councillor_name": "Mahesh Kumar"
   },
   "170": {
     "ward_name": "Avvai Nagar (South)",
@@ -1357,7 +1526,8 @@
     "mla_constituency": "Saidapet",
     "mla_name": "Ma. Subramanian",
     "mp_constituency": "Chennai South",
-    "mp_name": "Thamizhachi Thangapandian"
+    "mp_name": "Thamizhachi Thangapandian",
+    "councillor_name": "Kathir Murugan"
   },
   "171": {
     "ward_name": "Raja Annamalai Puram",
@@ -1365,7 +1535,8 @@
     "mla_constituency": "Mylapore",
     "mla_name": "Dha. Velu",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Geetha"
   },
   "172": {
     "ward_name": "Avvai Nagar (North)",
@@ -1373,7 +1544,8 @@
     "mla_constituency": "Saidapet",
     "mla_name": "Ma. Subramanian",
     "mp_constituency": "Chennai South",
-    "mp_name": "Thamizhachi Thangapandian"
+    "mp_name": "Thamizhachi Thangapandian",
+    "councillor_name": "Durairaj"
   },
   "173": {
     "ward_name": "Adyar (West)",
@@ -1381,7 +1553,8 @@
     "mla_constituency": "Mylapore",
     "mla_name": "Dha. Velu",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Subhashini"
   },
   "174": {
     "ward_name": "Adyar (East)",
@@ -1389,7 +1562,8 @@
     "mla_constituency": "Mylapore",
     "mla_name": "Dha. Velu",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Radhika"
   },
   "175": {
     "ward_name": "Velachery",
@@ -1397,7 +1571,8 @@
     "mla_constituency": "Velachery",
     "mla_name": "Aassan Maulaana",
     "mp_constituency": "Chennai South",
-    "mp_name": "Thamizhachi Thangapandian"
+    "mp_name": "Thamizhachi Thangapandian",
+    "councillor_name": "Mageshwari Murugavel"
   },
   "176": {
     "ward_name": "Thiruvanmiyur (West)",
@@ -1405,7 +1580,8 @@
     "mla_constituency": "Mylapore",
     "mla_name": "Dha. Velu",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Anandham"
   },
   "177": {
     "ward_name": "Thiruvanmiyur (East)",
@@ -1413,7 +1589,8 @@
     "mla_constituency": "Mylapore",
     "mla_name": "Dha. Velu",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Manimaran"
   },
   "178": {
     "ward_name": "Besant Nagar",
@@ -1421,7 +1598,8 @@
     "mla_constituency": "Mylapore",
     "mla_name": "Dha. Velu",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Baskaran"
   },
   "179": {
     "ward_name": "Urur",
@@ -1429,7 +1607,8 @@
     "mla_constituency": "Mylapore",
     "mla_name": "Dha. Velu",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Kayalvizhi"
   },
   "180": {
     "ward_name": "Adampakkam",
@@ -1437,7 +1616,8 @@
     "mla_constituency": "Velachery",
     "mla_name": "Aassan Maulaana",
     "mp_constituency": "Chennai South",
-    "mp_name": "Thamizhachi Thangapandian"
+    "mp_name": "Thamizhachi Thangapandian",
+    "councillor_name": "Vishalakshi"
   },
   "181": {
     "ward_name": "Velachery West",
@@ -1445,7 +1625,8 @@
     "mla_constituency": "Velachery",
     "mla_name": "Aassan Maulaana",
     "mp_constituency": "Chennai South",
-    "mp_name": "Thamizhachi Thangapandian"
+    "mp_name": "Thamizhachi Thangapandian",
+    "councillor_name": "Viswanathan"
   },
   "182": {
     "ward_name": "Gandhi Salai",
@@ -1453,7 +1634,8 @@
     "mla_constituency": "Mylapore",
     "mla_name": "Dha. Velu",
     "mp_constituency": "Chennai Central",
-    "mp_name": "Dayanidhi Maran"
+    "mp_name": "Dayanidhi Maran",
+    "councillor_name": "Sathishkumar KPK"
   },
   "183": {
     "ward_name": "Puzhuthivakkam",
@@ -1461,7 +1643,8 @@
     "mla_constituency": "Velachery",
     "mla_name": "Aassan Maulaana",
     "mp_constituency": "Chennai South",
-    "mp_name": "Thamizhachi Thangapandian"
+    "mp_name": "Thamizhachi Thangapandian",
+    "councillor_name": "Tamizharasi Somu"
   },
   "184": {
     "ward_name": "Kottivakkam",
@@ -1469,7 +1652,8 @@
     "mla_constituency": "Sholinganallur",
     "mla_name": "S. Aravind Ramesh",
     "mp_constituency": "Chennai South",
-    "mp_name": "Thamizhachi Thangapandian"
+    "mp_name": "Thamizhachi Thangapandian",
+    "councillor_name": "Ravichandran"
   },
   "185": {
     "ward_name": "Pallikaranai",
@@ -1477,7 +1661,8 @@
     "mla_constituency": "Sholinganallur",
     "mla_name": "S. Aravind Ramesh",
     "mp_constituency": "Chennai South",
-    "mp_name": "Thamizhachi Thangapandian"
+    "mp_name": "Thamizhachi Thangapandian",
+    "councillor_name": "Sharmila Devi"
   },
   "186": {
     "ward_name": "Palavakkam",
@@ -1485,7 +1670,8 @@
     "mla_constituency": "Sholinganallur",
     "mla_name": "S. Aravind Ramesh",
     "mp_constituency": "Chennai South",
-    "mp_name": "Thamizhachi Thangapandian"
+    "mp_name": "Thamizhachi Thangapandian",
+    "councillor_name": "Manikandan"
   },
   "187": {
     "ward_name": "Madipakkam",
@@ -1493,7 +1679,8 @@
     "mla_constituency": "Velachery",
     "mla_name": "Aassan Maulaana",
     "mp_constituency": "Chennai South",
-    "mp_name": "Thamizhachi Thangapandian"
+    "mp_name": "Thamizhachi Thangapandian",
+    "councillor_name": "Sherli Thomas"
   },
   "188": {
     "ward_name": "Jaladianpet",
@@ -1501,7 +1688,8 @@
     "mla_constituency": "Sholinganallur",
     "mla_name": "S. Aravind Ramesh",
     "mp_constituency": "Chennai South",
-    "mp_name": "Thamizhachi Thangapandian"
+    "mp_name": "Thamizhachi Thangapandian",
+    "councillor_name": "Shamina"
   },
   "189": {
     "ward_name": "Neelangarai",
@@ -1509,7 +1697,8 @@
     "mla_constituency": "Sholinganallur",
     "mla_name": "S. Aravind Ramesh",
     "mp_constituency": "Chennai South",
-    "mp_name": "Thamizhachi Thangapandian"
+    "mp_name": "Thamizhachi Thangapandian",
+    "councillor_name": "Babu"
   },
   "190": {
     "ward_name": "Thoraipakkam",
@@ -1517,7 +1706,8 @@
     "mla_constituency": "Sholinganallur",
     "mla_name": "S. Aravind Ramesh",
     "mp_constituency": "Chennai South",
-    "mp_name": "Thamizhachi Thangapandian"
+    "mp_name": "Thamizhachi Thangapandian",
+    "councillor_name": "Sivaprakasam"
   },
   "191": {
     "ward_name": "Injambakkam",
@@ -1525,7 +1715,8 @@
     "mla_constituency": "Sholinganallur",
     "mla_name": "S. Aravind Ramesh",
     "mp_constituency": "Chennai South",
-    "mp_name": "Thamizhachi Thangapandian"
+    "mp_name": "Thamizhachi Thangapandian",
+    "councillor_name": "Lakshmi"
   },
   "192": {
     "ward_name": "Karapakkam",
@@ -1533,7 +1724,8 @@
     "mla_constituency": "Sholinganallur",
     "mla_name": "S. Aravind Ramesh",
     "mp_constituency": "Chennai South",
-    "mp_name": "Thamizhachi Thangapandian"
+    "mp_name": "Thamizhachi Thangapandian",
+    "councillor_name": "Mathiazhagan"
   },
   "193": {
     "ward_name": "Sholinganallur",
@@ -1541,7 +1733,8 @@
     "mla_constituency": "Sholinganallur",
     "mla_name": "S. Aravind Ramesh",
     "mp_constituency": "Chennai South",
-    "mp_name": "Thamizhachi Thangapandian"
+    "mp_name": "Thamizhachi Thangapandian",
+    "councillor_name": "Govindhaswamy"
   },
   "194": {
     "ward_name": "Uthandi",
@@ -1549,7 +1742,8 @@
     "mla_constituency": "Sholinganallur",
     "mla_name": "S. Aravind Ramesh",
     "mp_constituency": "Chennai South",
-    "mp_name": "Thamizhachi Thangapandian"
+    "mp_name": "Thamizhachi Thangapandian",
+    "councillor_name": "Vimala Kama"
   },
   "195": {
     "ward_name": "Semmancheri",
@@ -1557,7 +1751,8 @@
     "mla_constituency": "Sholinganallur",
     "mla_name": "S. Aravind Ramesh",
     "mp_constituency": "Chennai South",
-    "mp_name": "Thamizhachi Thangapandian"
+    "mp_name": "Thamizhachi Thangapandian",
+    "councillor_name": "Ekambaram"
   },
   "196": {
     "ward_name": "Navalur",
@@ -1565,7 +1760,8 @@
     "mla_constituency": "Sholinganallur",
     "mla_name": "S. Aravind Ramesh",
     "mp_constituency": "Chennai South",
-    "mp_name": "Thamizhachi Thangapandian"
+    "mp_name": "Thamizhachi Thangapandian",
+    "councillor_name": "Ashwini"
   },
   "197": {
     "ward_name": "Siruseri",
@@ -1573,7 +1769,8 @@
     "mla_constituency": "Sholinganallur",
     "mla_name": "S. Aravind Ramesh",
     "mp_constituency": "Chennai South",
-    "mp_name": "Thamizhachi Thangapandian"
+    "mp_name": "Thamizhachi Thangapandian",
+    "councillor_name": "Menaka"
   },
   "198": {
     "ward_name": "Kelambakkam",
@@ -1581,7 +1778,8 @@
     "mla_constituency": "Sholinganallur",
     "mla_name": "S. Aravind Ramesh",
     "mp_constituency": "Chennai South",
-    "mp_name": "Thamizhachi Thangapandian"
+    "mp_name": "Thamizhachi Thangapandian",
+    "councillor_name": "Sundaram"
   },
   "199": {
     "ward_name": "Sithalapakkam",
@@ -1589,7 +1787,8 @@
     "mla_constituency": "Sholinganallur",
     "mla_name": "S. Aravind Ramesh",
     "mp_constituency": "Chennai South",
-    "mp_name": "Thamizhachi Thangapandian"
+    "mp_name": "Thamizhachi Thangapandian",
+    "councillor_name": "Shankar"
   },
   "200": {
     "ward_name": "Medavakkam",
@@ -1597,6 +1796,7 @@
     "mla_constituency": "Sholinganallur",
     "mla_name": "S. Aravind Ramesh",
     "mp_constituency": "Chennai South",
-    "mp_name": "Thamizhachi Thangapandian"
+    "mp_name": "Thamizhachi Thangapandian",
+    "councillor_name": "Murugesan"
   }
 }
