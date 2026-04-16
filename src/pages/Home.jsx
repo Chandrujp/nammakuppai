@@ -321,7 +321,7 @@ function Home({ lang, setLang }) {
                   <div className="detail-politician-icon">👤</div>
                   <div className="detail-politician-info">
                     <span className="detail-politician-role">Councillor</span>
-                    <span className="detail-politician-name">{selectedReport.councillor_name || 'Vacant since 2019'}</span>
+                    <span className="detail-politician-name">{selectedReport.councillor_name || 'Data pending'}</span>
                   </div>
                 </div>
                 <div className="detail-politician">
