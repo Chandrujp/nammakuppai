@@ -107,25 +107,33 @@ function createClusterIcon(cluster) {
 
 function FitBounds() {
   const map = useMap()
+
   useEffect(() => {
-    if (!navigator.geolocation) {
-      map.fitBounds(CHENNAI_BOUNDS)
-      return
-    }
-    navigator.geolocation.getCurrentPosition(
-      (pos) => {
-        const { latitude, longitude } = pos.coords
-        const inChennai = latitude > 12.75 && latitude < 13.35 && longitude > 79.95 && longitude < 80.45
-        if (inChennai) {
-          map.flyTo([latitude, longitude], 15)
-        } else {
-          map.fitBounds(CHENNAI_BOUNDS)
-        }
-      },
-      () => { map.fitBounds(CHENNAI_BOUNDS) },
-      { enableHighAccuracy: true, timeout: 5000 }
-    )
+    const timer = setTimeout(() => {
+      if (!navigator.geolocation) {
+        map.fitBounds(CHENNAI_BOUNDS, { padding: [20, 20] })
+        return
+      }
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          const { latitude, longitude } = pos.coords
+          const inChennai = latitude > 12.75 && latitude < 13.35 &&
+                            longitude > 79.95 && longitude < 80.45
+          if (inChennai) {
+            map.setView([latitude, longitude], 15)
+          } else {
+            map.fitBounds(CHENNAI_BOUNDS, { padding: [20, 20] })
+          }
+        },
+        () => {
+          map.fitBounds(CHENNAI_BOUNDS, { padding: [20, 20] })
+        },
+        { enableHighAccuracy: false, timeout: 4000 }
+      )
+    }, 300)
+    return () => clearTimeout(timer)
   }, [map])
+
   return null
 }
 
@@ -264,9 +272,9 @@ function Map({ reports, setReports, setSelectedLocation, setShowForm, lang }) {
         style={{ height: '100%', width: '100%' }}
       >
         <TileLayer
-          url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
-          attribution='&copy; <a href="https://carto.com">CARTO</a> | nammakuppai.in'
-        />
+  url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
+  attribution='&copy; CARTO | nammakuppai.in'
+/>
 
         <FitBounds />
 
