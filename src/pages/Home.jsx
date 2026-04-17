@@ -118,16 +118,20 @@ function Home({ lang, setLang }) {
   }
 
   function shareOnWhatsApp(report) {
-    const severity = severityColors[report.severity]?.label || report.severity
-    const ward = report.ward_name || 'Unknown Ward'
-    const wardNum = report.ward_number ? `#${report.ward_number}` : ''
-    const corp = report.corporation || 'GCC'
-    const isResolved = report.status === 'resolved'
-    const message = isResolved
-      ? `✅ Garbage CLEANED at ${ward} ${wardNum} (${corp})\n\nThis issue has been resolved and verified.\n\nSee more reports at nammakuppai.in\n\nFor the Singara Chennai we grew up loving 💛`
-      : `🚨 Garbage reported at ${ward} ${wardNum} (${corp})\n\nSeverity: ${severity}\nMLA: ${report.mla_constituency || 'Unknown'}\nMP: ${report.mp_constituency || 'Unknown'}\n\n📍 View & report more at nammakuppai.in\n\nFor the Singara Chennai we grew up loving 💛`
-    window.open(`https://wa.me/?text=${encodeURIComponent(message)}`, '_blank')
-  }
+  const severity = severityColors[report.severity]?.label || report.severity
+  const ward = report.ward_name || 'Unknown Ward'
+  const wardNum = report.ward_number ? `#${report.ward_number}` : ''
+  const corp = report.corporation || 'GCC'
+  const isResolved = report.status === 'resolved'
+  const mapsLink = `https://www.google.com/maps/search/?api=1&query=${report.latitude},${report.longitude}`
+  const reportLink = `https://nammakuppai.in/report/${report.id}`
+
+  const message = isResolved
+    ? `✅ Garbage CLEANED at ${ward} ${wardNum} (${corp})\n\nThis issue has been resolved and verified.\n\n📍 Location: ${mapsLink}\n🔗 View report: ${reportLink}\n\nFor the Singara Chennai we grew up loving 💛`
+    : `🚨 Garbage at ${ward} ${wardNum} (${corp})\n\nSeverity: ${severity}\nCouncillor: ${report.councillor_name || '—'}\nMLA: ${report.mla_name || '—'} (${report.mla_constituency || '—'})\nMP: ${report.mp_name || '—'}\n\n📍 Navigate: ${mapsLink}\n🔗 View report: ${reportLink}\n\nReport more → nammakuppai.in\nFor the Singara Chennai we grew up loving 💛`
+
+  window.open(`https://wa.me/?text=${encodeURIComponent(message)}`, '_blank')
+}
 
   function openCleanedModal() {
     setCleanedPhoto(null)

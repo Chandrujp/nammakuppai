@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Board from './pages/Board'
+import ReportPage from './pages/ReportPage'
 import './App.css'
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home lang={lang} setLang={setLang} />} />
         <Route path="/board" element={<Board lang={lang} setLang={setLang} />} />
+        <Route path="/report/:id" element={<ReportPage lang={lang} setLang={setLang} />} />
       </Routes>
     </Router>
   )

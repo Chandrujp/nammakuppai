@@ -38,7 +38,6 @@ function ReportForm({ selectedLocation, setShowForm, setReports, reports, lang }
     { key: 'critical', icon: '⚫', name: lang === 'ta' ? 'அவசரகால' : 'Critical', tamil: lang === 'ta' ? 'Health hazard' : 'உடல்நல அபாயம்' },
   ]
 
-  // Auto-detect ward when location is selected
   useEffect(() => {
     if (selectedLocation) {
       setDetectingWard(true)
@@ -56,41 +55,36 @@ function ReportForm({ selectedLocation, setShowForm, setReports, reports, lang }
   }, [selectedLocation])
 
   function handlePhotoChange(e) {
-  const file = e.target.files[0]
-  if (!file) return
-
-  const reader = new FileReader()
-  reader.onload = (event) => {
-    const img = new Image()
-    img.onload = () => {
-      const canvas = document.createElement('canvas')
-      const maxSize = 1024
-      let width = img.width
-      let height = img.height
-
-      if (width > height) {
-        if (width > maxSize) { height *= maxSize / width; width = maxSize }
-      } else {
-        if (height > maxSize) { width *= maxSize / height; height = maxSize }
+    const file = e.target.files[0]
+    if (!file) return
+    const reader = new FileReader()
+    reader.onload = (event) => {
+      const img = new Image()
+      img.onload = () => {
+        const canvas = document.createElement('canvas')
+        const maxSize = 1024
+        let width = img.width
+        let height = img.height
+        if (width > height) {
+          if (width > maxSize) { height *= maxSize / width; width = maxSize }
+        } else {
+          if (height > maxSize) { width *= maxSize / height; height = maxSize }
+        }
+        canvas.width = width
+        canvas.height = height
+        const ctx = canvas.getContext('2d')
+        ctx.drawImage(img, 0, 0, width, height)
+        canvas.toBlob((blob) => {
+          const compressedFile = new File([blob], file.name, { type: 'image/jpeg' })
+          setPhoto(compressedFile)
+          setPhotoPreview(URL.createObjectURL(compressedFile))
+        }, 'image/jpeg', 0.7)
       }
-
-      canvas.width = width
-      canvas.height = height
-      const ctx = canvas.getContext('2d')
-      ctx.drawImage(img, 0, 0, width, height)
-
-      canvas.toBlob((blob) => {
-        const compressedFile = new File([blob], file.name, { type: 'image/jpeg' })
-        setPhoto(compressedFile)
-        setPhotoPreview(URL.createObjectURL(compressedFile))
-      }, 'image/jpeg', 0.7)
+      img.src = event.target.result
     }
-    img.src = event.target.result
+    reader.readAsDataURL(file)
   }
-  reader.readAsDataURL(file)
-}
 
-  // Block submit if outside boundary
   const isOutsideBoundary = selectedLocation && !detectingWard && !wardInfo
   const submitDisabled = loading || isOutsideBoundary || detectingWard
 
@@ -107,23 +101,17 @@ function ReportForm({ selectedLocation, setShowForm, setReports, reports, lang }
       alert(t.outsideBoundary)
       return
     }
-
     setLoading(true)
-
     try {
       const fileName = `report_${Date.now()}.jpg`
       const { error: uploadError } = await supabase.storage
         .from('reports')
         .upload(fileName, photo)
-
       if (uploadError) throw uploadError
-
       const { data: urlData } = supabase.storage
         .from('reports')
         .getPublicUrl(fileName)
-
       const photoUrl = urlData.publicUrl
-
       const { data, error } = await supabase
         .from('reports')
         .insert([{
@@ -138,56 +126,41 @@ function ReportForm({ selectedLocation, setShowForm, setReports, reports, lang }
           mla_name: wardInfo?.mla_name || '',
           mp_constituency: wardInfo?.mp_constituency || '',
           mp_name: wardInfo?.mp_name || '',
+          zone: wardInfo?.zone || '',
           corporation: wardInfo?.corporation || 'GCC',
           status: 'pending'
         }])
         .select()
-
       if (error) throw error
-
       setReports([...reports, data[0]])
       setSuccess(true)
-
       setTimeout(() => {
         setShowForm(false)
         setSuccess(false)
       }, 3000)
-
     } catch (error) {
       console.error('Error:', error)
       alert(lang === 'ta' ? 'பிழை ஏற்பட்டது. மீண்டும் முயற்சிக்கவும்.' : 'Error submitting. Please try again.')
     }
-
     setLoading(false)
   }
 
   return (
     <div className="form-overlay">
       <div className="form-container">
-
-        {/* Header */}
         <div className="form-header">
           <h2>{t.title}</h2>
           <button className="close-btn" onClick={() => setShowForm(false)}>✕</button>
         </div>
-
         {success ? (
-          <div className="success-message">
-            {t.success}
-          </div>
+          <div className="success-message">{t.success}</div>
         ) : (
           <>
-            {/* Safari nudge for Chrome iOS */}
-{/CriOS/i.test(navigator.userAgent) && (
-  <div style={{background:'#fff8e6', border:'0.5px solid #FFD700', borderRadius:'8px', padding:'8px 12px', marginBottom:'12px', fontSize:'12px', color:'#C41E3A', fontWeight:'600'}}>
-    📱 {lang === 'ta' ? 'சிறந்த அனுபவத்திற்கு Safari பயன்படுத்தவும்' : 'For best experience, open in Safari'}
-  </div>
-)}
-
-{/* Photo Upload */}
-<div className="photo-upload"></div>
-
-            {/* Photo Upload */}
+            {/CriOS/i.test(navigator.userAgent) && (
+              <div style={{background:'#fff8e6', border:'0.5px solid #FFD700', borderRadius:'8px', padding:'8px 12px', marginBottom:'12px', fontSize:'12px', color:'#C41E3A', fontWeight:'600'}}>
+                📱 {lang === 'ta' ? 'சிறந்த அனுபவத்திற்கு Safari பயன்படுத்தவும்' : 'For best experience, open in Safari'}
+              </div>
+            )}
             <div className="photo-upload">
               {photoPreview ? (
                 <div style={{position:'relative'}}>
@@ -213,8 +186,6 @@ function ReportForm({ selectedLocation, setShowForm, setReports, reports, lang }
                 </label>
               )}
             </div>
-
-            {/* Severity */}
             <div className="severity-section">
               <div className="severity-label">{t.severityLabel}</div>
               <div className="severity-options">
@@ -231,8 +202,6 @@ function ReportForm({ selectedLocation, setShowForm, setReports, reports, lang }
                 ))}
               </div>
             </div>
-
-            {/* Location + Ward Info */}
             {selectedLocation ? (
               <div className="ward-info-box">
                 {detectingWard ? (
@@ -267,7 +236,6 @@ function ReportForm({ selectedLocation, setShowForm, setReports, reports, lang }
                     </div>
                   </>
                 ) : (
-                  // Outside boundary — show error
                   <div style={{textAlign:'center', padding:'8px 0'}}>
                     <div style={{fontSize:'15px', color:'#C41E3A', fontWeight:'600', marginBottom:'4px'}}>
                       🚫 {lang === 'ta' ? 'சென்னை எல்லைக்கு வெளியே' : 'Outside Chennai limits'}
@@ -281,8 +249,6 @@ function ReportForm({ selectedLocation, setShowForm, setReports, reports, lang }
             ) : (
               <div className="location-warning">{t.locationWarning}</div>
             )}
-
-            {/* Submit */}
             <button
               className="submit-btn"
               onClick={handleSubmit}
