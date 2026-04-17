@@ -85,8 +85,8 @@ function ReportForm({ selectedLocation, setShowForm, setReports, reports, lang }
     reader.readAsDataURL(file)
   }
 
-  const isOutsideBoundary = selectedLocation && !detectingWard && !wardInfo
-  const submitDisabled = loading || isOutsideBoundary || detectingWard
+  const isOutsideBoundary = false
+const submitDisabled = loading || detectingWard
 
   async function handleSubmit() {
     if (!photo) {
