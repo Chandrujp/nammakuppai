@@ -112,17 +112,25 @@ body { background: #f8f8f6; }
 
 .lang-toggle:hover { border-color: #C41E3A; color: #C41E3A; }
 
+/* BOARD BUTTON — fixed style */
 .board-btn {
   background: #1a1a2e;
   color: #FFD700;
-  padding: 7px 10px;
+  padding: 7px 12px;
   border-radius: 20px;
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none;
   white-space: nowrap;
-  border: none;
+  border: 1.5px solid #FFD700;
   cursor: pointer;
+  letter-spacing: 0.2px;
+  transition: all 0.2s;
+}
+
+.board-btn:hover {
+  background: #FFD700;
+  color: #1a1a2e;
 }
 
 /* FILTERS BAR */
@@ -240,7 +248,7 @@ body { background: #f8f8f6; }
 
 .report-btn:active { transform: scale(0.98); }
 
-/* FORM OVERLAY — bottom sheet for forms/modals */
+/* FORM OVERLAY */
 .form-overlay {
   position: fixed;
   inset: 0;
@@ -250,7 +258,7 @@ body { background: #f8f8f6; }
   align-items: flex-end;
 }
 
-/* WELCOME OVERLAY — centered popup */
+/* WELCOME OVERLAY */
 .welcome-overlay {
   position: fixed;
   inset: 0;
@@ -348,10 +356,13 @@ body { background: #f8f8f6; }
 .severity-btn .sev-name { font-size: 9px; color: #666; margin-top: 3px; display: block; }
 .severity-btn .sev-tamil { font-size: 8px; color: #999; display: block; }
 
-.severity-btn.selected-minor { border-color: #f59e0b; background: #fffbeb; }
-.severity-btn.selected-moderate { border-color: #f97316; background: #fff7ed; }
-.severity-btn.selected-severe { border-color: #C41E3A; background: #fff5f5; }
-.severity-btn.selected-critical { border-color: #1a1a2e; background: #f5f5f5; }
+.severity-btn.selected-minor   { border-color: #f59e0b; background: #fffbeb; }
+.severity-btn.selected-low     { border-color: #f59e0b; background: #fffbeb; }
+.severity-btn.selected-moderate{ border-color: #f97316; background: #fff7ed; }
+.severity-btn.selected-medium  { border-color: #f97316; background: #fff7ed; }
+.severity-btn.selected-severe  { border-color: #C41E3A; background: #fff5f5; }
+.severity-btn.selected-high    { border-color: #C41E3A; background: #fff5f5; }
+.severity-btn.selected-critical{ border-color: #1a1a2e; background: #f5f5f5; }
 
 /* WARD INFO */
 .ward-info-box {
@@ -814,4 +825,4 @@ body { background: #f8f8f6; }
 .lang-divider {
   color: #ddd;
   font-size: 10px;
-}
+}}
