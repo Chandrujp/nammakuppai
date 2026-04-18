@@ -116,7 +116,6 @@ function WelcomeOnboarding({ onClose }) {
         background: 'rgba(0,0,0,0.55)',
         display: 'flex', alignItems: 'flex-end',
       }}
-      onClick={next}
     >
       <div
         style={{
@@ -125,8 +124,9 @@ function WelcomeOnboarding({ onClose }) {
           borderRadius: '24px 24px 0 0',
           padding: '24px 20px 32px',
           minHeight: '300px',
+          cursor: 'pointer',
         }}
-        onClick={e => e.stopPropagation()}
+        onClick={next}
       >
         {/* Progress bars */}
         <div style={{ display: 'flex', gap: '4px', marginBottom: '20px' }}>
@@ -147,7 +147,7 @@ function WelcomeOnboarding({ onClose }) {
             <div />
           )}
           <button
-            onClick={onClose}
+            onClick={e => { e.stopPropagation(); onClose() }}
             style={{ background: 'none', border: 'none', fontSize: '13px', color: '#999', cursor: 'pointer', padding: '4px 0' }}
           >
             Skip
@@ -165,7 +165,7 @@ function WelcomeOnboarding({ onClose }) {
         {/* Last step CTA */}
         {s.isLast && (
           <button
-            onClick={onClose}
+            onClick={e => { e.stopPropagation(); onClose() }}
             style={{ width: '100%', padding: '14px', background: '#C41E3A', color: '#fff', border: 'none', borderRadius: '12px', fontSize: '15px', fontWeight: '700', cursor: 'pointer', marginBottom: '14px' }}
           >
             Let's Get Started →
