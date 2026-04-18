@@ -53,6 +53,147 @@ function AnimatedSocialIcon() {
   )
 }
 
+// ─── Welcome Onboarding Steps ───────────────────────────────────────────────
+const WELCOME_STEPS = [
+  {
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="#C41E3A">
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+      </svg>
+    ),
+    title: 'Let\'s bring back the "Singara" in Chennai.',
+    line: 'We love our city, but the litter has to go. Take a stand for your street without revealing your identity.',
+  },
+  {
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="#C41E3A">
+        <path d="M12 2C8.69 2 6 4.69 6 8c0 5.15 6 14 6 14s6-8.85 6-14c0-3.31-2.69-6-6-6zm0 8.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6 12 6s2.5 1.12 2.5 2.5S13.38 10.5 12 10.5z"/>
+      </svg>
+    ),
+    title: 'Tap the map. Pick your spot.',
+    line: 'Drop a pin exactly where you see the problem. One photo. Done in 30 seconds.',
+  },
+  {
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="#C41E3A">
+        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 4l5 2.18V11c0 3.5-2.33 6.79-5 7.93-2.67-1.14-5-4.43-5-7.93V7.18L12 5z"/>
+      </svg>
+    ),
+    title: 'They see it. Publicly.',
+    line: 'Every report automatically names your Ward Councillor, MLA, and MP. No hiding. Full accountability.',
+  },
+  {
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="#C41E3A">
+        <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+      </svg>
+    ),
+    title: 'You report. Chennai watches.',
+    line: 'When enough citizens report the same ward, the pressure builds. Public data means public accountability.',
+  },
+  {
+    icon: null,
+    title: 'Just the beginning.',
+    line: 'Bringing Namma Kuppai to all of Tamil Nadu — Coming Soon.',
+    isLast: true,
+  },
+]
+
+function WelcomeOnboarding({ onClose }) {
+  const [step, setStep] = useState(0)
+  const total = WELCOME_STEPS.length
+
+  function next() {
+    if (step < total - 1) setStep(s => s + 1)
+  }
+
+  const s = WELCOME_STEPS[step]
+
+  return (
+    <div
+      style={{
+        position: 'fixed', inset: 0, zIndex: 9999,
+        background: 'rgba(0,0,0,0.55)',
+        display: 'flex', alignItems: 'flex-end',
+      }}
+      onClick={next}
+    >
+      <div
+        style={{
+          width: '100%',
+          background: '#fff',
+          borderRadius: '24px 24px 0 0',
+          padding: '24px 20px 32px',
+          minHeight: '300px',
+        }}
+        onClick={e => e.stopPropagation()}
+      >
+        {/* Progress bars */}
+        <div style={{ display: 'flex', gap: '4px', marginBottom: '20px' }}>
+          {Array.from({ length: total }).map((_, i) => (
+            <div key={i} style={{ flex: 1, height: '3px', borderRadius: '2px', background: '#e0e0e0', overflow: 'hidden' }}>
+              <div style={{ height: '100%', width: i <= step ? '100%' : '0%', background: '#C41E3A', borderRadius: '2px', transition: 'width 0.3s' }} />
+            </div>
+          ))}
+        </div>
+
+        {/* Skip */}
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '16px' }}>
+          {s.icon ? (
+            <div style={{ width: '56px', height: '56px', borderRadius: '16px', background: '#fff5f5', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              {s.icon}
+            </div>
+          ) : (
+            <div />
+          )}
+          <button
+            onClick={onClose}
+            style={{ background: 'none', border: 'none', fontSize: '13px', color: '#999', cursor: 'pointer', padding: '4px 0' }}
+          >
+            Skip
+          </button>
+        </div>
+
+        {/* Content */}
+        <div style={{ fontSize: '18px', fontWeight: '700', color: '#1a1a2e', lineHeight: '1.3', marginBottom: '10px' }}>
+          {s.title}
+        </div>
+        <div style={{ fontSize: '13px', color: '#666', lineHeight: '1.7', marginBottom: '20px' }}>
+          {s.line}
+        </div>
+
+        {/* Last step CTA */}
+        {s.isLast && (
+          <button
+            onClick={onClose}
+            style={{ width: '100%', padding: '14px', background: '#C41E3A', color: '#fff', border: 'none', borderRadius: '12px', fontSize: '15px', fontWeight: '700', cursor: 'pointer', marginBottom: '14px' }}
+          >
+            Let's Get Started →
+          </button>
+        )}
+
+        {/* Dots */}
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '6px', marginBottom: '8px' }}>
+          {Array.from({ length: total }).map((_, i) => (
+            <div key={i} style={{
+              width: i === step ? '18px' : '6px',
+              height: '6px',
+              borderRadius: i === step ? '3px' : '50%',
+              background: i === step ? '#C41E3A' : '#e0e0e0',
+              transition: 'all 0.3s',
+            }} />
+          ))}
+        </div>
+
+        {!s.isLast && (
+          <div style={{ textAlign: 'center', fontSize: '11px', color: '#bbb' }}>Tap anywhere to continue</div>
+        )}
+      </div>
+    </div>
+  )
+}
+// ────────────────────────────────────────────────────────────────────────────
+
 function Home({ lang, setLang }) {
   const [showForm, setShowForm] = useState(false)
   const [showQR, setShowQR] = useState(false)
@@ -77,7 +218,8 @@ function Home({ lang, setLang }) {
     board: lang === 'ta' ? 'பொறுப்பு பலகை' : 'Responsibility Board',
     reportBtn: lang === 'ta' ? '📸 குப்பை புகாரளிக்க' : '📸 Report Garbage',
     reports: lang === 'ta' ? 'புகார்கள்' : 'Reports',
-    allSeverity: lang === 'ta' ? 'அனைத்து தீவிரம்' : 'All Severity',
+    // CHANGE 3: allSeverity label updated
+    allSeverity: lang === 'ta' ? 'அனைத்து நிலை' : 'All Impact',
     allStatus: lang === 'ta' ? 'அனைத்து நிலை' : 'All Status',
     active: lang === 'ta' ? 'செயலில்' : 'Active',
   }
@@ -105,11 +247,17 @@ function Home({ lang, setLang }) {
     return `${Math.floor(diff / 86400)}d ago`
   }
 
+  // CHANGE 1: severityColors — added low/medium/high, kept old keys for backward compat
   const severityColors = {
-    minor: { bg: '#fffbeb', color: '#f59e0b', label: 'Minor' },
+    // legacy keys
+    minor:    { bg: '#fffbeb', color: '#f59e0b', label: 'Minor' },
     moderate: { bg: '#fff7ed', color: '#f97316', label: 'Moderate' },
-    severe: { bg: '#fff5f5', color: '#C41E3A', label: 'Severe' },
-    critical: { bg: '#1a1a2e', color: '#fff', label: 'Critical' },
+    severe:   { bg: '#fff5f5', color: '#C41E3A', label: 'Severe' },
+    critical: { bg: '#1a1a2e', color: '#fff',    label: 'Critical' },
+    // new keys
+    low:      { bg: '#fffbeb', color: '#f59e0b', label: 'Low' },
+    medium:   { bg: '#fff7ed', color: '#f97316', label: 'Medium' },
+    high:     { bg: '#fff5f5', color: '#C41E3A', label: 'High' },
   }
 
   function closeWelcome() {
@@ -118,20 +266,20 @@ function Home({ lang, setLang }) {
   }
 
   function shareOnWhatsApp(report) {
-  const severity = severityColors[report.severity]?.label || report.severity
-  const ward = report.ward_name || 'Unknown Ward'
-  const wardNum = report.ward_number ? `#${report.ward_number}` : ''
-  const corp = report.corporation || 'GCC'
-  const isResolved = report.status === 'resolved'
-  const mapsLink = `https://www.google.com/maps/search/?api=1&query=${report.latitude},${report.longitude}`
-  const reportLink = `https://nammakuppai.in/report/${report.id}`
+    const severity = severityColors[report.severity]?.label || report.severity
+    const ward = report.ward_name || 'Unknown Ward'
+    const wardNum = report.ward_number ? `#${report.ward_number}` : ''
+    const corp = report.corporation || 'GCC'
+    const isResolved = report.status === 'resolved'
+    const mapsLink = `https://www.google.com/maps/search/?api=1&query=${report.latitude},${report.longitude}`
+    const reportLink = `https://nammakuppai.in/report/${report.id}`
 
-  const message = isResolved
-    ? `✅ Garbage CLEANED at ${ward} ${wardNum} (${corp})\n\nThis issue has been resolved and verified.\n\n📍 Location: ${mapsLink}\n🔗 View report: ${reportLink}\n\nFor the Singara Chennai we grew up loving 💛`
-    : `🚨 Garbage at ${ward} ${wardNum} (${corp})\n\nSeverity: ${severity}\nCouncillor: ${report.councillor_name || '—'}\nMLA: ${report.mla_name || '—'} (${report.mla_constituency || '—'})\nMP: ${report.mp_name || '—'}\n\n📍 Navigate: ${mapsLink}\n🔗 View report: ${reportLink}\n\nReport more → nammakuppai.in\nFor the Singara Chennai we grew up loving 💛`
+    const message = isResolved
+      ? `✅ Garbage CLEANED at ${ward} ${wardNum} (${corp})\n\nThis issue has been resolved and verified.\n\n📍 Location: ${mapsLink}\n🔗 View report: ${reportLink}\n\nFor the Singara Chennai we grew up loving 💛`
+      : `🚨 Garbage at ${ward} ${wardNum} (${corp})\n\nSeverity: ${severity}\nCouncillor: ${report.councillor_name || '—'}\nMLA: ${report.mla_name || '—'} (${report.mla_constituency || '—'})\nMP: ${report.mp_name || '—'}\n\n📍 Navigate: ${mapsLink}\n🔗 View report: ${reportLink}\n\nReport more → nammakuppai.in\nFor the Singara Chennai we grew up loving 💛`
 
-  window.open(`https://wa.me/?text=${encodeURIComponent(message)}`, '_blank')
-}
+    window.open(`https://wa.me/?text=${encodeURIComponent(message)}`, '_blank')
+  }
 
   function openCleanedModal() {
     setCleanedPhoto(null)
@@ -197,14 +345,14 @@ function Home({ lang, setLang }) {
         </div>
       </div>
 
-      {/* Filters */}
+      {/* CHANGE 2 & 3: Filters — Low/Medium/High/Critical + All Impact label */}
       <div className="filters-bar">
         <div style={{display:'flex', gap:'6px', alignItems:'center'}}>
           <select className="filter-select" value={severityFilter} onChange={e => setSeverityFilter(e.target.value)}>
             <option value="all">{t.allSeverity}</option>
-            <option value="minor">{lang === 'ta' ? 'சிறியது' : 'Minor'}</option>
-            <option value="moderate">{lang === 'ta' ? 'மிதமான' : 'Moderate'}</option>
-            <option value="severe">{lang === 'ta' ? 'தீவிரமான' : 'Severe'}</option>
+            <option value="low">{lang === 'ta' ? 'குறைவு' : 'Low'}</option>
+            <option value="medium">{lang === 'ta' ? 'மிதமான' : 'Medium'}</option>
+            <option value="high">{lang === 'ta' ? 'அதிகம்' : 'High'}</option>
             <option value="critical">{lang === 'ta' ? 'அவசரகால' : 'Critical'}</option>
           </select>
           <select className="filter-select" value={statusFilter} onChange={e => setStatusFilter(e.target.value)}>
@@ -386,6 +534,7 @@ function Home({ lang, setLang }) {
                 <a href="https://wa.me/919445061913?text=Hi" target="_blank" className="detail-action-small">💬 WhatsApp GCC</a>
               </div>
             </div>
+            {/* CHANGE 6: Always English regardless of lang */}
             <p className="detail-anonymous">🔒 All reports are anonymous</p>
           </div>
         </div>
@@ -463,49 +612,8 @@ function Home({ lang, setLang }) {
         </div>
       )}
 
-      {/* WELCOME POPUP */}
-      {showWelcome && (
-        <div className="welcome-overlay" onClick={closeWelcome}>
-          <div className="welcome-modal" onClick={e => e.stopPropagation()}>
-            <div style={{textAlign:'center', marginBottom:'20px'}}>
-              <div style={{fontSize:'36px', marginBottom:'8px'}}>🏛️</div>
-              <div style={{fontSize:'22px', fontWeight:'800', color:'#C41E3A', margin:'0 0 4px'}}>Namma Kuppai</div>
-              <p style={{fontSize:'13px', color:'#888', margin:'0'}}>For the Singara Chennai we grew up loving 💛</p>
-            </div>
-            <div style={{background:'#f0fdf4', borderRadius:'12px', padding:'16px', marginBottom:'12px', border:'1px solid #bbf7d0'}}>
-              <p style={{fontSize:'13px', color:'#15803d', margin:'0 0 10px', fontWeight:'700'}}>✅ Live Now</p>
-              <div style={{display:'flex', alignItems:'center', gap:'10px'}}>
-                <span style={{width:'10px', height:'10px', background:'#16a34a', borderRadius:'50%', flexShrink:0}}></span>
-                <div>
-                  <div style={{fontSize:'14px', color:'#166534', fontWeight:'600'}}>GCC — Greater Chennai</div>
-                  <div style={{fontSize:'12px', color:'#15803d'}}>200 wards covered</div>
-                </div>
-              </div>
-            </div>
-            <div style={{background:'#fff7ed', borderRadius:'12px', padding:'16px', marginBottom:'20px', border:'1px solid #fed7aa'}}>
-              <p style={{fontSize:'13px', color:'#c2410c', margin:'0 0 10px', fontWeight:'700'}}>🔜 Coming Soon</p>
-              <div style={{display:'flex', alignItems:'center', gap:'10px', marginBottom:'10px'}}>
-                <span style={{width:'10px', height:'10px', background:'#f97316', borderRadius:'50%', flexShrink:0}}></span>
-                <div>
-                  <div style={{fontSize:'14px', color:'#7c2d12', fontWeight:'600'}}>Avadi Corporation</div>
-                  <div style={{fontSize:'12px', color:'#9a3412'}}>45 wards</div>
-                </div>
-              </div>
-              <div style={{display:'flex', alignItems:'center', gap:'10px'}}>
-                <span style={{width:'10px', height:'10px', background:'#f97316', borderRadius:'50%', flexShrink:0}}></span>
-                <div>
-                  <div style={{fontSize:'14px', color:'#7c2d12', fontWeight:'600'}}>Tambaram Corporation</div>
-                  <div style={{fontSize:'12px', color:'#9a3412'}}>49 wards</div>
-                </div>
-              </div>
-            </div>
-            <button onClick={closeWelcome} style={{width:'100%', padding:'14px', background:'#C41E3A', color:'white', border:'none', borderRadius:'12px', fontSize:'15px', fontWeight:'700', cursor:'pointer'}}>
-              {lang === 'ta' ? 'தொடங்குவோம் →' : "Let's Go →"}
-            </button>
-            <p style={{textAlign:'center', fontSize:'11px', color:'#aaa', marginTop:'12px', marginBottom:'0'}}>Tap anywhere to dismiss</p>
-          </div>
-        </div>
-      )}
+      {/* CHANGE 4 & 5: New 5-step animated welcome onboarding */}
+      {showWelcome && <WelcomeOnboarding onClose={closeWelcome} />}
 
       {/* Footer */}
       <div className="footer">
