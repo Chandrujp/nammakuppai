@@ -1,0 +1,200 @@
+1,Kathivakkam,Thiruvottiyur,Chennai North
+2,Ennore,Thiruvottiyur,Chennai North
+3,Ernavoor,Thiruvottiyur,Chennai North
+4,Ajax,Thiruvottiyur,Chennai North
+5,Tiruvottiyur,Thiruvottiyur,Chennai North
+6,Kaladipet,Thiruvottiyur,Chennai North
+7,Rajakadai,Thiruvottiyur,Chennai North
+8,Kodungaiyur (West),Thiruvottiyur,Chennai North
+9,Kodungaiyur (East),Thiruvottiyur,Chennai North
+10,Dr. Radhakrishnan Nagar (North),Thiruvottiyur,Chennai North
+11,Cheriyan Nagar (North),Thiruvottiyur,Chennai North
+12,Jeeva Nagar (North),Thiruvottiyur,Chennai North
+13,Cheriyan Nagar (South),Thiruvottiyur,Chennai North
+14,Jeeva Nagar (South),Thiruvottiyur,Chennai North
+15,Edyanchavadi,Madhavaram,Thiruvallur
+16,Kadapakkam,Madhavaram,Thiruvallur
+17,Theeyambakkam,Madhavaram,Thiruvallur
+18,Manali,Madhavaram,Thiruvallur
+19,Mathur,Madhavaram,Thiruvallur
+20,Sanjeevirayanpet,Madhavaram,Thiruvallur
+21,Grace Garden,Madhavaram,Thiruvallur
+22,Kavankarai,Madhavaram,Thiruvallur
+23,Puzhal,Madhavaram,Thiruvallur
+24,Puthagram,Madhavaram,Thiruvallur
+25,Kathirvedu,Madhavaram,Thiruvallur
+26,Lakshmipuram – Madhavaram,Madhavaram,Thiruvallur
+27,Assisi Nagar 9th St,Madhavaram,Thiruvallur
+28,Chinnasekkadu,Madhavaram,Thiruvallur
+29,Madhavaram,Madhavaram,Thiruvallur
+30,Ma-Po-Si Nagar,Madhavaram,Thiruvallur
+31,Royapuram,Royapuram,Chennai North
+32,Singarathottam,Royapuram,Chennai North
+33,Narayanappa Thottam,Royapuram,Chennai North
+34,Korukkupet,Perambur,Chennai North
+35,Mottai Thottam,Perambur,Chennai North
+36,Kumarasamy Nagar (South),Perambur,Chennai North
+37,Dr. Radhakrishnan Nagar (South),Perambur,Chennai North
+38,Kumarasamy Nagar (North),Perambur,Chennai North
+39,Vijayaragavalu Nagar (West),Perambur,Chennai North
+40,Tondiarpet,Perambur,Chennai North
+41,Old Washermenpet,Perambur,Chennai North
+42,Meenakshiammanpet,Perambur,Chennai North
+43,Kondithope,Harbour,Chennai Central
+44,Sevenwells (North),Harbour,Chennai Central
+45,Amman Koil,Harbour,Chennai Central
+46,Muthialpet,Harbour,Chennai Central
+47,Vallalseethakathi Nagar,Harbour,Chennai Central
+48,Kachaleeswarar Nagar,Harbour,Chennai Central
+49,Sevenwells (South),Royapuram,Chennai North
+50,Sowcarpet,Harbour,Chennai Central
+51,Basin Bridge,Harbour,Chennai Central
+52,Vyasarpet (South),Perambur,Chennai North
+53,Vyasarpet (North),Perambur,Chennai North
+54,Perambur (North),Perambur,Chennai North
+55,Perambur (East),Perambur,Chennai North
+56,Elango Nagar,Perambur,Chennai North
+57,Perambur (South),Perambur,Chennai North
+58,Thiru-Vi-Ka Nagar,Thiru Vi Ka Nagar,Chennai North
+59,Wadia Nagar,Thiru Vi Ka Nagar,Chennai North
+60,Dr. Sathyavanimuthu Nagar,Thiru Vi Ka Nagar,Chennai North
+61,Pulianthope,Thiru Vi Ka Nagar,Chennai North
+62,Dr. Besant Nagar,Thiru Vi Ka Nagar,Chennai North
+63,Pedhunayakanpet,Thiru Vi Ka Nagar,Chennai North
+64,Perumal Koil Thottam,Kolathur,Chennai North
+65,Thattankulam,Kolathur,Chennai North
+66,Choolai,Kolathur,Chennai North
+67,Poonga Nagar,Kolathur,Chennai North
+68,Elephant Gate,Egmore,Chennai Central
+69,Edapalayam,Kolathur,Chennai North
+70,Agaram (North),Kolathur,Chennai North
+71,Sembiam,Kolathur,Chennai North
+72,Siruvalloor,Kolathur,Chennai North
+73,Nagammai Ammaiyar Nagar,Kolathur,Chennai North
+74,Agaram (South),Kolathur,Chennai North
+75,Vidhudalai Gurusami Nagar,Kolathur,Chennai North
+76,Ayanavaram,Kolathur,Chennai North
+77,Nagammaiammaiyar Nagar (South),Kolathur,Chennai North
+78,Panneer Selvam Nagar,Kolathur,Chennai North
+79,Maraimalai Adigal Nagar,Ambattur,Sriperumbudur
+80,Maraimalai Adigal Nagar (South),Ambattur,Sriperumbudur
+81,Purasawalkam,Ambattur,Sriperumbudur
+82,Kolathur,Kolathur,Chennai North
+83,Villiwakkam (North),Villivakkam,Chennai Central
+84,Villiwakkam (South),Villivakkam,Chennai Central
+85,Virugambakkam (North),Virugambakkam,Chennai Central
+86,Anna Nagar (West),Anna Nagar,Chennai Central
+87,Anna Nagar (Central),Anna Nagar,Chennai Central
+88,Anna Nagar (East),Anna Nagar,Chennai Central
+89,Shenoy Nagar,Anna Nagar,Chennai Central
+90,Kilpauk (North),Egmore,Chennai Central
+91,Gangadeeswarar Koil,Egmore,Chennai Central
+92,Kilpauk (South),Egmore,Chennai Central
+93,Amanjikarai (North),Egmore,Chennai Central
+94,Amanjikarai (Central),Egmore,Chennai Central
+95,Amanjikarai (West),Egmore,Chennai Central
+96,Periyar Nagar (North),Villivakkam,Chennai Central
+97,Periyar Nagar (West),Villivakkam,Chennai Central
+98,Nungambakkam,Egmore,Chennai Central
+99,Adikesavapuram,Egmore,Chennai Central
+100,Nehru Nagar,Egmore,Chennai Central
+101,Chintadripet,Chepauk-Tiruvallikeni,Chennai Central
+102,Komaleeswaranpet,Chepauk-Tiruvallikeni,Chennai Central
+103,Balasubramanya Nagar,Chepauk-Tiruvallikeni,Chennai Central
+104,Thiruvotteeswaranpet,Chepauk-Tiruvallikeni,Chennai Central
+105,Natesan Nagar,Chepauk-Tiruvallikeni,Chennai Central
+106,Chepauk,Chepauk-Tiruvallikeni,Chennai Central
+107,Zambazaar,Chepauk-Tiruvallikeni,Chennai Central
+108,Umaru Pulavar Nagar,Chepauk-Tiruvallikeni,Chennai Central
+109,Triplicane,Chepauk-Tiruvallikeni,Chennai Central
+110,Marina,Chepauk-Tiruvallikeni,Chennai Central
+111,Krishnampet,Chepauk-Tiruvallikeni,Chennai Central
+112,Bharathi Nagar,Thousand Lights,Chennai Central
+113,Azad Nagar (North),Thousand Lights,Chennai Central
+114,Bharathidasan Nagar,Thousand Lights,Chennai Central
+115,Azad Nagar (South),Thousand Lights,Chennai Central
+116,Vivekananda Puram,Thousand Lights,Chennai Central
+117,Ajnugam Ammaiyar Nagar,Thousand Lights,Chennai Central
+118,Kosappet,Thousand Lights,Chennai Central
+119,Pattalam,Thousand Lights,Chennai Central
+120,Anbazhagan Nagar,Thousand Lights,Chennai Central
+121,Perumalpet,Mylapore,Chennai Central
+122,Kannappar Nagar,Mylapore,Chennai Central
+123,Pattalam,Mylapore,Chennai Central
+124,Chetpet,Egmore,Chennai Central
+125,Egmore,Egmore,Chennai Central
+126,Pudupet,Egmore,Chennai Central
+127,Ko-Su-Mani Nagar,Thousand Lights,Chennai Central
+128,Nakeerar Nagar,Thousand Lights,Chennai Central
+129,Thousand Lights,Thousand Lights,Chennai Central
+130,Azhagiri Nagar,Thousand Lights,Chennai Central
+131,Amir Mahal,Thousand Lights,Chennai Central
+132,Royapettah,Mylapore,Chennai Central
+133,Teynampet,Mylapore,Chennai Central
+134,Sathyamurthy Nagar,Mylapore,Chennai Central
+135,Alwarpet (North),Mylapore,Chennai Central
+136,Alwarpet (South),Mylapore,Chennai Central
+137,Vadapalani (West),Virugambakkam,Chennai Central
+138,Vadapalani (East),Virugambakkam,Chennai Central
+139,Kalaivanar Nagar,T.Nagar,Chennai Central
+140,Navalar Nedunchezian Nagar (West),T.Nagar,Chennai Central
+141,Navalar Nedunchezian Nagar (East),T.Nagar,Chennai Central
+142,Ashok Nagar,T.Nagar,Chennai Central
+143,M.G.R. Nagar,Maduravoyal,Sriperumbudur
+144,Kamaraj Nagar (North),Maduravoyal,Sriperumbudur
+145,Kamaraj Nagar (South),Maduravoyal,Sriperumbudur
+146,Thyagaraya Nagar,T.Nagar,Chennai Central
+147,Rajaji Nagar,Maduravoyal,Sriperumbudur
+148,Virugambakkam (South),Virugambakkam,Chennai Central
+149,Saligramam,Virugambakkam,Chennai Central
+150,Kodambakkam (North),Virugambakkam,Chennai Central
+151,Kodambakkam (South),Virugambakkam,Chennai Central
+152,Saidapet,Saidapet,Chennai Central
+153,Kumaran Nagar (North),Saidapet,Chennai Central
+154,Kumaran Nagar (South),Saidapet,Chennai Central
+155,Saidapet (West),Saidapet,Chennai Central
+156,Kalaingar Karunanidhi Nagar,Alandur,Sriperumbudur
+157,V O C Nagar,Alandur,Sriperumbudur
+158,G D Naidu Nagar (East),Alandur,Sriperumbudur
+159,G. D Naidu Nagar (West),Alandur,Sriperumbudur
+160,Guindy (West),Alandur,Sriperumbudur
+161,Guindy (East),Alandur,Sriperumbudur
+162,Beemannapettai,Alandur,Sriperumbudur
+163,Thiruvalluvar Nagar,Alandur,Sriperumbudur
+164,Madavaperumal Puram,Pallavaram,Sriperumbudur
+165,Karaneeswarpuram,Mylapore,Chennai Central
+166,Santhome,Mylapore,Chennai Central
+167,Mylapore,Mylapore,Chennai Central
+168,Taramani,Velachery,Chennai South
+169,Ullagaram,Velachery,Chennai South
+170,Avvai Nagar (South),Saidapet,Chennai South
+171,Raja Annamalai Puram,Mylapore,Chennai Central
+172,Avvai Nagar (North),Saidapet,Chennai South
+173,Adyar (West),Mylapore,Chennai Central
+174,Adyar (East),Mylapore,Chennai Central
+175,Velachery,Velachery,Chennai South
+176,Thiruvanmiyur (West),Mylapore,Chennai Central
+177,Thiruvanmiyur (East),Mylapore,Chennai Central
+178,Besant Nagar,Mylapore,Chennai Central
+179,Urur,Mylapore,Chennai Central
+180,Adampakkam,Velachery,Chennai South
+181,Velachery West,Velachery,Chennai South
+182,Gandhi Salai,Mylapore,Chennai Central
+183,Puzhuthivakkam,Velachery,Chennai South
+184,Kottivakkam,Sholinganallur,Chennai South
+185,Pallikaranai,Sholinganallur,Chennai South
+186,Palavakkam,Sholinganallur,Chennai South
+187,Madipakkam,Velachery,Chennai South
+188,Jaladianpet,Sholinganallur,Chennai South
+189,Neelangarai,Sholinganallur,Chennai South
+190,Thoraipakkam,Sholinganallur,Chennai South
+191,Injambakkam,Sholinganallur,Chennai South
+192,Karapakkam,Sholinganallur,Chennai South
+193,Sholinganallur,Sholinganallur,Chennai South
+194,Uthandi,Sholinganallur,Chennai South
+195,Semmancheri,Sholinganallur,Chennai South
+196,Navalur,Sholinganallur,Chennai South
+197,Siruseri,Sholinganallur,Chennai South
+198,Kelambakkam,Sholinganallur,Chennai South
+199,Sithalapakkam,Sholinganallur,Chennai South
+200,Medavakkam,Sholinganallur,Chennai South

@@ -1,0 +1,222 @@
+{
+  "600054": {
+    "ward_name": "Ambattur Industrial Estate",
+    "zone": "Avadi",
+    "corporation": "Avadi",
+    "mla_constituency": "Ambattur",
+    "mla_name": "Joseph Samuel",
+    "mp_constituency": "Tiruvallur",
+    "mp_name": "Dr. K. Jayakumar",
+    "councillor_name": ""
+  },
+  "600062": {
+    "ward_name": "Avadi",
+    "zone": "Avadi",
+    "corporation": "Avadi",
+    "mla_constituency": "Avadi",
+    "mla_name": "S. M. Nasar",
+    "mp_constituency": "Tiruvallur",
+    "mp_name": "Dr. K. Jayakumar",
+    "councillor_name": ""
+  },
+  "600065": {
+    "ward_name": "Thiruninravur",
+    "zone": "Avadi",
+    "corporation": "Avadi",
+    "mla_constituency": "Avadi",
+    "mla_name": "S. M. Nasar",
+    "mp_constituency": "Tiruvallur",
+    "mp_name": "Dr. K. Jayakumar",
+    "councillor_name": ""
+  },
+  "600066": {
+    "ward_name": "Thirumullaivoyal",
+    "zone": "Avadi",
+    "corporation": "Avadi",
+    "mla_constituency": "Avadi",
+    "mla_name": "S. M. Nasar",
+    "mp_constituency": "Tiruvallur",
+    "mp_name": "Dr. K. Jayakumar",
+    "councillor_name": ""
+  },
+  "600067": {
+    "ward_name": "Ambattur",
+    "zone": "Avadi",
+    "corporation": "Avadi",
+    "mla_constituency": "Ambattur",
+    "mla_name": "Joseph Samuel",
+    "mp_constituency": "Tiruvallur",
+    "mp_name": "Dr. K. Jayakumar",
+    "councillor_name": ""
+  },
+  "600068": {
+    "ward_name": "Pattabiram",
+    "zone": "Avadi",
+    "corporation": "Avadi",
+    "mla_constituency": "Avadi",
+    "mla_name": "S. M. Nasar",
+    "mp_constituency": "Tiruvallur",
+    "mp_name": "Dr. K. Jayakumar",
+    "councillor_name": ""
+  },
+  "600071": {
+    "ward_name": "Avadi",
+    "zone": "Avadi",
+    "corporation": "Avadi",
+    "mla_constituency": "Avadi",
+    "mla_name": "S. M. Nasar",
+    "mp_constituency": "Tiruvallur",
+    "mp_name": "Dr. K. Jayakumar",
+    "councillor_name": ""
+  },
+  "600072": {
+    "ward_name": "Pattabiram",
+    "zone": "Avadi",
+    "corporation": "Avadi",
+    "mla_constituency": "Avadi",
+    "mla_name": "S. M. Nasar",
+    "mp_constituency": "Tiruvallur",
+    "mp_name": "Dr. K. Jayakumar",
+    "councillor_name": ""
+  },
+  "600077": {
+    "ward_name": "Thiruverkadu",
+    "zone": "Avadi",
+    "corporation": "Avadi",
+    "mla_constituency": "Avadi",
+    "mla_name": "S. M. Nasar",
+    "mp_constituency": "Tiruvallur",
+    "mp_name": "Dr. K. Jayakumar",
+    "councillor_name": ""
+  },
+  "600045": {
+    "ward_name": "Chromepet",
+    "zone": "Tambaram",
+    "corporation": "Tambaram",
+    "mla_constituency": "Pallavaram",
+    "mla_name": "Karunanithi",
+    "mp_constituency": "Chennai South",
+    "mp_name": "Thamizhachi Thangapandian",
+    "councillor_name": ""
+  },
+  "600059": {
+    "ward_name": "Pallavaram",
+    "zone": "Tambaram",
+    "corporation": "Tambaram",
+    "mla_constituency": "Pallavaram",
+    "mla_name": "Karunanithi",
+    "mp_constituency": "Chennai South",
+    "mp_name": "Thamizhachi Thangapandian",
+    "councillor_name": ""
+  },
+  "600063": {
+    "ward_name": "Perungalathur",
+    "zone": "Tambaram",
+    "corporation": "Tambaram",
+    "mla_constituency": "Tambaram",
+    "mla_name": "D. Vaithiyanathan",
+    "mp_constituency": "Chennai South",
+    "mp_name": "Thamizhachi Thangapandian",
+    "councillor_name": ""
+  },
+  "600073": {
+    "ward_name": "Tambaram",
+    "zone": "Tambaram",
+    "corporation": "Tambaram",
+    "mla_constituency": "Tambaram",
+    "mla_name": "D. Vaithiyanathan",
+    "mp_constituency": "Chennai South",
+    "mp_name": "Thamizhachi Thangapandian",
+    "councillor_name": ""
+  },
+  "600074": {
+    "ward_name": "Tambaram West",
+    "zone": "Tambaram",
+    "corporation": "Tambaram",
+    "mla_constituency": "Tambaram",
+    "mla_name": "D. Vaithiyanathan",
+    "mp_constituency": "Chennai South",
+    "mp_name": "Thamizhachi Thangapandian",
+    "councillor_name": ""
+  },
+  "600075": {
+    "ward_name": "Tambaram Sanatorium",
+    "zone": "Tambaram",
+    "corporation": "Tambaram",
+    "mla_constituency": "Tambaram",
+    "mla_name": "D. Vaithiyanathan",
+    "mp_constituency": "Chennai South",
+    "mp_name": "Thamizhachi Thangapandian",
+    "councillor_name": ""
+  },
+  "600076": {
+    "ward_name": "Pammal",
+    "zone": "Tambaram",
+    "corporation": "Tambaram",
+    "mla_constituency": "Pallavaram",
+    "mla_name": "Karunanithi",
+    "mp_constituency": "Chennai South",
+    "mp_name": "Thamizhachi Thangapandian",
+    "councillor_name": ""
+  },
+  "600069": {
+    "ward_name": "Kundrathur",
+    "zone": "Kundrathur",
+    "corporation": "Kundrathur Municipality",
+    "mla_constituency": "Kundrathur",
+    "mla_name": "K. Ganapathy",
+    "mp_constituency": "Sriperumbudur",
+    "mp_name": "T. R. Balu",
+    "councillor_name": ""
+  },
+  "600122": {
+    "ward_name": "Mangadu",
+    "zone": "Mangadu",
+    "corporation": "Mangadu Municipality",
+    "mla_constituency": "Kundrathur",
+    "mla_name": "K. Ganapathy",
+    "mp_constituency": "Sriperumbudur",
+    "mp_name": "T. R. Balu",
+    "councillor_name": ""
+  },
+  "600123": {
+    "ward_name": "Poonamallee",
+    "zone": "Poonamallee",
+    "corporation": "Poonamallee Municipality",
+    "mla_constituency": "Poonamallee",
+    "mla_name": "A. Krishnaswamy",
+    "mp_constituency": "Sriperumbudur",
+    "mp_name": "T. R. Balu",
+    "councillor_name": ""
+  },
+  "600124": {
+    "ward_name": "Poonamallee",
+    "zone": "Poonamallee",
+    "corporation": "Poonamallee Municipality",
+    "mla_constituency": "Poonamallee",
+    "mla_name": "A. Krishnaswamy",
+    "mp_constituency": "Sriperumbudur",
+    "mp_name": "T. R. Balu",
+    "councillor_name": ""
+  },
+  "600100": {
+    "ward_name": "Medavakkam",
+    "zone": "Village Panchayat",
+    "corporation": "Chengalpattu District",
+    "mla_constituency": "Sholinganallur",
+    "mla_name": "S. Aravind Ramesh",
+    "mp_constituency": "Chennai South",
+    "mp_name": "Thamizhachi Thangapandian",
+    "councillor_name": ""
+  },
+  "600130": {
+    "ward_name": "Navalur",
+    "zone": "Village Panchayat",
+    "corporation": "Chengalpattu District",
+    "mla_constituency": "Sholinganallur",
+    "mla_name": "S. Aravind Ramesh",
+    "mp_constituency": "Chennai South",
+    "mp_name": "Thamizhachi Thangapandian",
+    "councillor_name": ""
+  }
+}

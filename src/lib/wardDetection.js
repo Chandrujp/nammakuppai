@@ -1,4 +1,5 @@
 import wardData from '../data/gcc-ward-data.json'
+import pincodeData from '../data/pincode-data.json'
 
 // Chennai metro PIN codes whitelist
 const CHENNAI_METRO_PINS = new Set([
@@ -16,16 +17,17 @@ const CHENNAI_METRO_PINS = new Set([
   600101, 600102, 600103, 600104, 600105, 600106, 600107, 600108, 600109, 600110,
   600111, 600112, 600113, 600114, 600115, 600116, 600117, 600118, 600119,
   // Avadi belt
-  600053, 600054, 600062, 600066, 600071, 600077,
-  // Tambaram belt  
-  600045, 600048, 600059, 600063, 600073, 600074,
-  // Poonamallee
-  600056, 600116, 600123, 600124, 600125,
-  // OMR / Sholinganallur / Perungudi
+  600054, 600062, 600065, 600066, 600067, 600068, 600071, 600072, 600077,
+  // Tambaram belt
+  600045, 600048, 600059, 600063, 600073, 600074, 600075, 600076,
+  // Poonamallee Municipality
+  600123, 600124,
+  // Kundrathur + Mangadu Municipality
+  600069, 600122,
+  // OMR / Sholinganallur / Perungudi — handled by GCC GeoJSON
   600096, 600097, 600100, 600119, 600130,
 ])
 
-// Point in polygon detection
 function isPointInPolygon(point, polygon) {
   const x = point[0], y = point[1]
   let inside = false
@@ -56,15 +58,14 @@ async function getPinCode(lat, lng) {
 
 export async function detectWard(lat, lng) {
   try {
-    // First check PIN code — blocks ocean + outside Chennai
+    // Step 1 — get pincode, block anything outside Chennai metro
     const pin = await getPinCode(lat, lng)
 
     if (!pin || !CHENNAI_METRO_PINS.has(pin)) {
-      // Not in Chennai metro — block
       return null
     }
 
-    // Try GCC ward polygon detection
+    // Step 2 — try GCC ward polygon detection
     const response = await fetch('/gcc-wards.geojson')
     const gccWards = await response.json()
     const point = [lng, lat]
@@ -88,29 +89,43 @@ export async function detectWard(lat, lng) {
             ward_name: data?.ward_name || `Ward ${wardNumber}`,
             zone: data?.zone || '',
             mla_constituency: data?.mla_constituency || '',
-            mp_constituency: data?.mp_constituency || '',
-            councillor_name: data?.councillor_name || '',
             mla_name: data?.mla_name || '',
+            mp_constituency: data?.mp_constituency || '',
             mp_name: data?.mp_name || '',
+            councillor_name: data?.councillor_name || '',
             corporation: 'GCC'
           }
         }
       }
     }
 
-    // PIN is valid Chennai metro but outside GCC polygon
-    // Return partial info — allow submission with PIN-based area
+    // Step 3 — outside GCC polygon, look up pincode-data.json
+    const pinInfo = pincodeData[pin.toString()]
+    if (pinInfo) {
+      return {
+        ward_number: null,
+        ward_name: pinInfo.ward_name,
+        zone: pinInfo.zone || '',
+        mla_constituency: pinInfo.mla_constituency || '',
+        mla_name: pinInfo.mla_name || '',
+        mp_constituency: pinInfo.mp_constituency || '',
+        mp_name: pinInfo.mp_name || '',
+        councillor_name: pinInfo.councillor_name || '',
+        corporation: pinInfo.corporation || 'GCC'
+      }
+    }
+
+    // Step 4 — pin whitelisted but no data yet
     return {
       ward_number: null,
-      ward_name: `Chennai — PIN ${pin}`,
+      ward_name: `Chennai Area — PIN ${pin}`,
       zone: 'Chennai Metro',
       mla_constituency: '',
-      mp_constituency: '',
-      councillor_name: '',
       mla_name: '',
+      mp_constituency: '',
       mp_name: '',
-      corporation: pin >= 600077 && pin <= 600077 ? 'Avadi' :
-                   pin >= 600045 && pin <= 600074 ? 'Tambaram' : 'GCC'
+      councillor_name: '',
+      corporation: 'GCC'
     }
 
   } catch (err) {
