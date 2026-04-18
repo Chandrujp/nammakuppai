@@ -219,8 +219,8 @@ function Home({ lang, setLang }) {
     reportBtn: lang === 'ta' ? '📸 குப்பை புகாரளிக்க' : '📸 Report Garbage',
     reports: lang === 'ta' ? 'புகார்கள்' : 'Reports',
     // CHANGE 3: allSeverity label updated
-    allSeverity: lang === 'ta' ? 'அனைத்து நிலை' : 'All Impact',
-    allStatus: lang === 'ta' ? 'அனைத்து நிலை' : 'All Status',
+    allSeverity: lang === 'ta' ? 'அனைத்து நிலைகள்' : 'All Levels',
+allStatus: lang === 'ta' ? 'அனைத்து நிலவரம்' : 'All Progress',
     active: lang === 'ta' ? 'செயலில்' : 'Active',
   }
 

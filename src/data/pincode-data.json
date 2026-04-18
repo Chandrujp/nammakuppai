@@ -22,7 +22,7 @@
   "600065": {
     "ward_name": "Thiruninravur",
     "zone": "Avadi",
-    "corporation": "Avadi",
+    "corporation": "Thiruninravur Municipality",
     "mla_constituency": "Avadi",
     "mla_name": "S. M. Nasar",
     "mp_constituency": "Tiruvallur",
@@ -82,7 +82,7 @@
   "600077": {
     "ward_name": "Thiruverkadu",
     "zone": "Avadi",
-    "corporation": "Avadi",
+    "corporation": "Thiruverkadu Municipality",
     "mla_constituency": "Avadi",
     "mla_name": "S. M. Nasar",
     "mp_constituency": "Tiruvallur",
@@ -90,23 +90,23 @@
     "councillor_name": ""
   },
   "600045": {
-    "ward_name": "Chromepet",
+    "ward_name": "West Tambaram",
     "zone": "Tambaram",
     "corporation": "Tambaram",
-    "mla_constituency": "Pallavaram",
-    "mla_name": "Karunanithi",
-    "mp_constituency": "Chennai South",
-    "mp_name": "Thamizhachi Thangapandian",
+    "mla_constituency": "Tambaram",
+    "mla_name": "S. R. Raja",
+    "mp_constituency": "Sriperumbudur",
+    "mp_name": "T. R. Balu",
     "councillor_name": ""
   },
   "600059": {
-    "ward_name": "Pallavaram",
+    "ward_name": "East Tambaram",
     "zone": "Tambaram",
     "corporation": "Tambaram",
-    "mla_constituency": "Pallavaram",
-    "mla_name": "Karunanithi",
-    "mp_constituency": "Chennai South",
-    "mp_name": "Thamizhachi Thangapandian",
+    "mla_constituency": "Tambaram",
+    "mla_name": "S. R. Raja",
+    "mp_constituency": "Sriperumbudur",
+    "mp_name": "T. R. Balu",
     "councillor_name": ""
   },
   "600063": {
@@ -114,19 +114,19 @@
     "zone": "Tambaram",
     "corporation": "Tambaram",
     "mla_constituency": "Tambaram",
-    "mla_name": "D. Vaithiyanathan",
-    "mp_constituency": "Chennai South",
-    "mp_name": "Thamizhachi Thangapandian",
+    "mla_name": "S. R. Raja",
+    "mp_constituency": "Sriperumbudur",
+    "mp_name": "T. R. Balu",
     "councillor_name": ""
   },
   "600073": {
-    "ward_name": "Tambaram",
+    "ward_name": "Selaiyur",
     "zone": "Tambaram",
     "corporation": "Tambaram",
     "mla_constituency": "Tambaram",
-    "mla_name": "D. Vaithiyanathan",
-    "mp_constituency": "Chennai South",
-    "mp_name": "Thamizhachi Thangapandian",
+    "mla_name": "S. R. Raja",
+    "mp_constituency": "Sriperumbudur",
+    "mp_name": "T. R. Balu",
     "councillor_name": ""
   },
   "600074": {
@@ -134,9 +134,9 @@
     "zone": "Tambaram",
     "corporation": "Tambaram",
     "mla_constituency": "Tambaram",
-    "mla_name": "D. Vaithiyanathan",
-    "mp_constituency": "Chennai South",
-    "mp_name": "Thamizhachi Thangapandian",
+    "mla_name": "S. R. Raja",
+    "mp_constituency": "Sriperumbudur",
+    "mp_name": "T. R. Balu",
     "councillor_name": ""
   },
   "600075": {
@@ -144,9 +144,9 @@
     "zone": "Tambaram",
     "corporation": "Tambaram",
     "mla_constituency": "Tambaram",
-    "mla_name": "D. Vaithiyanathan",
-    "mp_constituency": "Chennai South",
-    "mp_name": "Thamizhachi Thangapandian",
+    "mla_name": "S. R. Raja",
+    "mp_constituency": "Sriperumbudur",
+    "mp_name": "T. R. Balu",
     "councillor_name": ""
   },
   "600076": {
@@ -154,9 +154,9 @@
     "zone": "Tambaram",
     "corporation": "Tambaram",
     "mla_constituency": "Pallavaram",
-    "mla_name": "Karunanithi",
-    "mp_constituency": "Chennai South",
-    "mp_name": "Thamizhachi Thangapandian",
+    "mla_name": "I. Karunanithi",
+    "mp_constituency": "Sriperumbudur",
+    "mp_name": "T. R. Balu",
     "councillor_name": ""
   },
   "600069": {
@@ -201,22 +201,12 @@
   },
   "600100": {
     "ward_name": "Medavakkam",
-    "zone": "Village Panchayat",
+    "zone": "St. Thomas Mount Block",
     "corporation": "Chengalpattu District",
     "mla_constituency": "Sholinganallur",
     "mla_name": "S. Aravind Ramesh",
-    "mp_constituency": "Chennai South",
-    "mp_name": "Thamizhachi Thangapandian",
-    "councillor_name": ""
-  },
-  "600130": {
-    "ward_name": "Navalur",
-    "zone": "Village Panchayat",
-    "corporation": "Chengalpattu District",
-    "mla_constituency": "Sholinganallur",
-    "mla_name": "S. Aravind Ramesh",
-    "mp_constituency": "Chennai South",
-    "mp_name": "Thamizhachi Thangapandian",
+    "mp_constituency": "Sriperumbudur",
+    "mp_name": "T. R. Balu",
     "councillor_name": ""
   }
 }
