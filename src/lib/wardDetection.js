@@ -1,7 +1,6 @@
 import wardData from '../data/gcc-ward-data.json'
 import pincodeData from '../data/pincode-data.json'
 
-// Chennai metro PIN codes whitelist
 const CHENNAI_METRO_PINS = new Set([
   600001, 600002, 600003, 600004, 600005, 600006, 600007, 600008, 600009, 600010,
   600011, 600012, 600013, 600014, 600015, 600016, 600017, 600018, 600019, 600020,
@@ -37,13 +36,11 @@ function checkGeoJSON(point, geojson) {
   for (const feature of geojson.features) {
     const geom = feature.geometry
     let polygons = []
-
     if (geom.type === 'Polygon') {
       polygons = [geom.coordinates[0]]
     } else if (geom.type === 'MultiPolygon') {
       polygons = geom.coordinates.map(p => p[0])
     }
-
     for (const polygon of polygons) {
       if (isPointInPolygon(point, polygon)) {
         return feature.properties
@@ -79,18 +76,16 @@ export async function detectWard(lat, lng) {
     for (const feature of gccWards.features) {
       const wardNumber = parseInt(feature.properties.Name.trim())
       let polygons = []
-
       if (feature.geometry.type === 'Polygon') {
         polygons = [feature.geometry.coordinates[0]]
       } else if (feature.geometry.type === 'MultiPolygon') {
         polygons = feature.geometry.coordinates.map(p => p[0])
       }
-
       for (const polygon of polygons) {
         if (isPointInPolygon(point, polygon.map(c => [c[0], c[1]]))) {
           const data = wardData[wardNumber.toString()]
 
-          // LAYER 1a — spatial MLA lookup from official assembly boundaries
+          // LAYER 1a — enrich MLA/MP from official assembly boundaries
           let mla_name = data?.mla_name || ''
           let mla_constituency = data?.mla_constituency || ''
           let mp_name = data?.mp_name || ''
@@ -99,15 +94,15 @@ export async function detectWard(lat, lng) {
           try {
             const assemblyRes = await fetch('/chennai-assembly.geojson')
             const assemblyGJ = await assemblyRes.json()
-            const assemblyMatch = checkGeoJSON(point, assemblyGJ)
-            if (assemblyMatch) {
-              mla_name = assemblyMatch.mla_name || mla_name
-              mla_constituency = assemblyMatch.ac_name || mla_constituency
-              mp_name = assemblyMatch.mp_name || mp_name
-              mp_constituency = assemblyMatch.mp_constituency || mp_constituency
+            const match = checkGeoJSON(point, assemblyGJ)
+            if (match) {
+              mla_name = match.mla_name || mla_name
+              mla_constituency = match.ac_name || mla_constituency
+              mp_name = match.mp_name || mp_name
+              mp_constituency = match.mp_constituency || mp_constituency
             }
           } catch (e) {
-            console.warn('Assembly GeoJSON lookup failed, using ward data fallback')
+            console.warn('Assembly enrichment failed, using ward data')
           }
 
           return {
@@ -129,21 +124,20 @@ export async function detectWard(lat, lng) {
     try {
       const assemblyRes = await fetch('/chennai-assembly.geojson')
       const assemblyGJ = await assemblyRes.json()
-      const assemblyMatch = checkGeoJSON(point, assemblyGJ)
+      const match = checkGeoJSON(point, assemblyGJ)
 
-      if (assemblyMatch) {
-        // Also check pincode-data for corporation/zone info
+      if (match) {
         const pin = await getPinCode(lat, lng)
         const pinInfo = pin ? pincodeData[pin.toString()] : null
 
         return {
           ward_number: null,
-          ward_name: pinInfo?.ward_name || assemblyMatch.ac_name + ' Area',
-          zone: pinInfo?.zone || assemblyMatch.ac_name,
-          mla_constituency: assemblyMatch.ac_name,
-          mla_name: assemblyMatch.mla_name || '',
-          mp_constituency: assemblyMatch.mp_constituency || '',
-          mp_name: assemblyMatch.mp_name || '',
+          ward_name: pinInfo?.ward_name || match.ac_name + ' Area',
+          zone: pinInfo?.zone || match.ac_name,
+          mla_constituency: match.ac_name,
+          mla_name: match.mla_name || '',
+          mp_constituency: match.mp_constituency || '',
+          mp_name: match.mp_name || '',
           councillor_name: '',
           corporation: pinInfo?.corporation || 'Municipality'
         }
@@ -152,10 +146,10 @@ export async function detectWard(lat, lng) {
       console.warn('Assembly GeoJSON layer failed')
     }
 
-    // LAYER 3 — Pincode whitelist check + pincode-data fallback
+    // LAYER 3 — Pincode whitelist + pincode-data fallback
     const pin = await getPinCode(lat, lng)
     if (!pin || !CHENNAI_METRO_PINS.has(pin)) {
-      return null // outside Chennai — block submission
+      return null
     }
 
     const pinInfo = pincodeData[pin.toString()]
