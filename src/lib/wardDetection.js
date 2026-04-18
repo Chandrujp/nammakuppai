@@ -3,7 +3,6 @@ import pincodeData from '../data/pincode-data.json'
 
 // Chennai metro PIN codes whitelist
 const CHENNAI_METRO_PINS = new Set([
-  // GCC core
   600001, 600002, 600003, 600004, 600005, 600006, 600007, 600008, 600009, 600010,
   600011, 600012, 600013, 600014, 600015, 600016, 600017, 600018, 600019, 600020,
   600021, 600022, 600023, 600024, 600025, 600026, 600027, 600028, 600029, 600030,
@@ -16,16 +15,9 @@ const CHENNAI_METRO_PINS = new Set([
   600091, 600092, 600093, 600094, 600095, 600096, 600097, 600098, 600099, 600100,
   600101, 600102, 600103, 600104, 600105, 600106, 600107, 600108, 600109, 600110,
   600111, 600112, 600113, 600114, 600115, 600116, 600117, 600118, 600119,
-  // Avadi belt
   600054, 600062, 600065, 600066, 600067, 600068, 600071, 600072, 600077,
-  // Tambaram belt
   600045, 600048, 600059, 600063, 600073, 600074, 600075, 600076,
-  // Poonamallee Municipality
-  600123, 600124,
-  // Kundrathur + Mangadu Municipality
-  600069, 600122,
-  // OMR / Sholinganallur / Perungudi — handled by GCC GeoJSON
-  600096, 600097, 600100, 600119, 600130,
+  600123, 600124, 600069, 600122, 600096, 600097, 600100, 600119,
 ])
 
 function isPointInPolygon(point, polygon) {
@@ -39,6 +31,26 @@ function isPointInPolygon(point, polygon) {
     if (intersect) inside = !inside
   }
   return inside
+}
+
+function checkGeoJSON(point, geojson) {
+  for (const feature of geojson.features) {
+    const geom = feature.geometry
+    let polygons = []
+
+    if (geom.type === 'Polygon') {
+      polygons = [geom.coordinates[0]]
+    } else if (geom.type === 'MultiPolygon') {
+      polygons = geom.coordinates.map(p => p[0])
+    }
+
+    for (const polygon of polygons) {
+      if (isPointInPolygon(point, polygon)) {
+        return feature.properties
+      }
+    }
+  }
+  return null
 }
 
 async function getPinCode(lat, lng) {
@@ -58,17 +70,11 @@ async function getPinCode(lat, lng) {
 
 export async function detectWard(lat, lng) {
   try {
-    // Step 1 — get pincode, block anything outside Chennai metro
-    const pin = await getPinCode(lat, lng)
-
-    if (!pin || !CHENNAI_METRO_PINS.has(pin)) {
-      return null
-    }
-
-    // Step 2 — try GCC ward polygon detection
-    const response = await fetch('/gcc-wards.geojson')
-    const gccWards = await response.json()
     const point = [lng, lat]
+
+    // LAYER 1 — GCC ward GeoJSON (exact ward + councillor)
+    const gccResponse = await fetch('/gcc-wards.geojson')
+    const gccWards = await gccResponse.json()
 
     for (const feature of gccWards.features) {
       const wardNumber = parseInt(feature.properties.Name.trim())
@@ -81,17 +87,37 @@ export async function detectWard(lat, lng) {
       }
 
       for (const polygon of polygons) {
-        const polygon2D = polygon.map(coord => [coord[0], coord[1]])
-        if (isPointInPolygon(point, polygon2D)) {
+        if (isPointInPolygon(point, polygon.map(c => [c[0], c[1]]))) {
           const data = wardData[wardNumber.toString()]
+
+          // LAYER 1a — spatial MLA lookup from official assembly boundaries
+          let mla_name = data?.mla_name || ''
+          let mla_constituency = data?.mla_constituency || ''
+          let mp_name = data?.mp_name || ''
+          let mp_constituency = data?.mp_constituency || ''
+
+          try {
+            const assemblyRes = await fetch('/chennai-assembly.geojson')
+            const assemblyGJ = await assemblyRes.json()
+            const assemblyMatch = checkGeoJSON(point, assemblyGJ)
+            if (assemblyMatch) {
+              mla_name = assemblyMatch.mla_name || mla_name
+              mla_constituency = assemblyMatch.ac_name || mla_constituency
+              mp_name = assemblyMatch.mp_name || mp_name
+              mp_constituency = assemblyMatch.mp_constituency || mp_constituency
+            }
+          } catch (e) {
+            console.warn('Assembly GeoJSON lookup failed, using ward data fallback')
+          }
+
           return {
             ward_number: wardNumber,
             ward_name: data?.ward_name || `Ward ${wardNumber}`,
             zone: data?.zone || '',
-            mla_constituency: data?.mla_constituency || '',
-            mla_name: data?.mla_name || '',
-            mp_constituency: data?.mp_constituency || '',
-            mp_name: data?.mp_name || '',
+            mla_constituency,
+            mla_name,
+            mp_constituency,
+            mp_name,
             councillor_name: data?.councillor_name || '',
             corporation: 'GCC'
           }
@@ -99,7 +125,39 @@ export async function detectWard(lat, lng) {
       }
     }
 
-    // Step 3 — outside GCC polygon, look up pincode-data.json
+    // LAYER 2 — Assembly GeoJSON spatial lookup (non-GCC areas)
+    try {
+      const assemblyRes = await fetch('/chennai-assembly.geojson')
+      const assemblyGJ = await assemblyRes.json()
+      const assemblyMatch = checkGeoJSON(point, assemblyGJ)
+
+      if (assemblyMatch) {
+        // Also check pincode-data for corporation/zone info
+        const pin = await getPinCode(lat, lng)
+        const pinInfo = pin ? pincodeData[pin.toString()] : null
+
+        return {
+          ward_number: null,
+          ward_name: pinInfo?.ward_name || assemblyMatch.ac_name + ' Area',
+          zone: pinInfo?.zone || assemblyMatch.ac_name,
+          mla_constituency: assemblyMatch.ac_name,
+          mla_name: assemblyMatch.mla_name || '',
+          mp_constituency: assemblyMatch.mp_constituency || '',
+          mp_name: assemblyMatch.mp_name || '',
+          councillor_name: '',
+          corporation: pinInfo?.corporation || 'Municipality'
+        }
+      }
+    } catch (e) {
+      console.warn('Assembly GeoJSON layer failed')
+    }
+
+    // LAYER 3 — Pincode whitelist check + pincode-data fallback
+    const pin = await getPinCode(lat, lng)
+    if (!pin || !CHENNAI_METRO_PINS.has(pin)) {
+      return null // outside Chennai — block submission
+    }
+
     const pinInfo = pincodeData[pin.toString()]
     if (pinInfo) {
       return {
@@ -110,12 +168,12 @@ export async function detectWard(lat, lng) {
         mla_name: pinInfo.mla_name || '',
         mp_constituency: pinInfo.mp_constituency || '',
         mp_name: pinInfo.mp_name || '',
-        councillor_name: pinInfo.councillor_name || '',
+        councillor_name: '',
         corporation: pinInfo.corporation || 'GCC'
       }
     }
 
-    // Step 4 — pin whitelisted but no data yet
+    // LAYER 4 — whitelisted pin but no data
     return {
       ward_number: null,
       ward_name: `Chennai Area — PIN ${pin}`,
